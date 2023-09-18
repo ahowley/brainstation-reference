@@ -128,7 +128,7 @@ a.anchor--nostyle {
 .main {
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 5rem);
+    min-height: calc(100vh - 10rem);
     padding: 0 5%;
 }
 
