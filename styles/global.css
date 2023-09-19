@@ -130,7 +130,7 @@ a.anchor--nostyle {
     display: flex;
     flex-direction: column;
     margin: 0 auto 5rem auto;
-    max-width: 75rem;
+    max-width: calc(75rem + 10%);
     padding: 0 5%;
     overflow-wrap: break-word;
 }
