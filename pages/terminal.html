@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BSRef - Flexbox</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="../styles/flexbox-demo.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <a href="../" class="nav__button anchor--nostyle">
+                    <h2 class="nav__heading">BSRef</h2>
+                </a>
+                <a href="../pages/flexbox-demo.html" class="nav__button anchor--nostyle">
+                    <h4>Flexbox</h4>
+                </a>
+                <a href="#terminal" class="nav__button anchor--nostyle">
+                    <h4>Terminal</h4>
+                </a>
+            </nav>
+        </header>
+        <main class="main">
+            <h1 class="main__heading">Terminal Quick Reference</h1>
+            <ul class="notes">
+                <li class="note">A <strong>terminal</strong> is the application that runs commands on a computer.</li>
+                <li class="note">
+                    A <strong>command line</strong> is the user interface where you type in commands for the terminal to
+                    run.
+                </li>
+                <li class="note">
+                    The <strong>shell</strong> is the program or interpreter that processes user input.
+                </li>
+                <li class="note">
+                    <strong>Standard Output</strong> or <strong>stdout</strong> is where the computer remembers output
+                    from commands - the command line reads from this to display the lines you see.
+                </li>
+                <li>
+                    <strong>Unix</strong> is a long-standing terminal-based operating system, out of which grew most
+                    modern terminals. Terminals that mimic Unix's structure/syntax are known as
+                    <strong>Unix-Like</strong>.
+                </li>
+                <li>
+                    <strong>Commands</strong> are structured with <strong>flags</strong> and <strong>arguments</strong>.
+                    <code>command -flag "argument"</code>
+                </li>
+                <li>
+                    A <strong>directory</strong> is, essentially, the same thing as a folder. Maybe more accurate is to
+                    say a folder is another way to represent a directory. It's a place where files (and other
+                    directories) can be stored. Directories are located on a <strong>drive</strong>.
+                </li>
+            </ul>
+            <h3 class="main__subheading">Commands</h3>
+            <ul class="notes">
+                <li class="note">
+                    <code>$ echo "text"</code> takes the text input provided and spits it out in response.
+                </li>
+                <li class="note"><code>tab</code> will attempt to auto-complete whatever you're typing.</li>
+                <li class="note">
+                    <code>ctrl + c</code> will exit most currently-executing commands, tasks, or programs.
+                </li>
+                <li class="note">
+                    <code>up/down arrows</code> let you navigate through your command history or re-run your previous
+                    commands.
+                </li>
+                <li class="note">
+                    <code>man command</code> shows the <strong>man</strong>(ual) page for a given command, including all
+                    documentation for the command's functions. This won't work in Git Bash on Windows, but you can often
+                    use <code>command --help</code> instead.
+                </li>
+                <li class="note">
+                    <code>clear</code> will clear the current output from the screen. This doesn't clear stdout - it
+                    actually writes to it in order to clear the screen.
+                </li>
+                <li class="note">
+                    <code>pwd</code>, or "Present Working Directory", will output the current working directory.
+                </li>
+                <li class="note"><code>mkdir "path"</code> will create a new directory/folder located at "path".</li>
+                <li class="note">
+                    <code>ls</code> will list all files and folders in your current working directory.
+                    <code>ls -a</code> will include all hidden files and folders. <code>ls -l</code> lists entires using
+                    a "long listing" format.
+                </li>
+                <li class="note">
+                    <code>cd "path/to/directory"</code> ("Change Directory") allows you to change your current working
+                    directory. Enter the directory you'd wish to travel to as an argument using path formats you're
+                    already familiar with from html, including <code>cd ..</code> to travel into the parent directory.
+                </li>
+                <li class="note"><code>touch "path/to/newfile"</code> lets you create a new file in a given path.</li>
+                <li class="note">
+                    <code>cat</code> stands for "Concatenate" and is a flexible command that lets you handle text data
+                    via commands. A simple usage is <code>cat file</code>, which will print file contents to stdout.
+                </li>
+                <li class="note">
+                    <code>></code> and <code>>></code> are special commands that capture output from other commands and
+                    write or append that output into a file. For example: <code>cat file_1.txt > file_2.txt</code> will
+                    overwrite the contents of file_2.txt with the contents of file_1.txt, and
+                    <code>cat file_1.txt >> file_2.txt</code> will copy the contents of file_1.txt into the end of
+                    file_2.txt without overwriting what's already there.
+                </li>
+                <li class="note">
+                    <code>mv "path" "new/path"</code> lets you move a file or folder to a new directory.
+                </li>
+                <li class="note"><code>cp "path" "path/to/copy"</code> lets you copy a file or folder.</li>
+                <li class="note">
+                    <code>rm "path"</code> lets you delete a file. To recursively force delete a folder, use
+                    <code>rm -rf "path"</code>.
+                </li>
+                <li class="note"><code>code "path/to/folder"</code> to open "folder" in VSCode.</li>
+            </ul>
+        </main>
+    </body>
+</html>
