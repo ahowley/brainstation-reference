@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BSRef - Flexbox</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="../styles/position-float.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <a href="../" class="nav__button anchor--nostyle">
+                    <h2 class="nav__heading">BSRef</h2>
+                </a>
+            </nav>
+        </header>
+    </body>
+    <main class="main">
+        <h1 class="main__heading">CSS Positioning & Float</h1>
+        <h2 class="main__subheading">Position</h2>
+        <ul class="notes">
+            <li class="note">By default, most elements have <code>position: static;</code>.</li>
+            <li class="note">
+                <code>position: relative;</code> positions an element <strong>relative</strong> to its default
+                <strong>static</strong> position, using the <code>top</code>, <code>left</code>, <code>bottom</code>,
+                and <code>right</code> properties.
+            </li>
+            <li class="demo">
+                <figure class="demo__figure">
+                    <figcaption class="demo__caption"><h3>positon: relative;</h3></figcaption>
+                    <div class="demo__container demo__container--block-container">
+                        <div class="demo__block demo__block--blue">div 1</div>
+                        <div class="demo__block demo__block--green">div 2</div>
+                        <div class="demo__block demo__block--yellow demo__block--relative-demo">
+                            div 3
+                            <code class="demo__overlay">position: relative; left: -2rem; top: 3rem;</code>
+                        </div>
+                    </div>
+                </figure>
+            </li>
+            <li class="note">
+                <code>position: absolute</code> pulls an element out of the flow of the document, positioning relative
+                to the <strong>nearest positioned parent</strong> - if no parent has a position of relative, absolute,
+                or fixed, the element will be positioned relative to the document body.
+            </li>
+            <li class="note">
+                <code>position: fixed</code> will position an element relative to the <strong>viewport</strong>.
+            </li>
+            <li class="demo demo--fixed">
+                <div class="demo__block demo__block--red demo__block--fixed-demo">
+                    fixed div
+                    <div class="demo__overlay demo__overlay--light">
+                        position: fixed; top: 0; right: 0; width: 40rem; height: 5rem; z-index: 1;
+                    </div>
+                </div>
+            </li>
+            <li class="note">
+                <code>position: sticky</code> is a little different, and will stick an element based on the viewport and
+                scroll properties. Kind of like a combination of fixed and absolute.
+            </li>
+            <li class="note">
+                <code>z-index: integer</code> can be used for <strong>positioned elements only</strong> and allows you
+                to define the <strong>absolute stacking order</strong> of positioned elements. Higher z-index will
+                overlay lower z-index. You can't change the z-index of static content, which defaults to a z-index
+                equivalent of 0.
+            </li>
+        </ul>
+        <h2 class="main__subheading">Float</h2>
+        <ul class="notes">
+            <li class="note">
+                Float should not be used for layout of block elements - it's primarily to allow certain content to flow
+                around other "fixed" content, like an image in a magazine or a newspaper.
+            </li>
+            <li class="note">Floated elements should be siblings with text-based elements they can interact with.</li>
+            <li class="demo">
+                <figure class="demo__figure">
+                    <figcaption class="demo__caption"><h3>float</h3></figcaption>
+                    <div class="demo__container demo__container--block-container">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor urna nec mollis
+                            dictum. In et neque nunc. Donec sed consequat dolor. Nulla vulputate, risus at commodo
+                            tincidunt, dui ipsum egestas dui, non convallis libero dui vitae turpis. Duis dui leo,
+                            vulputate a ipsum vitae, auctor maximus elit.
+                        </p>
+                        <div class="demo__block demo__block--blue demo__block--float">
+                            right floating div
+                            <code class="demo__overlay demo__overlay--light"
+                                >float: right; width: 15rem; min-height: 8rem;</code
+                            >
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor urna nec mollis
+                            dictum. In et neque nunc. Donec sed consequat dolor. Nulla vulputate, risus at commodo
+                            tincidunt, dui ipsum egestas dui, non convallis libero dui vitae turpis. Duis dui leo,
+                            vulputate a ipsum vitae, auctor maximus elit. Aenean tempor ut magna non tincidunt. Sed ut
+                            tellus mi.
+                        </p>
+                        <p>
+                            Quisque turpis est, feugiat non lorem tristique, venenatis tincidunt sapien. Pellentesque
+                            habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam
+                            consequat velit et tristique tempus. Donec egestas faucibus libero. Ut mattis ornare turpis
+                            eget ullamcorper. Etiam non lectus vitae ligula tempor gravida. Integer nec risus feli Lorem
+                            ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor urna nec mollis dictum. In
+                            et neque nunc. Donec sed consequat dolor. Nulla vulputate, risus at commodo tincidunt, dui
+                            ipsum egestas dui, non convallis libero dui vitae turpis. Duis dui leo, vulputate a ipsum
+                            vitae, auctor maximus elit. Aenean tempor ut magna non tincidunt. Sed ut tellus mi. s
+                        </p>
+                    </div>
+                </figure>
+            </li>
+            <li class="note">
+                The <strong>clearfix hack</strong> can be applied to a floated element to ensure floating elements are
+                accounted for when the parent container is figuring out its size.
+                <code>.clearfix:after { content: ""; display: table; clear: both; }</code>
+            </li>
+        </ul>
+    </main>
+</html>

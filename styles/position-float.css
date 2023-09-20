@@ -1,0 +1,28 @@
+.demo__block--relative-demo {
+    position: relative;
+    left: -2rem;
+    top: 1rem;
+}
+
+.demo--fixed {
+    margin: 0;
+}
+
+.demo__block--fixed-demo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 40rem;
+    max-width: 100%;
+    min-height: 5rem;
+    padding: 1rem;
+    z-index: 1;
+}
+
+.demo__block--float {
+    width: 15rem;
+    max-width: 100%;
+    min-height: 8rem;
+    float: right;
+    padding: 1rem;
+}

@@ -1,14 +1,3 @@
-.demo__container--block-container {
-    display: block;
-    min-height: 15rem;
-}
-
-.demo__container--flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 15rem;
-}
-
 .demo__container--justify-space-between {
     justify-content: space-between;
 }
@@ -30,10 +19,6 @@
     flex-direction: column-reverse;
 }
 
-.demo__block {
-    padding: 1.5rem 3rem;
-}
-
 .demo__block--align-self {
     align-self: baseline;
 }
@@ -52,28 +37,6 @@
 
 .demo__block--order-4 {
     order: 4;
-}
-
-.demo__block--blue {
-    background-color: var(--blue);
-    color: var(--white);
-}
-
-.demo__block--green {
-    background-color: var(--green);
-}
-
-.demo__block--yellow {
-    background-color: var(--yellow);
-}
-
-.demo__block--orange {
-    background-color: var(--orange);
-}
-
-.demo__block--red {
-    background-color: var(--red);
-    color: var(--white);
 }
 
 .demo__block--flex-grow-1 {

@@ -220,6 +220,29 @@ a.anchor--nostyle {
 
 .demo__block {
     position: relative;
+    padding: 1.5rem 3rem;
+}
+
+.demo__block--blue {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.demo__block--green {
+    background-color: var(--green);
+}
+
+.demo__block--yellow {
+    background-color: var(--yellow);
+}
+
+.demo__block--orange {
+    background-color: var(--orange);
+}
+
+.demo__block--red {
+    background-color: var(--red);
+    color: var(--white);
 }
 
 .demo__figure {
@@ -230,6 +253,17 @@ a.anchor--nostyle {
 .demo__container {
     min-height: 1rem;
     border: 1px dashed var(--orange);
+}
+
+.demo__container--block-container {
+    display: block;
+    min-height: 15rem;
+}
+
+.demo__container--flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 15rem;
 }
 
 .demo__caption {
