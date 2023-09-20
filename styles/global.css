@@ -96,11 +96,21 @@ a.anchor--nostyle {
     text-decoration: inherit;
 }
 
-.header {
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 2;
+.generic-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.generic-form__text-input {
+    flex-grow: 1;
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    min-width: 5rem;
+}
+
+.action-button {
+    padding: 0.5rem 3rem;
 }
 
 .nav {
@@ -143,9 +153,23 @@ a.anchor--nostyle {
     padding: 1.25rem 0 1rem 0;
 }
 
+.main__description {
+    padding-bottom: 1rem;
+}
+
+.main__code-block {
+    background-color: var(--black);
+    line-height: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.main__code-block code {
+    padding: 0;
+}
+
 .cards {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
     flex-grow: 1;
     padding: 0.5rem 1rem;
@@ -155,7 +179,7 @@ a.anchor--nostyle {
 
 .card {
     margin: 1rem;
-    max-width: 25rem;
+    max-width: 22rem;
     max-height: 20rem;
     border: 1px solid var(--lighter-gray);
     border-radius: 5px;

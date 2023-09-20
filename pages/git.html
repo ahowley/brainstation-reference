@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BSRef - Git</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <a href="../" class="nav__button anchor--nostyle">
+                    <h2 class="nav__heading">BSRef</h2>
+                </a>
+            </nav>
+        </header>
+        <main class="main">
+            <h1 class="main__heading">Git</h1>
+            <p class="main__description">
+                See <a href="https://git-scm.com/docs" target="_blank">git-scm.com</a> for detailed documentation. See
+                this
+                <a href="https://training.github.com/downloads/github-git-cheat-sheet/" target="_blank">cheat sheet</a>
+                for a more detailed/complete quick reference.
+            </p>
+            <h2 class="main__subheading">Notes</h2>
+            <ul class="notes">
+                <li class="note">
+                    Git is a <strong>VCS (Version Control System)</strong>. It was originally authored by Linus
+                    Torvalds, and is now open-source.
+                </li>
+                <li class="note">It can be used through the terminal or through a GUI.</li>
+                <li class="note">
+                    It is designed for collaboration, allowing multiple people to contribute to a codebase without
+                    writing over each others' work.
+                </li>
+                <li class="note">
+                    A <strong>remote repository</strong> is a version of the project available to all developers on the
+                    project at once. A <strong>local repository</strong> is a version of the project as it exists on a
+                    local machine.
+                </li>
+                <li>A local repository is stored in a hidden folder called ".git" in your project directory.</li>
+                <li>Create a file called .gitignore to list paths that you want git to ignore.</li>
+            </ul>
+            <h2 class="main__subheading">Commands - Initializing, adding, removing, committing, pushing</h2>
+            <ul class="notes">
+                <li class="note"><code>git init</code> initializes a repo in your working directory.</li>
+                <li class="note"><code>git remote add origin (url)</code> to add a remote with name "origin"</li>
+                <li class="note"><code>git branch -M main</code> will rename the base branch to "main".</li>
+                <li class="note">
+                    <code>git add (path)</code> will add anything in (path) to the <strong>staging area</strong>.
+                    <code>git add .</code> will add all files in your current directory.
+                </li>
+                <li class="note">
+                    <code>git rm --cached (path)</code> will allow you to <strong>unstage</strong> (path).
+                </li>
+                <li class="note">
+                    <code>git commit -m "commit message"</code> creates a commit using the currently staged files.
+                    Convention says to use imperative mood for commit messages - "add" vs. "added", "change" vs.
+                    "changed", etc.
+                </li>
+                <li class="note">
+                    <code>git push -u origin main</code> pushes the "main" branch to the remote called "origin". The
+                    "-u" is the "upstream" flag and is required the first time you push to a remote.
+                </li>
+            </ul>
+            <h2 class="main__subheading">Commands - Utility</h2>
+            <ul class="notes">
+                <li class="note">
+                    <code>git status</code> will show you a status report for your current local repository.
+                </li>
+                <li class="note"><code>git remote -v</code> to confirm information about the current remote.</li>
+                <li class="note"><code>git branch</code> to check your current branch.</li>
+                <li class="note">
+                    If you accidentally commit without a message and get trapped in VIM or another terminal text editor,
+                    <code>:q enter</code> will usually break you free.
+                </li>
+            </ul>
+        </main>
+    </body>
+</html>
