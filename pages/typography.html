@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BSRef - Typography</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <a href="../" class="nav__button anchor--nostyle">
+                    <h2 class="nav__heading">BSRef</h2>
+                </a>
+            </nav>
+        </header>
+        <main class="main">
+            <h1 class="main__heading">Typography</h1>
+            <p class="main__description">
+                See <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> for a way to navigate typefaces
+                commonly used on the web. See
+                <a href="https://css-tricks.com/snippets/css/using-font-face-in-css/#h-deepest-possible-browser-support"
+                    >this page</a
+                >
+                to find a snippet demonstrating the deepest possible browser support for @font-face in CSS.
+            </p>
+            <h2 class="main__subheading">Overview</h2>
+            <ul class="notes">
+                <li class="note">
+                    In the context of design, typography is a tool to communicate brand and personality.
+                </li>
+                <li class="note">
+                    <strong>Typesetting</strong> is the process of taking a design and ensuring it displays property in
+                    a given domain/medium.
+                </li>
+
+                <li class="note">
+                    <strong>Serif</strong> fonts have little doohickeys ("a small shape or projection") at the end of
+                    lines and strokes. Like <span style="font-family: serif">this, for example</span>.
+                </li>
+                <li class="note">
+                    <strong>Sans Serif</strong> fonts like the one used on this website (Montserrat) don't have the
+                    doohickeys.
+                </li>
+                <li class="note">
+                    <strong>Monospaced</strong> fonts like <code>this one</code> guarantee every character has exactly
+                    the same width - commonly used for code.
+                </li>
+                <li class="note"><strong>Handwriting</strong> fonts are design in the style of... handwriting.</li>
+                <li class="note">
+                    <strong>Display</strong> fonts are a general "other" category, including all sorts of wacky stuff.
+                </li>
+                <li class="note">
+                    A <strong>typeface</strong> is a collection of letters and symbols designed with shared patterns - a
+                    typeface also typically includes a bold, italic, thin, etc. version of the font.
+                </li>
+            </ul>
+            <h2 class="main__subheading">In CSS</h2>
+            <ul class="notes">
+                <li class="note">
+                    You can use absolute units (px) or relative units (em, rem, %) to adjust font size - you can and
+                    should choose between these depending on the responsive needs of a page.
+                </li>
+                <li class="note">
+                    Knowing when to use "px" vs. "em" vs. "rem" mostly boils down to what you want the font size to be
+                    relative to, if at all.
+                </li>
+                <li class="note">
+                    For the purposes of using "em" with margin and padding, this is
+                    <strong>not always relative to the parent</strong>. Instead, it looks for the nearest defined
+                    font-size in the ancestry tree, including itself.
+                </li>
+                <li class="note">
+                    <code>font-weight</code> either accepts a numeric value (100, 200, 300, etc.) or a pre-defined
+                    keyword value (bold, thin, etc.) as defined in the typeface to change the
+                    <span style="font-weight: 300">thinness/thickness of a font</span>.
+                </li>
+                <li class="note">
+                    <code>font-style</code> allows you to change the
+                    <span style="font-style: italic">style among typeface options</span> (normal, italic, oblique).
+                </li>
+                <li class="note">
+                    <code>letter-spacing</code> adjusts the
+                    <span style="letter-spacing: 5px">spacing between letters</span>. Typically shouldn't be used for
+                    large amounts of text, but instead for specific headings or titles. This is equivalent to
+                    <strong>tracking</strong> in typography, not kerning
+                </li>
+                <li class="note">
+                    <code>line-height</code> is the equivalent of <strong>leading</strong> in typography. It adjusts the
+                    spacing between each line of text. Can be set with % values!
+                </li>
+                <li class="note">
+                    <code>@font-face</code> is an <strong>at rule</strong> used to load a custom font-family into a
+                    website. Can be loaded from a remote location or from a directory in the project. Can also pull from
+                    the local user's computer, technically. The two mandatory properties are
+                    <code>font-family</code> (the name of the font as referenced in code) and <code>src</code> (the path
+                    to the resource used to define the font)
+                </li>
+                <li class="note">
+                    Define @font-faces using standard CSS properties such as font-weight and font-style, and define
+                    multiple font-faces for one font to define which font to apply to various CSS keyword values, like
+                    <strong>bold</strong> and <strong>italic</strong>.
+                </li>
+                <li class="note">
+                    At rules can be used to declare resuable CSS, or to apply conditions to blocks of CSS. Some common
+                    ones include: <code>@media @font-face @keyframes @charset @import @namespace</code>
+                </li>
+                <li class="note">
+                    ".woff2" font files were used in the examples given during the BrainStation lecture, and is
+                    supported by most browsers.
+                </li>
+                <li class="note">
+                    Specifying format in the <code>src</code> line is best practice:
+                    <code>src: url("path/to/font.woff2") format("woff2")</code>
+                </li>
+                <li class="note">Convention also says to put font definitions in their own CSS or SCSS file.</li>
+                <li class="note">
+                    Multiple @font-face definitions for the same typeface should have the same font-family name.
+                </li>
+                <li class="note">The format() for a ".ttf" is "truetype"., and for ".otf" it's "opentype".</li>
+                <li class="note">
+                    To add support to other font formats, like ".woff" and ".ttf", you can add multiple sources in the
+                    <code>src</code> property, separated by a comma.
+                </li>
+            </ul>
+        </main>
+    </body>
+</html>
