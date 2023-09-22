@@ -1,0 +1,19 @@
+.demo__block--transition-multiple {
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: var(--bold);
+    transition: color 1s 1s, background-color 1s;
+}
+
+.demo__block--transition-multiple-ease {
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: var(--bold);
+    transition: color 1s 1s ease-in, background-color 1s ease-out;
+}
+
+.demo__block--transition-multiple:hover,
+.demo__block--transition-multiple-ease:hover {
+    background-color: var(--yellow);
+    color: var(--black);
+}

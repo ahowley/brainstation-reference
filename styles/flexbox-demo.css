@@ -51,11 +51,6 @@
     flex-grow: 3;
 }
 
-.demo__block--purple {
-    background-color: var(--purple);
-    color: var(--white);
-}
-
 @media screen and (max-width: 700px) {
     .hidden-mobile {
         display: none;

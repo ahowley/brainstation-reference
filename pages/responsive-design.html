@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BSRef - Responsive Design</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <a href="../" class="nav__button anchor--nostyle">
+                    <h2 class="nav__heading">BSRef</h2>
+                </a>
+            </nav>
+        </header>
+        <main class="main">
+            <h1 class="main__heading">Responsive Design</h1>
+            <p class="main__description">
+                See a detailed overview on CSS @media queries
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries" target="_blank"
+                    >on MDN here</a
+                >.
+            </p>
+            <ul class="notes">
+                <li class="note">
+                    Because there is no common, reliable screen size we can design for on the web, we have to design our
+                    content to fit on the smallest screen first, then expand to display nicely on larger screens. This
+                    is called <strong>Mobile First</strong> design.
+                </li>
+                <li class="note">
+                    It's easier to add complexity than to take it away, so it's often better to create focused designs
+                    for different screen sizes.
+                </li>
+                <li class="note">The goal is to use all the available space on any given screen size effectively.</li>
+                <li class="note">
+                    A <strong>breakpoint</strong> is a defined viewport width or height where the styling of that site
+                    should change to a new set of styling criteria.
+                </li>
+                <li class="note">To define specific breakpoints in CSS, we use <code>@media</code> queries.</li>
+            </ul>
+            <h2 class="main__subheading">@media queries</h2>
+            <ul class="notes">
+                <li class="note">
+                    Without using media queries and breakpoints, we're somewhat limited in our choices regarding
+                    responsiveness. Using percentage values for widths, heights, and margins/padding can provide a good
+                    baseline, along with good use of flex-box, but breakpoints give far more granular control.
+                </li>
+                <li class="note">
+                    Media queries are a CSS at-rule, and they allow us to conditionally apply part of a style sheet
+                    based on the result of a "query" - essentially, we can ask @media for information about the device,
+                    viewport, or condition in which our page is being viewed, and conditionally apply styles based on
+                    the result.
+                </li>
+                <li class="note">
+                    <strong>Media types</strong> define the broad category of a device on which a media query applies.
+                    By far the most common is <code>screen</code>, but other options are <code>all</code> (the default)
+                    and <code>print</code>. Specifying the media type is done first: <code>@media screen</code>. If we
+                    don't include a media type, it defaults to all, so this is not required and may not always be
+                    necessary to include.
+                </li>
+                <li class="note">
+                    <strong>Media features</strong> desribe some specific characteristic of the
+                    <strong>user agent</strong> (basically, the viewer of the page), and are where we "query" specific
+                    properties of the device/person/etc. that's interacting with the page. Common examples would include
+                    <code>min-width</code>, <code>max-height</code>, or <code>hover</code>.
+                </li>
+                <li class="note">
+                    You can find an exhaustive list of media types & features
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries#syntax"
+                        target="_blank"
+                        >on MDN here</a
+                    >.
+                </li>
+                <li class="note">
+                    The commonly used viewport meta tag in most html boilerplate
+                    <code>&#60;meta name="viewport" content="width=device-width, initial-scale=1.0"&#62;</code>
+                    "initializes" a web page to align the width of the page with the device-width of the
+                    user-agent/viewer.
+                </li>
+                <li class="note">
+                    We can use <strong>logical operators</strong> to create multiple conditions for a media query,
+                    including <code>not</code>, <code>and</code>, <code>only</code>, and <code>or</code>.
+                </li>
+                <li class="note">
+                    An example of a complete media query would look something like this:
+                    <code
+                        >@media screen and ((min-width: 425px) and (max-width: 767px)) { /* only applies between 425px
+                        and 767px, inclusive */ }</code
+                    >.
+                </li>
+                <li class="note">
+                    Media queries <strong>do not interact with specificity or the cascade</strong> - they only "expose"
+                    code provided the conditions are met. If your media queries override properties, they should come
+                    later in a stylesheet than what they're overwriting, or else they will fail.
+                </li>
+                <li class="note">
+                    We can use <code>@content</code> with Sass to define a wrapper mixin, allowing us to use a mixin as
+                    a wrapper. For example,
+                    <code>@mixin tablet { @media (min-width: 426px) and (max-width: 767px) { @content } }</code> could
+                    be used to create a media query surrounding a css block like this:
+                    <code>@include tablet { .hidden-tablet { display: none;} }</code>
+                </li>
+                <li class="note">
+                    Media queries are a vital tool in responsive design. We can use the "min-width" and "max-width"
+                    definitions to define the aforementioned breakpoints, possibly even in a @mixin in Sass, and
+                    leverage that to create a stylesheet that is fully responsive to a viewport's size.
+                </li>
+            </ul>
+        </main>
+    </body>
+</html>
