@@ -50,19 +50,67 @@
                 <li class="note">
                     A local repository is stored in a hidden folder called ".git" in your project directory.
                 </li>
-                <li class="note">Create a file called .gitignore to list paths that you want git to ignore.</li>
+                <li class="note">
+                    In general, it will take practice & commitment to the details to get used to working with version
+                    control. It's very important to pay attention to details when working with your repository, because
+                    forgetting certain steps can definitely cause serious problems if you aren't careful.
+                </li>
+            </ul>
+            <h2 class="main__subheading">.gitignore</h2>
+            <ul class="notes">
+                <li class="note">
+                    Create a file called .gitignore in your git repo to list paths that you want git to ignore.
+                </li>
+                <li class="note">
+                    Common targets for .gitignore would include temporary files, random notes, and secret/private
+                    information that shouldn't be stored in a remote repository. This would include password
+                    information, API keys, and other sensitive data.
+                </li>
+                <li class="note">You may also remove compiled code, like .css files if you're using Sass/scss.</li>
+                <li class="note">
+                    The simplest way to add a file to .gitignore is to add a line to the file containing the exact path
+                    and name of the file you'd like to ignore.
+                </li>
+                <li class="note">
+                    You can also use a wildcard (*) to pattern-match anything that contains the rest of what you type.
+                    For example, <code>*.css</code> would tell git to ignore all css files, and <code>*.map</code> would
+                    ignore all css.map files (and any other .map files). This matches anything except a slash.
+                </li>
+                <li class="note">
+                    A double wildcard (**) matches any series of subdirectories, including the root directory.
+                </li>
+                <li class="note">
+                    If you've accidentally added a file you'd like to ignore, you first need to use the
+                    <code>git rm --cached .</code> command to remove everything from the repository's cache (you can
+                    also only remove specific paths).
+                </li>
+                <li class="note">
+                    If you've already committed a file before, and pushed it to a remote repository, there are ways to
+                    try to alter the commit history, but the best bet is to just delete the repository and re-upload.
+                </li>
             </ul>
             <h2 class="main__subheading">Commands - Initializing, adding, removing, committing, pushing</h2>
             <ul class="notes">
-                <li class="note"><code>git init</code> initializes a repo in your working directory.</li>
-                <li class="note"><code>git remote add origin (url)</code> to add a remote with name "origin"</li>
-                <li class="note"><code>git branch -M main</code> will rename the base branch to "main".</li>
+                <li class="note">
+                    <code>git init</code> initializes a git repository in your working directory, stored in a "hidden"
+                    folder called .git.
+                </li>
+                <li class="note">
+                    <code>git remote add origin (url)</code> will <strong>add</strong> a <strong>remote</strong> called
+                    <strong>"origin"</strong> pointing to <strong>(url)</strong>.
+                </li>
+                <li class="note">
+                    <code>git branch -M main</code> will rename the base branch to "main". This is the default base
+                    branch name on GitHub, and is good practice every time you initialize a git repo.
+                </li>
                 <li class="note">
                     <code>git add path</code> will add anything in "path" to the <strong>staging area</strong>.
                     <code>git add .</code> will add all files in your current directory.
                 </li>
                 <li class="note">
                     <code>git rm --cached path</code> will allow you to <strong>unstage</strong> "path".
+                    <code>git rm path</code> will literally remove the file/path from your project, so the --cached flag
+                    ensures it only removes a file from the staging area.
                 </li>
                 <li class="note">
                     <code>git commit -m "commit message"</code> creates a commit using the currently staged files.
@@ -74,16 +122,136 @@
                     "-u" is the "upstream" flag and is required the first time you push to a remote.
                 </li>
             </ul>
+            <h2 class="main__subheading">Commands - Branching</h2>
+            <ul class="notes">
+                <li class="note">
+                    For most web applications, the main branch is what is actually deployed live. This means we never
+                    want to work inside the main branch.
+                </li>
+                <li class="note">
+                    A branch is essentially a clone of another branch (for example, the main branch) from a specific
+                    moment in time.
+                </li>
+                <li class="note">
+                    To rename a branch, we use <code>git branch -m new-name</code>. This renames the current branch to
+                    "new-name".
+                </li>
+                <li class="note">To view existing branches, simply use <code>git branch</code>.</li>
+                <li class="note">
+                    To create a new branch without switching to it, we can use
+                    <code>git branch name-of-new-branch</code>. Notice there are no flags.
+                    <strong>The new branch is created from your current branch</strong>.
+                </li>
+                <li class="note">
+                    To create a new branch <strong>and immediately switch to it</strong>, we can use
+                    <code>git checkout -b newbranch</code>. This will create the specified branch and switch to it. We
+                    can also use <code>git switch -c newbranch</code> - the "-c" means "create". Again, these two
+                    commands accomplish the same thing and are interchangeable. This is a shortcut for
+                    <code>git branch new-branch</code> followed by <code>git switch new-branch</code>.
+                </li>
+                <li class="note">
+                    To switch to a different branch, we can use <code>git checkout name-of-branch</code>. This will
+                    switch to "name-of-branch", if there's a branch there. You can also use
+                    <code>git switch name-of-branch</code> - for all intents and purposes, these two commands work in an
+                    identical way.
+                </li>
+                <li class="note">
+                    When pushing a new branch to a remote repository for the first time, we need to use the
+                    <code>--set-upstream</code> or <code>-u</code> flag to tell the remote repository to create a new
+                    branch matching the one in your local repository.
+                </li>
+                <li class="note">
+                    When you push a new branch to your remote/GitHub, it won't interact with the main branch at all.
+                    Instead, it will notify you a branch has new changes, and give you a chance to create a "pull
+                    request" - which is, ostensibly, a "merge request" for the main branch. Creating a merge request is
+                    like saying "hey, I'd like the changes made in this branch to be added to main".
+                </li>
+                <li class="note">
+                    When it comes to naming branches, think like a programmer - name your branches something sensible,
+                    easy to understand, and specific to the changes that will be made in that branch. For example, if
+                    you need to refactor your CSS code to Sass, you could run
+                    <code>git checkout -b sass-refactor</code>.
+                </li>
+                <li class="note">
+                    The common best practice for branching in general is to have a "main" branch (which is sacred, and
+                    only touched with extremely cautious code review), a "dev" branch where active development takes
+                    place, then feature branches off of the "dev" branch where individual people/team can iterate
+                    efficiently without touching the main branch.
+                </li>
+                <li class="note">
+                    <code>git branch -d branch-name</code> will delete a branch from your local git repository.
+                </li>
+                <li class="note">
+                    <code>git push -u origin branch-name</code> will create and/or push to a remote branch called
+                    branch-name.
+                </li>
+                <li class="note">
+                    <code>git push -d origin branch-name</code> will delete the remote branch called branch-name.
+                </li>
+            </ul>
+            <h2 class="main__subheading">Commands - Merging</h2>
+            <ul class="notes">
+                <li class="note">
+                    To combine changes made in one branch with the state of a different branch, we
+                    <strong>merge</strong> those branches.
+                </li>
+                <li class="note">
+                    To merge branches, we <strong>switch to/checkout the branch we're merging into</strong>, then run
+                    <code>git merge branch-to-merge-into-current-branch</code>.
+                </li>
+                <li class="note">
+                    To merge a branch called sass-refactor to main in your local repository, you would checkout/switch
+                    to main, then run <code>git merge sass-refactor</code>.
+                </li>
+                <li class="note">
+                    To delete a branch, it's important to understand that deleting that branch locally and deleting that
+                    branch in your remote/GitHub are not the same thing. A GitHub repository may not have branches that
+                    you have locally, and vice-versa.
+                </li>
+            </ul>
+            <h2 class="main__subheading">Commands - Stash</h2>
+            <ul class="notes">
+                <li class="note">
+                    <a href="https://git-scm.com/docs/git-stash" target="_blank">Git's stash command</a> allows you to
+                    stash the state of a working directory without committing to the current branch. This is useful when
+                    you need to checkout/switch to a different branch without losing changes, or return to a stable
+                    version of the current branch without having to merge an older branch and lose all your changes.
+                </li>
+                <li class="note">
+                    To create a new stash, you can use <code>git stash</code>. This saves a stash, reverts to the HEAD
+                    commit (the last commit on this branch, usually), and allows you to simply work from that point
+                    without worry of losing changes you may have made elsewhere.
+                </li>
+                <li class="note">
+                    To re-apply stashed changes, you can <strong>pop</strong> your stash with
+                    <code>git stash pop</code>. This will delete your stash and re-apply your changes. Alternatively,
+                    <code>git stash apply</code> will apply the changes withough deleting the stash.
+                </li>
+                <li class="note">
+                    Adding the <code>-u</code> flag will tell <code>git stash -u</code> to also include
+                    untracked/unadded files, and is often useful. By default, only files that are being tracked will be
+                    included in the stash.
+                </li>
+                <li class="note">
+                    You can save multiple stashes, then view them with <code>git stash list</code>. By default,
+                    <code>pop</code>/<code>apply</code> apply the most recent stash. To apply from a different stash,
+                    use <code>stash@{number}</code>. For example, <code>git stash pop stash@{2}</code> will apply your
+                    second stash.
+                </li>
+            </ul>
             <h2 class="main__subheading">Commands - Utility</h2>
             <ul class="notes">
                 <li class="note">
                     <code>git status</code> will show you a status report for your current local repository.
                 </li>
                 <li class="note"><code>git remote -v</code> to confirm information about the current remote.</li>
-                <li class="note"><code>git branch</code> to check your current branch.</li>
+                <li class="note"><code>git branch</code> to check your current branch and show you all branches.</li>
+                <li class="note"><code>git branch -r</code> will show all the current remote branches.</li>
+                <li class="note"><code>git worktree show</code> to show your worktree.</li>
                 <li class="note">
                     If you accidentally commit without a message and get trapped in VIM or another terminal text editor,
-                    <code>:q enter</code> will usually break you free.
+                    <code>:q</code>, <code>:q enter</code>, or <code>:q!</code>/<code>:q! enter</code> will usually
+                    break you free. If this isn't working, try leaving out the ":" colon.
                 </li>
             </ul>
         </main>
