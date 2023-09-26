@@ -1,136 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BSRef</title>
-        <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link href="./styles/global.css" type="text/css" rel="stylesheet" />
-    </head>
-    <body>
-        <header class="header">
-            <nav class="nav">
-                <a href="./" class="nav__button anchor--nostyle">
-                    <h2 class="nav__heading">BSRef</h2>
-                </a>
-            </nav>
-        </header>
-        <main class="main">
-            <h1 class="main__heading">BrainStation Software Engineering Quick Reference</h1>
-            <h2 class="main__subheading">Subjects</h2>
-            <section class="cards">
-                <a href="./pages/terminal.html" class="card anchor--nostyle">
-                    <h3 class="card__title">Terminal</h3>
-                    <p class="card__description">Some handy shortcuts for use in unix-like terminals.</p>
-                </a>
-                <a href="./pages/vscode.html" class="card anchor--nostyle">
-                    <h3 class="card__title">VSCode & Emmet</h3>
-                    <p class="card__description">
-                        "Essential" shortcuts and hotkeys for VSCode and Emmet (which comes installed by default in
-                        VSCode).
-                    </p>
-                </a>
-                <a href="./pages/git.html" class="card anchor--nostyle">
-                    <h3 class="card__title">Git</h3>
-                    <p class="card__description">
-                        A rundown of the basics of Git, including a reference for essential commands.
-                    </p>
-                </a>
-                <a href="./pages/flexbox-demo.html" class="card anchor--nostyle">
-                    <h3 class="card__title">Flexbox</h3>
-                    <p class="card__description">
-                        A brief reminder of the basics of some of the most common flexbox properties, with visual
-                        examples.
-                    </p>
-                </a>
-                <a href="./pages/position-float.html" class="card anchor--nostyle">
-                    <h3 class="card__title">Position & Float</h3>
-                    <p class="card__description">
-                        A review of the CSS position & float properties, and associated behaviors.
-                    </p>
-                </a>
-                <a href="./pages/sass.html" class="card anchor--nostyle">
-                    <h3 class="card__title">Sass</h3>
-                    <p class="card__description">
-                        A look at all of the high-level features of Sass, with syntactical examples to reference.
-                    </p>
-                </a>
-                <a href="./pages/typography.html" class="card anchor--nostyle">
-                    <h3 class="card__title">Typography</h3>
-                    <p class="card__description">
-                        A basic overview of the field of typography and its common applications in CSS and web design.
-                    </p>
-                </a>
-                <a href="./pages/animations.html" class="card anchor--nostyle">
-                    <h3 class="card__title">Animations</h3>
-                    <p class="card__description">A quick reference for how to set up and utilize animations in CSS.</p>
-                </a>
-                <a href="./pages/responsive-design.html" class="card anchor--nostyle">
-                    <h3 class="card__title">Responsive Design</h3>
-                    <p class="card__description">
-                        An overview of the basics of responsive design and using @media queries in CSS.
-                    </p>
-                </a>
-                <a href="./pages/javascript.html" class="card anchor--nostyle">
-                    <h3 class="card__title">Intro to JavaScript</h3>
-                    <p class="card__description">
-                        Some notes from our first lecture introducing JavaScript and its role on the web.
-                    </p>
-                </a>
-            </section>
-            <h2 class="main__subheading">Quick Tips</h2>
-            <ul class="notes">
-                <li class="note">Chrome</li>
-                <ul class="notes">
-                    <li class="note"><code>f12</code> opens dev tools</li>
-                    <li class="note"><code>ctrl + r</code> refreshes the page</li>
-                    <li class="note">
-                        <code>ctrl + shift + r</code> "force" refreshes the page, clearing the cache for the site you're
-                        on (give it a shot when you face a bug before crawling through your code)
-                    </li>
-                    <li class="note">
-                        <code>ctrl + shift + c</code> while in the debugger turns on the hover inspection tool
-                    </li>
-                </ul>
-            </ul>
-            <h2 class="main__heading">Search MDN</h2>
-            <div class="generic-form">
-                <input
-                    type="text"
-                    id="search-mdn"
-                    class="generic-form__text-input"
-                    placeholder="Search for something on MDN"
-                    name="search-mdn" />
-                <button class="action-button" onclick="searchMDN();">Search</button>
-            </div>
-            <p class="main__description">
-                You can also create a browser bookmark with the following code snippet as the "page" for a handy
-                shortcut to MDN search.
-            </p>
-            <p class="main__code-block">
-                <code
-                    >javascript:(function()%7Blet searchQuery %3D prompt('Search for something related to HTML%2C CSS%2C
-                    or JavaScript'%2C 'center a div')%3B%0Aif (searchQuery)
-                    %7B%0A%09window.open(%60https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fsearch%3Fq%3D%24%7BencodeURIComponent(searchQuery)%7D%60)%3B%0A%7D%7D)()%3B</code
-                >
-            </p>
-        </main>
-        <script>
-            const searchMDN = () => {
-                const mdn = "https://developer.mozilla.org/en-US/search?q=";
-                let searchQuery = document.getElementById("search-mdn").value;
-                if (searchQuery && searchQuery !== "") {
-                    window.open(mdn + encodeURIComponent(searchQuery));
-                }
-            };
-        </script>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link href="./styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="./" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">BrainStation Software Engineering Quick Reference</h1>
+      <h2 class="main__subheading">Subjects</h2>
+      <section class="cards">
+        <a href="./pages/terminal.html" class="card anchor--nostyle">
+          <h3 class="card__title">Terminal</h3>
+          <p class="card__description">Some handy shortcuts for use in unix-like terminals.</p>
+        </a>
+        <a href="./pages/vscode.html" class="card anchor--nostyle">
+          <h3 class="card__title">VSCode & Emmet</h3>
+          <p class="card__description">
+            "Essential" shortcuts and hotkeys for VSCode and Emmet (which comes installed by default in VSCode).
+          </p>
+        </a>
+        <a href="./pages/git.html" class="card anchor--nostyle">
+          <h3 class="card__title">Git</h3>
+          <p class="card__description">A rundown of the basics of Git, including a reference for essential commands.</p>
+        </a>
+        <a href="./pages/flexbox-demo.html" class="card anchor--nostyle">
+          <h3 class="card__title">Flexbox</h3>
+          <p class="card__description">
+            A brief reminder of the basics of some of the most common flexbox properties, with visual examples.
+          </p>
+        </a>
+        <a href="./pages/position-float.html" class="card anchor--nostyle">
+          <h3 class="card__title">Position & Float</h3>
+          <p class="card__description">A review of the CSS position & float properties, and associated behaviors.</p>
+        </a>
+        <a href="./pages/sass.html" class="card anchor--nostyle">
+          <h3 class="card__title">Sass</h3>
+          <p class="card__description">
+            A look at all of the high-level features of Sass, with syntactical examples to reference.
+          </p>
+        </a>
+        <a href="./pages/typography.html" class="card anchor--nostyle">
+          <h3 class="card__title">Typography</h3>
+          <p class="card__description">
+            A basic overview of the field of typography and its common applications in CSS and web design.
+          </p>
+        </a>
+        <a href="./pages/animations.html" class="card anchor--nostyle">
+          <h3 class="card__title">Animations</h3>
+          <p class="card__description">A quick reference for how to set up and utilize animations in CSS.</p>
+        </a>
+        <a href="./pages/responsive-design.html" class="card anchor--nostyle">
+          <h3 class="card__title">Responsive Design</h3>
+          <p class="card__description">
+            An overview of the basics of responsive design and using @media queries in CSS.
+          </p>
+        </a>
+        <a href="./pages/javascript.html" class="card anchor--nostyle">
+          <h3 class="card__title">Intro to JavaScript</h3>
+          <p class="card__description">
+            Some notes from our first lecture introducing JavaScript and its role on the web.
+          </p>
+        </a>
+      </section>
+      <h2 class="main__subheading">Quick Tips</h2>
+      <ul class="notes">
+        <li class="note">Chrome</li>
+        <ul class="notes">
+          <li class="note"><code>f12</code> opens dev tools</li>
+          <li class="note"><code>ctrl + r</code> refreshes the page</li>
+          <li class="note">
+            <code>ctrl + shift + r</code> "force" refreshes the page, clearing the cache for the site you're on (give it
+            a shot when you face a bug before crawling through your code)
+          </li>
+          <li class="note"><code>ctrl + shift + c</code> while in dev tools turns on the hover inspection tool</li>
+        </ul>
+      </ul>
+      <h2 class="main__subheading">Random Notes & Fun Facts</h2>
+      <ul class="notes">
+        <li class="note">Time in the world of computers is measured by the amount of time since January 1st, 1970.</li>
+      </ul>
+      <h2 class="main__heading">Search MDN</h2>
+      <div class="generic-form">
+        <input
+          type="text"
+          id="search-mdn"
+          class="generic-form__text-input"
+          placeholder="Search for something on MDN"
+          name="search-mdn" />
+        <button class="action-button" onclick="searchMDN();">Search</button>
+      </div>
+      <p class="main__description">
+        You can also create a browser bookmark with the following code snippet as the "page" for a handy shortcut to MDN
+        search.
+      </p>
+      <p class="main__code-block">
+        <code
+          >javascript:(function()%7Blet searchQuery %3D prompt('Search for something related to HTML%2C CSS%2C or
+          JavaScript'%2C 'center a div')%3B%0Aif (searchQuery)
+          %7B%0A%09window.open(%60https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fsearch%3Fq%3D%24%7BencodeURIComponent(searchQuery)%7D%60)%3B%0A%7D%7D)()%3B</code
+        >
+      </p>
+    </main>
+    <script>
+      const searchMDN = () => {
+        const mdn = "https://developer.mozilla.org/en-US/search?q=";
+        let searchQuery = document.getElementById("search-mdn").value;
+        if (searchQuery && searchQuery !== "") {
+          window.open(mdn + encodeURIComponent(searchQuery));
+        }
+      };
+    </script>
+  </body>
 </html>

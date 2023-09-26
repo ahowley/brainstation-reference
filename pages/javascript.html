@@ -55,6 +55,12 @@
           JavaScript is generally agnostic to whitespace - it is <strong>not sensitive</strong> to whitespace in almost
           all situations, so we format our code according to style guides, convention, and preference.
         </li>
+        <li class="note">
+          NetScape owned JavaScript for some amount of time, and now someone else owns it - because of ~reasons~,
+          there's no "version" of JavaScript the way there're versions of HTML and CSS. There's something called
+          <strong>ECMAScript</strong> instead, which controls "versioning" of JS, and introduces new features that
+          browsers should support, etc.
+        </li>
       </ul>
       <h2 class="main__subheading">Programming Terminology</h2>
       <ul class="notes">
@@ -70,6 +76,10 @@
           <strong>Syntax</strong> is comprised of the rules and symbols that allow a computer to "read" the code you
           write - it's how you structure your statements and expression, and doesn't necessarily always make 100% sense
           - it's just something about a language you'll need to memorize to make code run.
+        </li>
+        <li class="note">
+          The JavaScript syntax consists of certain <strong>reserved words</strong> that have pre-defined meaning, which
+          we should not attempt to use for variable names, etc.
         </li>
         <li class="note">
           A <strong>comment</strong> is text or content inside of a code file that isn't code, and isn't interpreted or
@@ -124,6 +134,11 @@
         <li class="note">
           <code>+ - * / </code> work as you might expect them to, and do not require whitespace around them to function.
         </li>
+        <ul class="notes">
+          <li class="note">
+            The addition operator <code>+</code> will <strong>concatenate</strong> two strings together.
+          </li>
+        </ul>
         <li class="note">
           <code>**</code> is the exponent operator, and raises a number to the power of another number.
           <code>5**2</code> would return 25.
@@ -150,7 +165,7 @@
           </li>
           <li class="note">
             You can chain bang operators - for example, <code>!!value</code> would convert anything inside of value to a
-            simple boolean representation.
+            simple boolean representation - it's essentially saying "not not value".
           </li>
           <li class="note">
             Most data types have some state in which they're considered "falsy" - meaning they are calculated as
@@ -161,10 +176,90 @@
           </li>
         </ul>
         <li class="note">
-          The <strong>and</strong> operator is represented with two consecutive ampersands - <code>&&</code>
+          The <strong>and</strong> operator is represented with two consecutive ampersands - <code>&&</code>. This finds
+          whether the preceding and following values are both <code>true</code>.
+          <code>true && false; // false</code>
         </li>
         <li class="note">
-          The <strong>or</strong> operator is represented with two consecutive pipe characters - <code>||</code>
+          The <strong>or</strong> operator is represented with two consecutive pipe characters - <code>||</code>. This
+          finds whether the preceding and following values contain at least one <code>true</code>.
+          <code>true || false; // true</code>
+        </li>
+        <li class="note">
+          <code>==</code> and <code>===</code> are <strong>loose</strong> and <strong>strong</strong> equality
+          respectively. In general, using strict equality should always be preferred. <code>1 === 2; // false</code>
+        </li>
+        <li class="note">
+          You can also use the bang operator with equality checks - <code>!=</code> and <code>!==</code> for loose and
+          strict, respectively. <code>1 !== 2; // true</code>
+        </li>
+        <li class="note">
+          <code>> < >= <=</code> are more comparison operators, representing greater, less, greater/equal to, less/equal
+          to respectively. <code>1 < 2; // true</code>
+        </li>
+        <li class="note">There are also several <strong>assignment operators</strong>:</li>
+        <ul class="notes">
+          <li class="note">
+            <code>++</code> is the <strong>increment operator</strong> - it will add one to the variable preceding it.
+          </li>
+          <li class="note">
+            <code>--</code> is the <strong>decrement operator</strong> - it will subtract one from the variable
+            preceding it.
+          </li>
+          <li class="note">
+            <code>+=</code> is the <strong>addition assignment operator</strong> - it will add the value following it to
+            the variable preceding it. <code>let i=1; i+=3; // i === 4</code>
+          </li>
+          <li class="note">
+            <code>-=</code> is the <strong>subtraction assignment operator</strong> - it will subtract the value
+            following it from the variable preceding it. <code>let i=1; i-=3; // i === -2</code>
+          </li>
+          <li class="note">
+            There are also <strong>multiplication and division assignment</strong> operators: <code>*= /=</code>
+          </li>
+        </ul>
+      </ul>
+      <h2 class="main__subheading">Variables</h2>
+      <ul class="notes">
+        <li class="note">
+          We create and name variables to perform more complex calculations, keep track of state, and much more.
+        </li>
+        <li class="note">
+          We can <strong>assign</strong> a value to a variable, and name the variable, like this:
+          <code>let variableName = "value";</code>
+        </li>
+        <ul class="notes">
+          <li class="note">
+            The "let" is a newer syntax, in addition to <code>var</code>, which is a different way to assign a variable
+            value that has very slight differences.
+          </li>
+        </ul>
+        <li class="note">
+          We can reference a variable very simply by writing its name: <code>variable; // "value"</code>
+        </li>
+        <li class="note">
+          If we have a value that should never change, we can use <strong>const</strong> to assign a
+          <strong>constant</strong> value. <code>const constantName = "this will never change";</code>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Functions</h2>
+      <ul class="notes">
+        <li class="note">
+          Functions are reusable blocks of code that can accept <strong>arguments</strong> and be
+          <strong>called</strong> from elsewhere in a program.
+        </li>
+        <li class="note">
+          There are two common ways to define a function - the "classic" method is using the
+          <code>function</code> keyword. <code>function funcName(...args) { // do stuff }</code>
+        </li>
+        <li class="note">
+          The other way is with <strong>arrow functions</strong>, which have slightly different scope and are
+          interpreted in a different order, but largely work the same way.
+          <code>const funcName = (...args) => { // do stuff }</code>
+        </li>
+        <li class="note">
+          Functions can <code>return</code> a value, so that the function can then be used in-line inside of other
+          expressions.
         </li>
       </ul>
     </main>
