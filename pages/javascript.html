@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BSRef - Intro to JavaScript</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet" />
+        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav">
+                <a href="../" class="nav__button anchor--nostyle">
+                    <h2 class="nav__heading">BSRef</h2>
+                </a>
+            </nav>
+        </header>
+        <main class="main">
+            <h1 class="main__heading">Intro to JavaScript</h1>
+            <p class="main__description">
+                <strong>JavaScript</strong> is a language that came out in the mid-1990s, and by coincidence was the
+                first programming language that was adopted for the web. It's a high-level, interpreted language -
+                meaning that it is very distant from "the metal," and is interpreted into computer instructions via an
+                <strong>interpreter</strong>.
+            </p>
+            <h2 class="main__subheading">High-Level Info & Notes</h2>
+            <ul class="notes">
+                <li class="note">
+                    JavaScript is one of the 3 core technologies that comprise any website or web application, along
+                    with CSS and HTML.
+                </li>
+                <li class="note">
+                    Because it's the "language of the web," its staying power is beyond strictly its objective appeal or
+                    supported features.
+                </li>
+                <li class="note">
+                    JavaScript can also be run on the server side, in the form of Node.js, which was built to allow
+                    JavaScript to be a <strong>full-stack</strong> language.
+                </li>
+                <li class="note">VSCode is built in Node.js 💻</li>
+                <li class="note">Javascript files are denoted with the extension <code>*.js</code>.</li>
+            </ul>
+            <h2 class="main__subheading">Programming Terminology</h2>
+            <ul class="notes">
+                <li class="note">
+                    An <strong>expression</strong> is kind of like a "sentence fragment" - it's smaller than a
+                    statement, and is a small chunk of code that returns a specific value.
+                </li>
+                <li class="note">
+                    A <strong>statement</strong> is the smallest standalone piece of code that "says something" - it's
+                    often (but not always) a single line of code, and in JavaScript, is separated from other statements
+                    by a semicolon.
+                </li>
+                <li class="note">
+                    <strong>Syntax</strong> is comprised of the rules and symbols that allow a computer to "read" the
+                    code you write - it's how you structure your statements and expression, and doesn't necessarily
+                    always make 100% sense - it's just something about a language you'll need to memorize to make code
+                    run.
+                </li>
+                <li class="note">
+                    A <strong>comment</strong> is text or content inside of a code file that isn't code, and isn't
+                    interpreted or compiled by the machine. These are typically there for DX (developer experience) and
+                    (hopefully) a client won't actually see them.
+                </li>
+                <li class="note">
+                    Immediately after the browser loads JavaScript, it will execute. This means that, all else being
+                    equal, JavaScript will execute from top to bottom, and can't "see" code that's below it (with some
+                    exceptions).
+                </li>
+                <li class="note">
+                    JavaScript is a <strong>loosely-typed</strong> language - as opposed to more strongly-typed
+                    languages. The Number data type is a good example of this.
+                </li>
+            </ul>
+            <h2 class="main__subheading">Primitive Data Types</h2>
+            <ul class="notes">
+                <li class="note">
+                    JavaScript has 5 <strong>immutable</strong>, <strong>primitive</strong> data types:
+                </li>
+                <ul class="notes">
+                    <li class="note">Number</li>
+                    <li class="note">String</li>
+                    <li class="note">Boolean</li>
+                    <li class="note">Null</li>
+                    <li class="note">Undefined</li>
+                </ul>
+                <li class="note">
+                    A <code>Number</code> is... a number. JavaScript (largely) doesn't distinguish between
+                    floating-point and integer numbers - instead, all numeric operations are typically done with these
+                    capital-N Numbers.
+                </li>
+                <li class="note">
+                    A <code>String</code> is a collection of ordered characters - basically, text data.
+                </li>
+                <li class="note">
+                    A <code>Boolean</code> is precisely either <code>true</code> or <code>false</code> - a boolean can't
+                    be anything other than these two.
+                </li>
+                <li class="note">
+                    A <code>null</code> value means, literally, null - there's nothing there, it's nothing. This is a
+                    "known unknown" - we know, with certainty, that this value is exactly nothing. This is important to
+                    understand because of the following type:
+                </li>
+                <li class="note">
+                    An <strong>undefined</strong> value also means there's nothing there, but it means that it's because
+                    it literally doesn't exist. It would be exceedingly rare that you would ever see something "defined"
+                    to be <code>undefined</code>, whereas <code>null</code> is a valid "value" for something.
+                </li>
+            </ul>
+        </main>
+    </body>
+</html>

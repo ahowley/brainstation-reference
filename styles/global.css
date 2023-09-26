@@ -83,7 +83,6 @@ code {
 pre {
     display: block;
     white-space: pre;
-    overflow-x: scroll;
     max-width: 100%;
 }
 
