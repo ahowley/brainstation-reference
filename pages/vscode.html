@@ -1,132 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BSRef - VSCode & Emmet</title>
-        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
-    </head>
-    <body>
-        <header class="header">
-            <nav class="nav">
-                <a href="../" class="nav__button anchor--nostyle">
-                    <h2 class="nav__heading">BSRef</h2>
-                </a>
-            </nav>
-        </header>
-        <main class="main">
-            <h1 class="main__heading">VSCode Quick Reference</h1>
-            <p class="main__description">
-                Hotkeys listed are the Windows (and Linux, I think?) defaults - if you're on Mac, replacing
-                "ctrl/control" with "cmd/command" and replacing "alt" with "option" should make these work!
-            </p>
-            <h2 id="vscode" class="main__subheading">VSCode</h2>
-            <ul class="notes">
-                <li class="note">General</li>
-                <ul class="notes">
-                    <li class="note">
-                        <code>ctrl + shift + p<span class="implied">alette</span></code> to open the Command Palette -
-                        sort of a "search anything everywhere" button
-                    </li>
-                    <li class="note">
-                        <code
-                            >ctrl + k<span class="implied">eyboard</span> ctrl + s<span class="implied"
-                                >hortcuts</span
-                            ></code
-                        >
-                        to view all hotkeys
-                    </li>
-                </ul>
-                <li class="note">Editing/selection</li>
-                <ul class="notes">
-                    <li class="note"><code>tab</code> to auto-complete what you're currently typing</li>
-                    <li class="note">
-                        <code>shift + tab</code> to reduce current line/selection indentation by 1 level (basically
-                        reverse tab)
-                    </li>
-                    <li class="note">
-                        <code>ctrl + l<span class="implied">ine</span></code> to select current line
-                    </li>
-                    <li class="note">
-                        <code>alt + click (and drag)</code> to add another cursor/selection to your current
-                        cursor/selection, allowing you to edit multiple lines at once
-                    </li>
-                    <li class="note">
-                        <code>ctrl + d<span class="implied">uplicates</span></code> to find and add the next instance of
-                        whatever you have selected to your selection - ctrl+f's next-door neighbor, great for quickly
-                        renaming a class or variable
-                    </li>
-                </ul>
-                <li class="note">Comments</li>
-                <ul class="notes">
-                    <li class="note"><code>ctrl + /</code> to comment out (and back in) current line(s)</li>
-                    <li class="note"><code>ctrl + shift + a</code> to comment out (and back in) current selection</li>
-                </ul>
-                <li class="note">Navigation</li>
-                <ul class="notes">
-                    <li class="note">
-                        <code>ctrl + left arrow</code> and <code>ctrl + right arrow</code> to jump around brackets and
-                        parentheses and spaces
-                    </li>
-                    <li class="note">
-                        <code>ctrl + shift + left arrow</code> and <code>ctrl + shift + right arrow</code> to select
-                        around brackets and parentheses and spaces
-                    </li>
-                    <li class="note">
-                        <code>alt + left arrow</code> and <code>alt + right arrow</code> to jump to your previous/next
-                        cursor position - like ctrl+z for your cursor
-                    </li>
-                </ul>
-                <li class="note">Other</li>
-                <ul class="notes">
-                    <li class="note">
-                        <code>ctrl + alt + right arrow</code> to split your current file to the right half of the editor
-                        (<code>ctrl + alt + left arrow</code> to re-stack your windows)
-                    </li>
-                    <li class="note">
-                        <code>ctrl + j<span class="implied">erminal</span></code> to open and close an in-editor
-                        jerminal
-                    </li>
-                </ul>
-            </ul>
-            <h2 class="main__subheading">Emmet</h2>
-            <p class="main__description">
-                This comes default with VSCode, so you shouldn't need an extra plugin. I tried to enter the exact text
-                you'll type, which is why some closing quotations/brackets are missing.
-            </p>
-            <ul class="notes">
-                <li class="note"><code>! enter</code> to auto-generate html boilerplate</li>
-                <li class="note">
-                    <code>(element) tab</code> to auto-generate an html element. For example, <code>p tab</code> will
-                    generate an empty paragraph and put your cursor between tags to add content.
-                </li>
-                <li class="note">
-                    <code>(html element)[attribute tab</code> to generate an html element with an empty attribute. For
-                    example, <code>div[class tab</code> will generate a div element with class="" and a closing tag,
-                    with your cursor btween the quotes to add classes
-                </li>
-                <li class="note">
-                    <code>(html element)[attr=value atr="value with spaces" tab</code> to generate an html element with
-                    various attributes set to values. For example,
-                    <code>div[id=dog class="golden retriever tab</code> will generate a div element with an id value of
-                    "dog" and classes "golden" and "retriever", leaving your cursor between opening and closing tags to
-                    oadd content
-                </li>
-                <li class="note">
-                    <code>(html element).classname tab</code> to create an element with class "classname". For example,
-                    <code>div.golden tab</code> generates a div element with class "golden". Can be chained, i.e.
-                    <code>div.golden.retriver tab</code>
-                </li>
-            </ul>
-        </main>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - VSCode & Emmet</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">VSCode Quick Reference</h1>
+      <p class="main__description">
+        Hotkeys listed are the Windows (and Linux, I think?) defaults - if you're on Mac, replacing "ctrl/control" with
+        "cmd/command" and replacing "alt" with "option" should make these work!
+      </p>
+      <h2 id="vscode" class="main__subheading">VSCode</h2>
+      <ul class="notes">
+        <li class="note">General</li>
+        <ul class="notes">
+          <li class="note">
+            <code>ctrl + shift + p<span class="implied">alette</span></code> to open the Command Palette - sort of a
+            "search anything everywhere" button
+          </li>
+          <li class="note">
+            <code>ctrl + k<span class="implied">eyboard</span> ctrl + s<span class="implied">hortcuts</span></code>
+            to view all hotkeys
+          </li>
+        </ul>
+        <li class="note">Editing/selection</li>
+        <ul class="notes">
+          <li class="note"><code>tab</code> to auto-complete what you're currently typing</li>
+          <li class="note">
+            <code>shift + tab</code> to reduce current line/selection indentation by 1 level (basically reverse tab)
+          </li>
+          <li class="note">
+            <code>ctrl + l<span class="implied">ine</span></code> to select current line
+          </li>
+          <li class="note">
+            <code>alt + click (and drag)</code> to add another cursor/selection to your current cursor/selection,
+            allowing you to edit multiple lines at once
+          </li>
+          <li class="note">
+            <code>ctrl + d<span class="implied">uplicates</span></code> to find and add the next instance of whatever
+            you have selected to your selection - ctrl+f's next-door neighbor, great for quickly renaming a class or
+            variable
+          </li>
+        </ul>
+        <li class="note">Comments</li>
+        <ul class="notes">
+          <li class="note"><code>ctrl + /</code> to comment out (and back in) current line(s)</li>
+          <li class="note"><code>ctrl + shift + a</code> to comment out (and back in) current selection</li>
+        </ul>
+        <li class="note">Navigation</li>
+        <ul class="notes">
+          <li class="note">
+            <code>ctrl + left arrow</code> and <code>ctrl + right arrow</code> to jump around brackets and parentheses
+            and spaces
+          </li>
+          <li class="note">
+            <code>ctrl + shift + left arrow</code> and <code>ctrl + shift + right arrow</code> to select around brackets
+            and parentheses and spaces
+          </li>
+          <li class="note">
+            <code>alt + left arrow</code> and <code>alt + right arrow</code> to jump to your previous/next cursor
+            position - like ctrl+z for your cursor
+          </li>
+        </ul>
+        <li class="note">Other</li>
+        <ul class="notes">
+          <li class="note">
+            <code>ctrl + alt + right arrow</code> to split your current file to the right half of the editor (<code
+              >ctrl + alt + left arrow</code
+            >
+            to re-stack your windows)
+          </li>
+          <li class="note">
+            <code>ctrl + j<span class="implied">erminal</span></code> to open and close an in-editor jerminal
+          </li>
+        </ul>
+      </ul>
+      <h2 class="main__subheading">Emmet</h2>
+      <p class="main__description">
+        This comes default with VSCode, so you shouldn't need an extra plugin. I tried to enter the exact text you'll
+        type, which is why some closing quotations/brackets are missing.
+      </p>
+      <ul class="notes">
+        <li class="note"><code>! enter</code> to auto-generate html boilerplate</li>
+        <li class="note">
+          <code>(element) tab</code> to auto-generate an html element. For example, <code>p tab</code> will generate an
+          empty paragraph and put your cursor between tags to add content.
+        </li>
+        <li class="note">
+          <code>(html element)[attribute tab</code> to generate an html element with an empty attribute. For example,
+          <code>div[class tab</code> will generate a div element with class="" and a closing tag, with your cursor
+          btween the quotes to add classes
+        </li>
+        <li class="note">
+          <code>(html element)[attr=value atr="value with spaces" tab</code> to generate an html element with various
+          attributes set to values. For example, <code>div[id=dog class="golden retriever tab</code> will generate a div
+          element with an id value of "dog" and classes "golden" and "retriever", leaving your cursor between opening
+          and closing tags to oadd content
+        </li>
+        <li class="note">
+          <code>(html element).classname tab</code> to create an element with class "classname". For example,
+          <code>div.golden tab</code> generates a div element with class "golden". Can be chained, i.e.
+          <code>div.golden.retriver tab</code>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Prettier in VSCode</h2>
+      <ul class="notes">
+        <li class="note">
+          <a href="https://prettier.io/" target="_blank">Prettier</a> is a general-purpose code formatter available as a
+          plugin in VSCode.
+        </li>
+        <li class="note">
+          How to set your .prettierrc path in settings.json inside of .vscode:
+          <code>"prettier.configPath": ".prettierrc"</code>
+        </li>
+        <li class="note">
+          How to set your .prettierignore path in settings.json inside of .vscode:
+          <code>"prettier.ignorePath": ".prettierignore"</code>
+        </li>
+        <li class="note">Example .prettierrc:</li>
+        <div class="main__code-block">
+          <pre>
+                    <code>{
+    "printWidth": 120,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "bracketSameLine": true,
+    "arrowParens": "always",
+    "requirePragma": false,
+    "insertPragma": false,
+    "proseWrap": "always",
+    "htmlWhitespaceSensitivity": "css"
+}</code></pre>
+        </div>
+      </ul>
+    </main>
+  </body>
 </html>
