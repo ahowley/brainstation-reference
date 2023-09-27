@@ -201,11 +201,13 @@
         <li class="note">There are also several <strong>assignment operators</strong>:</li>
         <ul class="notes">
           <li class="note">
-            <code>++</code> is the <strong>increment operator</strong> - it will add one to the variable preceding it.
+            <code>++</code> is the <strong>increment operator</strong> - it will add one to the variable preceding or
+            following it. If it's in front - <code>++var</code> - it returns the new value of var (after increment).
+            Otherwise - <code>var++</code> - it returns the old value (before increment).
           </li>
           <li class="note">
             <code>--</code> is the <strong>decrement operator</strong> - it will subtract one from the variable
-            preceding it.
+            preceding or following it.
           </li>
           <li class="note">
             <code>+=</code> is the <strong>addition assignment operator</strong> - it will add the value following it to

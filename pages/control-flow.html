@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Control Flow</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Control Flow</h1>
+      <p class="main__description">
+        <strong>Control flow</strong> allows us to reuse, loop, or conditionally execute certain expressions,
+        statements, and blocks of code based on the needs of a program at any given moment. We can use things like
+        conditional statements and loops to tell a program how to behave or how many times it should execute a code
+        block. This lets us add more structure to the instructions we write and create more powerful programs.
+      </p>
+      <h2 class="main__subheading">Conditional Execution</h2>
+      <ul class="notes">
+        <li class="note">
+          Using <strong>Conditional Statements</strong> allow us to create different <strong>branches</strong> for our
+          code to follow depending on whether certain <strong>conditions</strong> hold true or false.
+        </li>
+        <li class="note">
+          We create an <strong>if-else</strong> statement as follows:
+          <code>if (someCondition === true) { /* someCondition is true */ } else { /* someCondition is false */ }</code
+          >. Not every <code>if</code> needs an <code>else</code>, it will work fine on its own.
+        </li>
+        <li class="note">
+          <code>else</code> and <code>if</code> can also collaborate/be chained together:
+          <code>
+            if (someCondition === 1) { /* someCondition is 1 */ } else if (someCondition === 2) { /* someCondition is 2
+            */ } else { /* someCondition is neither 1 nor 2 */ }
+          </code>
+        </li>
+        <li class="note">
+          Inside the parentheses of a conditional statement, we include a conditional expression, which will always
+          evaluate to a boolean <code>true</code> or <code>false</code>.
+        </li>
+        <li class="note">
+          The curly braces of a conditional statement are <strong>blocks</strong> of code - that is, stand-alone chunks
+          of code that, in a sense, need "permission" or to be "requested" to execute.
+        </li>
+        <li class="note">
+          Similar to if-else, but with a different syntax and common use-case, there are
+          <strong>switch statements</strong>.
+        </li>
+        <li class="note">
+          We execute different expressions depending on the value of the expression inside the switch statement. By
+          default, whenever a condition is met in one of the <strong>cases</strong>, ALL remaining cases will be
+          evaluated as "true". To avoid this, we include <code>break;</code> at the end of each condition. We can also
+          provide a <code>default</code> code block to execute if none of the conditions are met.
+        </li>
+        <div class="main__code-block">
+          <code>
+            <pre>
+function getReward(tier) {
+  let reward = [];
+  switch (tier) {
+    case "gold":
+      reward.push("a gold medal");
+    case "silver":
+      reward.push("a high five");
+    case "bronze":
+      reward.push("$100");
+      break;
+    default:
+      reward.push("a slap on the wrist");
+  return reward;
+  }
+}
+getReward("gold"); // ["a gold medal", "a high five", "$100"];
+getReward("bronze"); // ["$100"];
+getReward("cerulean"); // ["a slap on the wrist"];</pre
+            >
+          </code>
+        </div>
+      </ul>
+      <h2 class="main__subheading">Loops</h2>
+      <ul class="notes">
+        <li class="note">
+          <strong>Loops</strong> are a powerful type of control flow that allow us to execute the same block of code as
+          many times in a row as we'd like.
+        </li>
+        <li class="note">
+          One of the most common types of loop is a <strong>for loop</strong> - these are a type of loop where we
+          (generally speaking) tell the code block exactly how many times we want it to run, and in which order.
+        </li>
+        <li class="note">
+          A for loop is written as follows: <code>for (let i=0; i&#60;100; i++) { /* do stuff 100x */ }</code>
+        </li>
+        <li class="note">
+          The above example first sets a variable called <code>i</code> (a common convention, standing for "iterator")
+          to 0. It then states that the following code block should execute as long as <code>i</code> is still
+          <strong>less than 100</strong>. The final bit tells <code>i</code> to <strong>iterate</strong> by 1 every time
+          the code block executes, so it gets 1 closer to the preset limit of 100 each loop.
+        </li>
+        <li class="note">
+          There are also a few different ways to use a for loop to iterate through each element of an array. Each of the
+          following do the same thing in different ways:
+        </li>
+        <div class="main__code-block">
+          <code>
+            <pre>
+for (let i=0; i&#60;array.length; i++) {
+  console.log(array[i]);
+}
+
+array.forEach((element) => {
+  console.log(element);
+});
+
+for (let i in array) {
+  console.log(array[i]);
+}
+
+for (let element of array) {
+  console.log(element);
+}
+</pre
+            >
+          </code>
+        </div>
+        <li class="note">
+          In addition to for loops, we also can use <strong>while loops</strong>. These execute code an unlimited number
+          of times, so long as their condition is still <code>true</code>.
+        </li>
+        <li class="note">
+          The syntax of while loops is very simple: <code>while (someCondition) { /* someCondition is true */ }</code>
+        </li>
+        <li class="note">
+          We will almost always alter the condition in some way inside the looping code block, such that the condition
+          allowing the block to loop will eventually become <code>false</code>.
+        </li>
+        <li class="note">
+          The <code>do { /* do stuff */ } while (someCondition))</code> loop is very similar to a regular while loop,
+          but guarantees execution of the code block at least once.
+        </li>
+        <li class="note">To break out of any loop's code block at any given moment, we use <code>break</code>.</li>
+      </ul>
+    </main>
+  </body>
+</html>
