@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Data Structures</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Data Structures</h1>
+      <p class="main__description">
+        <strong>Data Structures</strong> are various types of ways to organize data into neat little packages - your
+        "moving boxes" of software engineering. The two types of data structures we'll be using most prominently are
+        JavaScript's <strong>Arrays</strong> and <strong>Objects</strong>.
+      </p>
+      <h2 class="main__subheading">Arrays</h2>
+      <ul class="notes">
+        <li class="note">
+          For an exhaustive list of Array methods and parameters, see
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+            target="_blank"
+            >the MDN page here</a
+          >.
+        </li>
+        <li class="note">
+          An array is a <strong>mutable, ordered collection of values</strong> - each value has an
+          <strong>index</strong> in the array that we can use to find it.
+        </li>
+        <li class="note">
+          The first item in a JavaScript array <strong>has an index of 0</strong>, which means JS Arrays are
+          <strong>zero-indexed</strong>.
+        </li>
+        <li class="note">
+          We can declare a variable and assign an array to it in a couple of ways. The first is using the Array object
+          <strong>constructor</strong>: <code>const arrayVar = new Array();</code> or using the
+          <strong>Array literal</strong>: <code>const arrayVar = [];</code>. It is much, much more common to use the
+          literal.
+        </li>
+        <li class="note">
+          Arrays in JavaScript are not sized - items can be added to or removed from an Array at will.
+        </li>
+        <li class="note">
+          An Array in Javascript isn't typed - it can hold values of any type, including other arrays.
+        </li>
+        <li class="note">
+          We can provide values inline when defining an array: <code>let arrayVar = ["Item 1", 2, 3.5, 176]</code>
+        </li>
+        <li class="note">
+          To access a value at a specific index, we again use brackets: <code>arrayVar[0]; // "Item 1"</code>
+        </li>
+        <li class="note">
+          To add an element or element(s) to the end of an array (and return the length of the array afterward), we use
+          the
+          <strong>push</strong> method: <code>arrayVar.push("Item 4");</code> or
+          <code>arrayVar.push("Item 4", "Item 5");</code>
+        </li>
+        <li class="note">
+          To add an element or element(s) to the start of an array (and return the length of the array afterward), we
+          use the
+          <strong>unshift</strong> method: <code>arrayVar.unshift("New Item 1");</code> or
+          <code>arrayVar.unshift("New Item 1", "New Item 2");</code>
+        </li>
+        <li class="note">
+          We can extend an array with the values from another array using the <strong>spread</strong> operator:
+          <code>arrayVar.push(...["Item 5", "Item 6"]);</code>
+        </li>
+        <li class="note">
+          To remove an element out of the end of an array (and return the element removed), we can use the
+          <strong>pop</strong> method: <code>arrayVar.pop(); // "Item 6"</code>
+        </li>
+        <li class="note">
+          To remove an element out of the start of an array (and return the element removed), we can use the
+          <strong>shift</strong> method: <code>arrayVar.shift(); // "Item 1"</code>
+        </li>
+        <li class="note">
+          To target a specific index and remove a certain number of elements from that location, we can use the
+          <strong>splice</strong> method: <code>arrayVar.splice(1, 2);</code>
+        </li>
+        <li class="note">
+          To know how many elements are in an Array, we can use the <strong>length</strong> property (note this is not a
+          method):
+          <code>arrayVar.length;</code>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Objects</h2>
+      <ul class="notes">
+        <li class="note">
+          For an exhaustive list of Object methods and parameters, and an overview of the data structure in JS, see
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+            target="_blank"
+            >the MDN page here</a
+          >.
+        </li>
+        <li class="note">An <strong>Object</strong> in JavaScript is a collection <strong>key-value pairs</strong>.</li>
+        <li class="note">
+          Almost everything in JavaScript is an object - JS is fundamentally <strong>object-oriented</strong>.
+        </li>
+        <li class="note">
+          We can declare a variable and assign an Object to it similarly to arrays:
+          <code>const objectVar = new Object();</code> or <code>let objectVar = {}</code>
+        </li>
+        <li class="note">
+          We can assign values when an object is created similarly to Arrays as well:
+          <code>const objectVar = { key1: "value1", key2: "value2" }</code>
+        </li>
+        <li class="note">
+          When we leave out quotation marks when defining a key, that key will be defined as a string.
+        </li>
+        <li class="note">
+          We can add values to an object with brackets, similarly to Arrays, or with dot notation:
+          <code>objectVar["value3"] = 3;</code> or <code>objectVar.value3 = 3;</code>
+        </li>
+        <li class="note">
+          We access values and/or properties in an object just like we do with Arrays, with brackets containing the
+          key/"index", or we can access them with "dot notation": <code>objectVar.value3; // 3</code>
+        </li>
+        <li class="note">
+          There can only be one value assigned to a key at a time - if we assigned a new value to a key, it will
+          overwrite the old value.
+        </li>
+        <li class="note">An Object's key is always a String.</li>
+      </ul>
+    </main>
+  </body>
+</html>
