@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Functions</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Functions</h1>
+      <p class="main__description">
+        <strong>Functions</strong> are a powerful tool that allow us to reuse blocks of code and perform the same
+        operation on multiple different pieces of data, as well as keep our code organized and easy to maintain and
+        scale.
+      </p>
+      <ul class="notes">
+        <li class="note">
+          Functions provide a way for us to wrap up a set of instructions under a single roof. Functions
+          <strong>return</strong> values (or even other functions), and accept <strong>arguments</strong>.
+        </li>
+        <li class="note">Using a function is called <strong>calling, invoking, or executing</strong>.</li>
+        <li class="note">
+          To invoke a function, we can use <code>functionName();</code> Note the parentheses here - these are what tell
+          the function to run. We could reference this function without executing it by leaving these parentheses out:
+          <code>functionName;</code>
+        </li>
+        <li class="note">
+          An <strong>argument</strong> is some value, object, or function <strong>passed</strong> to a function to
+          "tell" the function about that value and allow the function to work with it. A simple example is when we pass
+          a string or value(s) to <code>console.log('argument');</code>
+        </li>
+        <li class="note">When a function belongs to a class, it's known as a <strong>method</strong>.</li>
+        <li class="note">To create a function, we can use the keyword <strong>function</strong> as follows:</li>
+        <div class="main__code-block">
+          <code>
+            <pre>
+function myFunction(parameter) {
+  /* Do stuff */
+  return stuffDone;
+}</pre
+            >
+          </code>
+        </div>
+        <li class="note">
+          A named variable that is a part of a function's definition is called a <strong>parameter</strong>.
+        </li>
+        <li class="note">
+          A value passed to a function and assigned to a parameter is knownn as an <strong>argument</strong>.
+        </li>
+        <li class="note">
+          Prioritize modularity, ensuring functions are built to do as close to one thing as possible. Preserve the
+          "single source of truth" approach.
+        </li>
+        <li class="note">
+          The block of code defined inside a function is called that function's <strong>body</strong>.
+        </li>
+        <li class="note">
+          To define what we want a function to <strong>return</strong>, we use the keyword <code>return</code>.
+          Returning from a function is kind of like <code>break</code>ing out of a loop, in that anything after the
+          function returns won't execute.
+        </li>
+        <li class="note">
+          Functions can also be assigned to variables: <code>let functionVariable = function() { /* Do Stuff */ }</code>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
