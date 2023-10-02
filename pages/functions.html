@@ -234,7 +234,7 @@ function add(num1, num2) {
 }
 
 setTimeout(function() {
-  add(1, 1);
+  return add(1, 1);
 }, 3000);</pre
           >
         </code>
@@ -263,7 +263,9 @@ const add = (num1, num2) => {
   return num1 + num2;
 }
 
-setTimeout(() => add(1, 1), 3000);</pre
+setTimeout(() => {
+  return add(1, 1);
+}, 3000);</pre
           >
         </code>
       </div>
@@ -273,7 +275,7 @@ setTimeout(() => add(1, 1), 3000);</pre
           <pre>
 const add = (num1, num2) => return num1 + num2;
 
-setTimeout(() => add(1, 1), 3000);</pre
+setTimeout(() => return add(1, 1), 3000);</pre
           >
         </code>
       </div>
