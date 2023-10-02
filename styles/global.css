@@ -153,6 +153,10 @@ a.anchor--nostyle {
   padding: 1.25rem 0 1rem 0;
 }
 
+.main__section-heading {
+  padding: 1.25rem 0 1rem 0;
+}
+
 .main__description {
   padding-bottom: 1rem;
 }

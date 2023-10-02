@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Scope</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Scope</h1>
+      <p class="main__description">
+        <strong>Scope</strong> in programming is a term that refers to what names and values can be referenced,
+        returned, named, and overwritten in a given chunk of code. A common associated term is
+        <strong>namespace</strong> - the "space" in the code within which a given name can be referenced.
+      </p>
+      <h2 class="main__subheading">"let" and "const"</h2>
+      <ul class="notes">
+        <li class="note">
+          Introduced in ECMA2015 along with arrow functions. These keywords were introduced to mimic the
+          <code>var</code> keyword (the "old" way of declaring variables), except they use
+          <strong>block scoping rules</strong>.
+        </li>
+        <li class="note">
+          <code>const</code> is a special type of "variable" definition - it's not actually a "variable" at all.
+          Instead, this keyword defines a <strong>"constant" variable</strong> - one that can
+          <strong>never be reassigned</strong>.
+        </li>
+        <li class="note">
+          Variables defined using <code>let</code> or <code>const</code> are scoped to the code block where they are
+          declared. This means that cannot be referenced outside of the code where they are declared, and can re-use
+          variable names that have already been declared outside their code block without overwriting those variables.
+        </li>
+        <li class="note">
+          Defining variables <strong>globally</strong> (outside any code block in a script file, or more precisely,
+          declaring a name straight to the outermost scope, "window") should be done sparingly, if ever. We want to try
+          to make sure we declare any given name in the most specific possible scope.
+        </li>
+      </ul>
+      <h2 class="main__subheading">"var"</h2>
+      <ul class="notes">
+        <li class="note">
+          Prior to ECMA2015, all variables were declared using the keyword <code>var</code>. This works just like the
+          <code>let</code> keyword, except the scoping rules are different.
+        </li>
+        <li class="note">
+          Variables defined with <code>var</code> are <strong>function-scoped</strong>. If you redefine a name inside a
+          nested code block/function/scope, it will
+          <strong>overwrite a variable declared using var of the same name</strong> from outside that scope.
+        </li>
+        <li class="note">
+          Variables defined using <code>var</code> can be <strong>re-declared</strong>, while neither
+          <code>let</code> nor <code>const</code> allow this.
+        </li>
+        <li class="note">
+          For this reason, using <code>let</code> and <code>const</code> - i.e. the "stricter" scoping rules - is
+          basically always preferred.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Differences Overview</h2>
+      <ul class="notes">
+        <li class="note">
+          <code>var</code> is the <strong>most permissive</strong>, is <strong>function-scoped</strong>, and allows
+          <strong>both redeclaration and reassignment</strong>.
+        </li>
+        <li class="note">
+          <code>let</code> is the <strong>go-to for naming variable values</strong>, is <strong>block-scoped</strong>,
+          and allows <strong>reassignment</strong>, but <strong>not redeclaration</strong>.
+        </li>
+        <li class="note">
+          <code>const</code> is the <strong>most strict</strong>, is <strong>block-scoped</strong>, and
+          <strong>allows neither redeclaration nor reassignment</strong>.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

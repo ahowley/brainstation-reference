@@ -80,6 +80,225 @@ function myFunction(parameter) {
           Functions can also be assigned to variables: <code>let functionVariable = function() { /* Do Stuff */ }</code>
         </li>
       </ul>
+      <h2 class="main__subheading">Functions as Values</h2>
+      <ul class="notes">
+        <li class="note">
+          See a detailed overview of first-class functions in JavaScript
+          <a href="https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function" target="_blank"
+            >on MDN here</a
+          >.
+        </li>
+        <li class="note">
+          Functions in JavaScript are known as <strong>First Class</strong> functions, meaning they can themselves be
+          passed as values, be treated as values, and even be returned themselves from other functions.
+        </li>
+        <li class="note">
+          We can pass a function to another function, either a named function or an anonymous function:
+          <code>doStuff(function() { // Anonymous Function });</code>
+        </li>
+        <li class="note">
+          When we don't include the parenthesis following the function, we are referencing the function object itself.
+          We can then use that function object to later call the function elsewhere.
+          <code>doStuff(callbackFunction) { return callbackFunction(); }</code>
+        </li>
+        <li class="note">
+          setTimeout is a built-in function that takes a function as an argument. It will execute the function passed to
+          it after a certain amount of time. The below example passes an anonymous function, but a named function can be
+          used as well.
+        </li>
+        <div class="main__code-block">
+          <code>
+            <pre>
+setTimeout(function() {
+  console.log('Logged after 3000 ms');
+}, 3000);</pre
+            >
+          </code>
+        </div>
+      </ul>
+      <h2 class="main__subheading">Anonymous Functions</h2>
+      <ul class="notes">
+        <li class="note">
+          We can create an anonymous function by simply not providing it a name. Below are two examples: The first is a
+          named function that adds two numbers, and the second is the same thing, but an anonymous version.
+        </li>
+        <div class="main__code-block">
+          <code>
+            <pre>
+function add(num1, num2) {
+  return num1 + num2;
+}</pre
+            >
+          </code>
+        </div>
+        <div class="main__code-block">
+          <code>
+            <pre>
+function (num1, num2) {
+  return num1 + num2;
+}</pre
+            >
+          </code>
+        </div>
+        <li class="note">
+          Note that we can't actually use our second example here, because we have no way to reference it. But there are
+          times where you want to pass some behavior to another function via a callback function, but don't need that
+          callback function anywhere else in the code. This is a situation where an anonymous function is useful - see
+          the setTimeout example from above.
+        </li>
+        <li class="note">
+          We can assign an anonymous function to a variable, just like any other value:
+          <code>let functionVariable = function() { // doStuff }</code>
+        </li>
+        <li class="note">
+          Anonymous functions are also useful to allow us to pass arguments to a named function when we need to call
+          that named function at a later or unspecified time.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Arrow Functions</h2>
+      <ul class="notes">
+        <li class="note">
+          Introduced in ES2015, arrow functions use a new syntax to define functions, and are a way to define anonymous
+          functions in a simpler and more succinct way.
+        </li>
+        <li class="note">Defining an anonymous arrow function looks like this: <code>() => {}</code></li>
+        <li class="note">
+          We can also create single-line arrow functions without curly brackets:
+          <code>(param1, param2) => return param1 + param2</code>
+        </li>
+        <li class="note">
+          If an arrow function has exactly one parameter, parentheses aren't needed either:
+          <code>param1 => param1 + 1</code>
+        </li>
+        <li class="note">
+          To create the above anonymous function with the "older"/more "traditional" syntax, it would look like this:
+          <code>function () {}</code>
+        </li>
+        <li class="note">
+          Arrow functions and anonymous functions using <code>function() {}</code> are the same, for all intents and
+          purposes. The only difference to be conscious of is that arrow functions can't be named the way functions
+          defined using <code>function functionName() {}</code> can - instead, to "name" an anonymous arrow function,
+          you have to assign the function, as an object/value, to a variable.
+        </li>
+        <li class="note">
+          Continuing from the above note - functions named with <code>function</code> are <strong>"hoisted"</strong>.
+          This is a special behavior of JavaScript's interpreter - a named function using <code>function</code> can be
+          called from <strong>anywhere else in the file</strong>, even above the function definition. This behavior is
+          exclusive to this type of function declaration - arrow functions are never hoisted.
+        </li>
+        <li class="note">
+          With arrow functions, there's also something known as <strong>implicit return</strong> - if the only thing an
+          arrow function does is return something, we can omit the <code>return</code> keyword:
+          <code>const doStuff = (param1, param2) => param1 + param2</code>
+        </li>
+      </ul>
+      <h2 class="main__subheading" id="examples">All of the following examples do the same thing:</h2>
+      <h3 class="main__section-heading">Named Functions Using "function name() {}"</h3>
+      <div class="main__code-block">
+        <code>
+          <pre>
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+function callOnePlusOne() {
+  return add(1, 1);
+}
+
+setTimeout(callOnePlusOne, 3000);</pre
+          >
+        </code>
+      </div>
+      <h3 class="main__section-heading">Same As Above, Leveraging "Hoisting"</h3>
+      <div class="main__code-block">
+        <code>
+          <pre>
+setTimeout(callOnePlusOne, 3000);
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+function callOnePlusOne() {
+  return add(1, 1);
+}</pre
+          >
+        </code>
+      </div>
+      <h3 class="main__section-heading">Anonymous Function to Call Named Function With Arguments</h3>
+      <div class="main__code-block">
+        <code>
+          <pre>
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+setTimeout(function() {
+  add(1, 1);
+}, 3000);</pre
+          >
+        </code>
+      </div>
+      <h3 class="main__section-heading">"Named" Arrow Functions</h3>
+      <div class="main__code-block">
+        <code>
+          <pre>
+const add = (num1, num2) => {
+  return num1 + num2;
+}
+
+const callOnePlusOne = () => {
+  return add(1, 1);
+}
+
+setTimeout(callOnePlusOne, 3000);</pre
+          >
+        </code>
+      </div>
+      <h3 class="main__section-heading">Arrow Function to Call Named Function With Arguments</h3>
+      <div class="main__code-block">
+        <code>
+          <pre>
+const add = (num1, num2) => {
+  return num1 + num2;
+}
+
+setTimeout(() => add(1, 1), 3000);</pre
+          >
+        </code>
+      </div>
+      <h3 class="main__section-heading">Same As Above, With 1-Line Arrow Function Shorthand</h3>
+      <div class="main__code-block">
+        <code>
+          <pre>
+const add = (num1, num2) => return num1 + num2;
+
+setTimeout(() => add(1, 1), 3000);</pre
+          >
+        </code>
+      </div>
+      <h3 class="main__section-heading">Same As Above, Implicit Return</h3>
+      <div class="main__code-block">
+        <code>
+          <pre>
+const add = (num1, num2) => num1 + num2;
+
+setTimeout(() => add(1, 1), 3000);</pre
+          >
+        </code>
+      </div>
+      <h3 class="main__section-heading">A Single Anonymous Function</h3>
+      <div class="main__code-block">
+        <code>
+          <pre>setTimeout(function() { return 1 + 1; }, 3000);</pre>
+        </code>
+      </div>
+      <h3 class="main__section-heading">A Single Arrow Function With Implicit Return and One-Liner Shorthands</h3>
+      <div class="main__code-block">
+        <code>
+          <pre>setTimeout(() => 1 + 1, 3000);</pre>
+        </code>
+      </div>
     </main>
   </body>
 </html>
