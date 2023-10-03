@@ -1,82 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BSRef - Sass</title>
-        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
-        <link rel="stylesheet" href="../styles/position-float.css" type="text/css" rel="stylesheet" />
-    </head>
-    <body>
-        <header class="header">
-            <nav class="nav">
-                <a href="../" class="nav__button anchor--nostyle">
-                    <h2 class="nav__heading">BSRef</h2>
-                </a>
-            </nav>
-        </header>
-        <main class="main">
-            <h1 class="main__heading">Sass</h1>
-            <p class="main__description">
-                See <a href="https://sass-lang.com/guide/" target="_blank">this page</a> for the official "Basics"
-                guide.
-            </p>
-            <h2 class="main__subheading">Overview</h2>
-            <ul class="notes">
-                <li class="note">
-                    Sass is a <strong>CSS Preprocessor</strong> built for front-end styling that is compiled into
-                    regular CSS for the browser to understand the code.
-                </li>
-                <li class="note">
-                    Sass is a styling framework that keeps development close to CSS, as opposed to attempting to offer
-                    out-of-the-box styling options or pre-built classes.
-                </li>
-                <li class="note">
-                    Sass attempts to improve reusability, keep the code cleaner and better organized, and allows a
-                    simpler workflow for splitting up files/partials.
-                </li>
-                <li class="note">Sass supports nesting, and allows the use of mixins.</li>
-                <li class="note">Common file extentions for Sass include .scss and .sass.</li>
-                <li class="note">Anything you can write in CSS, you can write in Sass.</li>
-                <li class="note">
-                    BEM, and Sass, do not need to mimic HTML. A parent-child relationship as understood by the browser
-                    is not necessarily the same as a parent-child or block-element relationship in the overarching site
-                    design.
-                </li>
-            </ul>
-            <h2 class="main__subheading">Compiling</h2>
-            <ul class="notes">
-                <li class="note">
-                    There are many ways to compile scss, and one simple way is the
-                    <strong>Live Sass Compiler</strong> by Glenn Marks in VSCode.
-                </li>
-                <li class="note">
-                    After clicking <strong>Watch Sass</strong> with the extension installed, a style.scss file will be
-                    compiled into style.css.map and style.css file in the same directory.
-                </li>
-                <li class="note">
-                    If compilation fails, it won't save the results of compilation into your css file. Keep an eye on
-                    the terminal when a change you've made doesn't seem to work.
-                </li>
-                <li class="note">
-                    the .css.map file helps the browser know where the css file is coming from - it allows dev tools to
-                    navigate your scss code when debugging.
-                </li>
-                <li class="note">
-                    In your settings.json in your .vscode folder, you can define various settings for the Live Compiler.
-                </li>
-            </ul>
-            <div class="main__code-block">
-                <pre><code>"liveSassCompile.settings.formats": [
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Sass</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-scss.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/position-float.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Sass</h1>
+      <p class="main__description">
+        See <a href="https://sass-lang.com/guide/" target="_blank">this page</a> for the official "Basics" guide.
+      </p>
+      <h2 class="main__subheading">Overview</h2>
+      <ul class="notes">
+        <li class="note">
+          Sass is a <strong>CSS Preprocessor</strong> built for front-end styling that is compiled into regular CSS for
+          the browser to understand the code.
+        </li>
+        <li class="note">
+          Sass is a styling framework that keeps development close to CSS, as opposed to attempting to offer
+          out-of-the-box styling options or pre-built classes.
+        </li>
+        <li class="note">
+          Sass attempts to improve reusability, keep the code cleaner and better organized, and allows a simpler
+          workflow for splitting up files/partials.
+        </li>
+        <li class="note">Sass supports nesting, and allows the use of mixins.</li>
+        <li class="note">Common file extentions for Sass include .scss and .sass.</li>
+        <li class="note">Anything you can write in CSS, you can write in Sass.</li>
+        <li class="note">
+          BEM, and Sass, do not need to mimic HTML. A parent-child relationship as understood by the browser is not
+          necessarily the same as a parent-child or block-element relationship in the overarching site design.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Compiling</h2>
+      <ul class="notes">
+        <li class="note">
+          There are many ways to compile scss, and one simple way is the
+          <strong>Live Sass Compiler</strong> by Glenn Marks in VSCode.
+        </li>
+        <li class="note">
+          After clicking <strong>Watch Sass</strong> with the extension installed, a style.scss file will be compiled
+          into style.css.map and style.css file in the same directory.
+        </li>
+        <li class="note">
+          If compilation fails, it won't save the results of compilation into your css file. Keep an eye on the terminal
+          when a change you've made doesn't seem to work.
+        </li>
+        <li class="note">
+          the .css.map file helps the browser know where the css file is coming from - it allows dev tools to navigate
+          your scss code when debugging.
+        </li>
+        <li class="note">
+          In your settings.json in your .vscode folder, you can define various settings for the Live Compiler.
+        </li>
+      </ul>
+      <div class="main__code-block">
+        <pre><code>"liveSassCompile.settings.formats": [
   {
     "format": "expanded",
     "extensionName": ".css",
@@ -93,117 +94,112 @@
     "savePath": "~/../css/"
   }
 ]</code></pre>
-            </div>
-            <h2 class="main__subheading">Variables</h2>
-            <ul class="notes">
-                <li class="note">
-                    Sass supports <strong>variables</strong> using a simple syntax:
-                    <code>$variable: value</code> assigns a value, and <code>$variable</code> references that value.
-                </li>
-                <li class="note">
-                    Sass variables have <strong>scope</strong>, meaning that variable names can be redefined per scss
-                    file, unlike default css.
-                </li>
-                <li class="note">Convention tells us to define $variables at the top of a file.</li>
-            </ul>
-            <h2 class="main__subheading">Mixins</h2>
-            <ul class="notes">
-                <li class="note">
-                    Help DRY up code by using <strong>arguments</strong> in place of the normal CSS cascade.
-                </li>
-                <li class="note">
-                    You can import a mixin into any block of CSS that you'd like, leveraging reusable code without
-                    expanding complexity in terms of structure.
-                </li>
-                <li class="note">Convention tells us to define @mixins at the top of the file, below variables.</li>
-                <li class="note">
-                    Mixins are defined with a function-like syntax: <code>@mixin mixin-name($param1, $param2)</code>
-                </li>
-                <li class="note">Mixins are referenced using <code>@import mixin-name(value1, value2)</code></li>
-                <li class="note">Mixins can be imported into other mixins.</li>
-                <li class="note">
-                    Mixins do support some business logic processing as well, that we didn't cover in our first lecture
-                    on Sass.
-                </li>
-                <li class="note">
-                    An alternative way to use mixins is to use <code>@extend .css-selector</code>, which will import all
-                    the css properties from the provided css selector.
-                </li>
-                <li class="note">
-                    In general, if you have a choice between @import and @extend, it is probably best to lean toward
-                    @import to stick with the overarching design goal of having a
-                    <strong>"single source of truth"</strong>.
-                </li>
-                <li class="note">
-                    We can use <code>@content</code> to define a wrapper mixin, allowing us to use a mixin as a wrapper.
-                    For example,
-                    <code>@mixin tablet { @media (min-width: 426px) and (max-width: 767px) { @content } }</code> could
-                    be used to create a media query surrounding a css block like this:
-                    <code>@include tablet { .hidden-tablet { display: none;} }</code>
-                </li>
-            </ul>
-            <h2 class="main__subheading">Nesting</h2>
-            <ul class="notes">
-                <li class="note">
-                    You can nest element selectors in Sass, which is equivalent to using a descendant selector in CSS.
-                    <code>div { margin: 0; } div a { color: blue; }</code> becomes
-                    <code>div { margin: 0; a { color: blue; } }</code>
-                </li>
-                <li class="note">
-                    We can look for specific elements in a BEM-like way using <strong>ampersand</strong>. The ampersand
-                    <strong>only looks at the name of the selector it's referencing</strong>, meaning it doesn't care
-                    about how deeply nested an element might be.
-                </li>
-                <li class="note">
-                    For example: to target an unordered list with class "nav__list", we could do that like this:
-                    <code>.nav { &__list {} }</code>, but we could also target a list item inside that list in the same
-                    block: <code>.nav { &__list {} &__list-item {} }</code>.
-                </li>
-                <li class="note">
-                    You can use ampersand to exploit nesting to simplify pseudo-classes and pseudo-elements.
-                    <code>.button { &:hover {} }</code> would compile to <code>.button {} .button:hover {}</code>
-                </li>
-            </ul>
-            <h2 class="main__subheading">Imports, Code Structure, Conventions</h2>
-            <ul class="notes">
-                <li class="note">
-                    For the sake of separation of concerns, you can import other scss files with
-                    <code>@use './styles.scss'</code> at the top of an scss file.
-                </li>
-                <li class="note">
-                    To prevent scss files from compiling, we can use the underscore convention to tell an scss file that
-                    it should be "private", or that it is only for use via import in other scss files.
-                </li>
-                <li class="note">
-                    Files that are prefixed with an underscore and only used by other scss files are called
-                    <strong>partials</strong>.
-                </li>
-                <li class="note">
-                    When importing with @use or rerencing an imported file, you
-                    <strong>don't have to include underscores from this convention</strong>.
-                </li>
-                <li class="note">
-                    Because variables are private, after important, we need to use the imported file name when
-                    referencing variables and mixins from imported scss. If <code>$variable</code> is defined in
-                    _global.scss, to reference this variable in local.scss that's importing _global, we need to use
-                    <code>global.$variable</code>.
-                </li>
-                <li class="note">
-                    We can get around the above by using a wildcard in the import to expose all imported variables to
-                    the current scope. Using the previous example, we would import _global.scss using
-                    <code>@use global.scss as *;</code>, after which we could just use <code>$variable</code> anywhere
-                    in local.scss, without the "global." prefix.
-                </li>
-                <li class="note">
-                    Convention tells us to have a "_globals.scss" for things we want to apply to literally every single
-                    page without exception.
-                </li>
-                <li class="note">
-                    We can then import partials into a single styles.scss file that is applied to all pages, and BEM
-                    will ensure we don't face problems with scope. This improves separation of concerns by ensuring
-                    designers don't need to edit HTML to apply their styles.
-                </li>
-            </ul>
-        </main>
-    </body>
+      </div>
+      <h2 class="main__subheading">Variables</h2>
+      <ul class="notes">
+        <li class="note">
+          Sass supports <strong>variables</strong> using a simple syntax: <code>$variable: value</code> assigns a value,
+          and <code>$variable</code> references that value.
+        </li>
+        <li class="note">
+          Sass variables have <strong>scope</strong>, meaning that variable names can be redefined per scss file, unlike
+          default css.
+        </li>
+        <li class="note">Convention tells us to define $variables at the top of a file.</li>
+      </ul>
+      <h2 class="main__subheading">Mixins</h2>
+      <ul class="notes">
+        <li class="note">Help DRY up code by using <strong>arguments</strong> in place of the normal CSS cascade.</li>
+        <li class="note">
+          You can import a mixin into any block of CSS that you'd like, leveraging reusable code without expanding
+          complexity in terms of structure.
+        </li>
+        <li class="note">Convention tells us to define @mixins at the top of the file, below variables.</li>
+        <li class="note">
+          Mixins are defined with a function-like syntax: <code>@mixin mixin-name($param1, $param2)</code>
+        </li>
+        <li class="note">Mixins are referenced using <code>@import mixin-name(value1, value2)</code></li>
+        <li class="note">Mixins can be imported into other mixins.</li>
+        <li class="note">
+          Mixins do support some business logic processing as well, that we didn't cover in our first lecture on Sass.
+        </li>
+        <li class="note">
+          An alternative way to use mixins is to use <code>@extend .css-selector</code>, which will import all the css
+          properties from the provided css selector.
+        </li>
+        <li class="note">
+          In general, if you have a choice between @import and @extend, it is probably best to lean toward @import to
+          stick with the overarching design goal of having a
+          <strong>"single source of truth"</strong>.
+        </li>
+        <li class="note">
+          We can use <code>@content</code> to define a wrapper mixin, allowing us to use a mixin as a wrapper. For
+          example, <code>@mixin tablet { @media (min-width: 426px) and (max-width: 767px) { @content } }</code> could be
+          used to create a media query surrounding a css block like this:
+          <code>@include tablet { .hidden-tablet { display: none;} }</code>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Nesting</h2>
+      <ul class="notes">
+        <li class="note">
+          You can nest element selectors in Sass, which is equivalent to using a descendant selector in CSS.
+          <code>div { margin: 0; } div a { color: blue; }</code> becomes
+          <code>div { margin: 0; a { color: blue; } }</code>
+        </li>
+        <li class="note">
+          We can look for specific elements in a BEM-like way using <strong>ampersand</strong>. The ampersand
+          <strong>only looks at the name of the selector it's referencing</strong>, meaning it doesn't care about how
+          deeply nested an element might be.
+        </li>
+        <li class="note">
+          For example: to target an unordered list with class "nav__list", we could do that like this:
+          <code>.nav { &__list {} }</code>, but we could also target a list item inside that list in the same block:
+          <code>.nav { &__list {} &__list-item {} }</code>.
+        </li>
+        <li class="note">
+          You can use ampersand to exploit nesting to simplify pseudo-classes and pseudo-elements.
+          <code>.button { &:hover {} }</code> would compile to <code>.button {} .button:hover {}</code>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Imports, Code Structure, Conventions</h2>
+      <ul class="notes">
+        <li class="note">
+          For the sake of separation of concerns, you can import other scss files with
+          <code>@use './styles.scss'</code> at the top of an scss file.
+        </li>
+        <li class="note">
+          To prevent scss files from compiling, we can use the underscore convention to tell an scss file that it should
+          be "private", or that it is only for use via import in other scss files.
+        </li>
+        <li class="note">
+          Files that are prefixed with an underscore and only used by other scss files are called
+          <strong>partials</strong>.
+        </li>
+        <li class="note">
+          When importing with @use or rerencing an imported file, you
+          <strong>don't have to include underscores from this convention</strong>.
+        </li>
+        <li class="note">
+          Because variables are private, after important, we need to use the imported file name when referencing
+          variables and mixins from imported scss. If <code>$variable</code> is defined in _global.scss, to reference
+          this variable in local.scss that's importing _global, we need to use <code>global.$variable</code>.
+        </li>
+        <li class="note">
+          We can get around the above by using a wildcard in the import to expose all imported variables to the current
+          scope. Using the previous example, we would import _global.scss using
+          <code>@use global.scss as *;</code>, after which we could just use <code>$variable</code> anywhere in
+          local.scss, without the "global." prefix.
+        </li>
+        <li class="note">
+          Convention tells us to have a "_globals.scss" for things we want to apply to literally every single page
+          without exception.
+        </li>
+        <li class="note">
+          We can then import partials into a single styles.scss file that is applied to all pages, and BEM will ensure
+          we don't face problems with scope. This improves separation of concerns by ensuring designers don't need to
+          edit HTML to apply their styles.
+        </li>
+      </ul>
+    </main>
+  </body>
 </html>

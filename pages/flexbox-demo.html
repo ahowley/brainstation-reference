@@ -1,201 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BSRef - Flexbox</title>
-        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
-        <link rel="stylesheet" href="../styles/flexbox-demo.css" type="text/css" rel="stylesheet" />
-    </head>
-    <body>
-        <header class="header">
-            <nav class="nav">
-                <a href="../" class="nav__button anchor--nostyle">
-                    <h2 class="nav__heading">BSRef</h2>
-                </a>
-            </nav>
-        </header>
-        <main class="main">
-            <h1 class="main__heading">Flexbox Quick Reference</h1>
-            <ul class="notes">
-                <li class="note">
-                    For flex magic to work, we first need a parent container with <code>display: flex</code>
-                </li>
-                <li class="note">
-                    <code>display: flex</code> makes a container, elements inside the container can be "directed"
-                    (literally) using <code>flex-direction</code>
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>display: block</h3></figcaption>
-                        <article class="demo__container demo__container--block-container">
-                            <div class="demo__block demo__block--blue">div 1</div>
-                            <div class="demo__block demo__block--green">div 2</div>
-                            <div class="demo__block demo__block--yellow">div 3</div>
-                        </article>
-                        <code class="demo__overlay hidden-mobile"> display: block; min-height: 15rem; </code>
-                    </figure>
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>display: flex</h3></figcaption>
-                        <article class="demo__container demo__container--flex-container">
-                            <div class="demo__block demo__block--blue">div 1</div>
-                            <div class="demo__block demo__block--green">div 2</div>
-                            <div class="demo__block demo__block--yellow">div 3</div>
-                        </article>
-                        <code class="demo__overlay hidden-mobile"> display: flex; min-height: 15rem; </code>
-                    </figure>
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>flex-direction: column-reverse</h3></figcaption>
-                        <article class="demo__container demo__container--flex-container demo__container--flex-vertical">
-                            <div class="demo__block demo__block--blue">div 1</div>
-                            <div class="demo__block demo__block--green">div 2</div>
-                            <div class="demo__block demo__block--yellow">div 3</div>
-                        </article>
-                        <code class="demo__overlay demo__overlay--light hidden-mobile">
-                            display: flex; flex-direction: column-reverse; min-height: 15rem;
-                        </code>
-                    </figure>
-                </li>
-                <li class="note">
-                    <code>justify-content</code> and <code>align-items</code> set on the flex container will manage
-                    aligning content along the main and cross axis, respectively.
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>justify-content: space-between</h3></figcaption>
-                        <article
-                            class="demo__container demo__container--flex-container demo__container--justify-space-between">
-                            <div class="demo__block demo__block--blue">div 1</div>
-                            <div class="demo__block demo__block--green">div 2</div>
-                            <div class="demo__block demo__block--yellow">div 3</div>
-                        </article>
-                        <code class="demo__overlay hidden-mobile">
-                            display: flex; min-height: 15rem; justify-content: space-between;
-                        </code>
-                    </figure>
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>align-items: center</h3></figcaption>
-                        <article class="demo__container demo__container--flex-container demo__container--align-center">
-                            <div class="demo__block demo__block--blue">div 1</div>
-                            <div class="demo__block demo__block--green">div 2</div>
-                            <div class="demo__block demo__block--yellow">div 3</div>
-                        </article>
-                        <code class="demo__overlay hidden-mobile">
-                            display: flex; min-height: 15rem; align-items: center;
-                        </code>
-                    </figure>
-                </li>
-                <li class="note">
-                    <code>flex-wrap</code> is used to define what happens when the width or min-height of the parent
-                    container or screen is too narrow/short to display all children in a flex container.
-                </li>
-                <li class="demo demo--flex-wrap">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>flex-wrap: wrap-reverse</h3></figcaption>
-                        <article class="demo__container demo__container--flex-container demo__container--flex-wrap">
-                            <div class="demo__block demo__block--blue">longer div 1</div>
-                            <div class="demo__block demo__block--green">longer div 2 with uneven width</div>
-                            <div class="demo__block demo__block--yellow">longer div 3 with even more uneven width</div>
-                            <div class="demo__block demo__block--red">longer div 4 with uneven width</div>
-                            <div class="demo__block demo__block--orange">longer div 5</div>
-                            <div class="demo__block demo__block--purple">longer div 6</div>
-                        </article>
-                        <code class="demo__overlay hidden-mobile">
-                            display: flex; flex-wrap: wrap-reverse; max-width: 60rem; min-height: 15rem;
-                        </code>
-                    </figure>
-                </li>
-                <li class="note">
-                    <code>align-self</code> can be used in a child element to independently change only 1 child's
-                    cross-axis alignment.
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>align-self: baseline</h3></figcaption>
-                        <article class="demo__container demo__container--flex-container demo__container--align-center">
-                            <div class="demo__block demo__block--blue">regularly-aligned div 1</div>
-                            <div class="demo__block demo__block--green demo__block--align-self">
-                                aligned to baseline div 2
-                                <code class="demo__overlay"> align-self: baseline; </code>
-                            </div>
-                            <div class="demo__block demo__block--yellow">regularly-aligned div 3</div>
-                        </article>
-                        <code class="demo__overlay hidden-mobile">
-                            display: flex; min-height: 15rem; align-items: center;
-                        </code>
-                    </figure>
-                </li>
-                <li class="note">
-                    <code>order</code> in a child element allows us to specify the display order of children elements.
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>order: x</h3></figcaption>
-                        <article class="demo__container demo__container--flex-container demo__container--align-center">
-                            <div class="demo__block demo__block--blue demo__block--order-4">
-                                div 1
-                                <code class="demo__overlay demo__overlay--light"> order: 4; </code>
-                            </div>
-                            <div class="demo__block demo__block--green demo__block--order-1">
-                                div 2
-                                <code class="demo__overlay"> order: 1; </code>
-                            </div>
-                            <div class="demo__block demo__block--yellow demo__block--order-2">
-                                div 3
-                                <code class="demo__overlay"> order: 2; </code>
-                            </div>
-                            <div class="demo__block demo__block--red demo__block--order-3">
-                                div 4
-                                <code class="demo__overlay demo__overlay--light"> order: 3; </code>
-                            </div>
-                        </article>
-                        <code class="demo__overlay hidden-mobile">
-                            display: flex; align-items: center; min-height: 15rem;
-                        </code>
-                    </figure>
-                </li>
-                <li class="note">
-                    <code>flex-grow</code> lets us define how much space a child element will occupy along the main
-                    axis, proportional to other children.
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>flex-grow</h3></figcaption>
-                        <article class="demo__container demo__container--flex-container demo__container--align-center">
-                            <div class="demo__block demo__block--blue demo__block--flex-grow-3">
-                                div 1
-                                <code class="demo__overlay demo__overlay--light"> flex-grow: 3; </code>
-                            </div>
-                            <div class="demo__block demo__block--green demo__block--flex-grow-2">
-                                div 2
-                                <code class="demo__overlay"> flex-grow: 2; </code>
-                            </div>
-                            <div class="demo__block demo__block--yellow demo__block--flex-grow-1">
-                                div 3
-                                <code class="demo__overlay"> flex-grow: 1; </code>
-                            </div>
-                        </article>
-                        <code class="demo__overlay hidden-mobile">
-                            display: flex; align-items: center; min-height: 15rem;
-                        </code>
-                    </figure>
-                </li>
-            </ul>
-        </main>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Flexbox</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-scss.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/flexbox-demo.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Flexbox Quick Reference</h1>
+      <ul class="notes">
+        <li class="note">For flex magic to work, we first need a parent container with <code>display: flex</code></li>
+        <li class="note">
+          <code>display: flex</code> makes a container, elements inside the container can be "directed" (literally)
+          using <code>flex-direction</code>
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>display: block</h3></figcaption>
+            <article class="demo__container demo__container--block-container">
+              <div class="demo__block demo__block--blue">div 1</div>
+              <div class="demo__block demo__block--green">div 2</div>
+              <div class="demo__block demo__block--yellow">div 3</div>
+            </article>
+            <code class="demo__overlay hidden-mobile"> display: block; min-height: 15rem; </code>
+          </figure>
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>display: flex</h3></figcaption>
+            <article class="demo__container demo__container--flex-container">
+              <div class="demo__block demo__block--blue">div 1</div>
+              <div class="demo__block demo__block--green">div 2</div>
+              <div class="demo__block demo__block--yellow">div 3</div>
+            </article>
+            <code class="demo__overlay hidden-mobile"> display: flex; min-height: 15rem; </code>
+          </figure>
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>flex-direction: column-reverse</h3></figcaption>
+            <article class="demo__container demo__container--flex-container demo__container--flex-vertical">
+              <div class="demo__block demo__block--blue">div 1</div>
+              <div class="demo__block demo__block--green">div 2</div>
+              <div class="demo__block demo__block--yellow">div 3</div>
+            </article>
+            <code class="demo__overlay demo__overlay--light hidden-mobile">
+              display: flex; flex-direction: column-reverse; min-height: 15rem;
+            </code>
+          </figure>
+        </li>
+        <li class="note">
+          <code>justify-content</code> and <code>align-items</code> set on the flex container will manage aligning
+          content along the main and cross axis, respectively.
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>justify-content: space-between</h3></figcaption>
+            <article class="demo__container demo__container--flex-container demo__container--justify-space-between">
+              <div class="demo__block demo__block--blue">div 1</div>
+              <div class="demo__block demo__block--green">div 2</div>
+              <div class="demo__block demo__block--yellow">div 3</div>
+            </article>
+            <code class="demo__overlay hidden-mobile">
+              display: flex; min-height: 15rem; justify-content: space-between;
+            </code>
+          </figure>
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>align-items: center</h3></figcaption>
+            <article class="demo__container demo__container--flex-container demo__container--align-center">
+              <div class="demo__block demo__block--blue">div 1</div>
+              <div class="demo__block demo__block--green">div 2</div>
+              <div class="demo__block demo__block--yellow">div 3</div>
+            </article>
+            <code class="demo__overlay hidden-mobile"> display: flex; min-height: 15rem; align-items: center; </code>
+          </figure>
+        </li>
+        <li class="note">
+          <code>flex-wrap</code> is used to define what happens when the width or min-height of the parent container or
+          screen is too narrow/short to display all children in a flex container.
+        </li>
+        <li class="demo demo--flex-wrap">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>flex-wrap: wrap-reverse</h3></figcaption>
+            <article class="demo__container demo__container--flex-container demo__container--flex-wrap">
+              <div class="demo__block demo__block--blue">longer div 1</div>
+              <div class="demo__block demo__block--green">longer div 2 with uneven width</div>
+              <div class="demo__block demo__block--yellow">longer div 3 with even more uneven width</div>
+              <div class="demo__block demo__block--red">longer div 4 with uneven width</div>
+              <div class="demo__block demo__block--orange">longer div 5</div>
+              <div class="demo__block demo__block--purple">longer div 6</div>
+            </article>
+            <code class="demo__overlay hidden-mobile">
+              display: flex; flex-wrap: wrap-reverse; max-width: 60rem; min-height: 15rem;
+            </code>
+          </figure>
+        </li>
+        <li class="note">
+          <code>align-self</code> can be used in a child element to independently change only 1 child's cross-axis
+          alignment.
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>align-self: baseline</h3></figcaption>
+            <article class="demo__container demo__container--flex-container demo__container--align-center">
+              <div class="demo__block demo__block--blue">regularly-aligned div 1</div>
+              <div class="demo__block demo__block--green demo__block--align-self">
+                aligned to baseline div 2
+                <code class="demo__overlay"> align-self: baseline; </code>
+              </div>
+              <div class="demo__block demo__block--yellow">regularly-aligned div 3</div>
+            </article>
+            <code class="demo__overlay hidden-mobile"> display: flex; min-height: 15rem; align-items: center; </code>
+          </figure>
+        </li>
+        <li class="note">
+          <code>order</code> in a child element allows us to specify the display order of children elements.
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>order: x</h3></figcaption>
+            <article class="demo__container demo__container--flex-container demo__container--align-center">
+              <div class="demo__block demo__block--blue demo__block--order-4">
+                div 1
+                <code class="demo__overlay demo__overlay--light"> order: 4; </code>
+              </div>
+              <div class="demo__block demo__block--green demo__block--order-1">
+                div 2
+                <code class="demo__overlay"> order: 1; </code>
+              </div>
+              <div class="demo__block demo__block--yellow demo__block--order-2">
+                div 3
+                <code class="demo__overlay"> order: 2; </code>
+              </div>
+              <div class="demo__block demo__block--red demo__block--order-3">
+                div 4
+                <code class="demo__overlay demo__overlay--light"> order: 3; </code>
+              </div>
+            </article>
+            <code class="demo__overlay hidden-mobile"> display: flex; align-items: center; min-height: 15rem; </code>
+          </figure>
+        </li>
+        <li class="note">
+          <code>flex-grow</code> lets us define how much space a child element will occupy along the main axis,
+          proportional to other children.
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>flex-grow</h3></figcaption>
+            <article class="demo__container demo__container--flex-container demo__container--align-center">
+              <div class="demo__block demo__block--blue demo__block--flex-grow-3">
+                div 1
+                <code class="demo__overlay demo__overlay--light"> flex-grow: 3; </code>
+              </div>
+              <div class="demo__block demo__block--green demo__block--flex-grow-2">
+                div 2
+                <code class="demo__overlay"> flex-grow: 2; </code>
+              </div>
+              <div class="demo__block demo__block--yellow demo__block--flex-grow-1">
+                div 3
+                <code class="demo__overlay"> flex-grow: 1; </code>
+              </div>
+            </article>
+            <code class="demo__overlay hidden-mobile"> display: flex; align-items: center; min-height: 15rem; </code>
+          </figure>
+        </li>
+      </ul>
+    </main>
+  </body>
 </html>

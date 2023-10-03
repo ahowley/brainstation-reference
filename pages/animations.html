@@ -1,222 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BSRef - Animations</title>
-        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-            rel="stylesheet" />
-        <link href="../styles/global.css" type="text/css" rel="stylesheet" />
-        <link href="../styles/animations.css" type="text/css" rel="stylesheet" />
-    </head>
-    <body>
-        <header class="header">
-            <nav class="nav">
-                <a href="../" class="nav__button anchor--nostyle">
-                    <h2 class="nav__heading">BSRef</h2>
-                </a>
-            </nav>
-        </header>
-        <main class="main">
-            <h1 class="main__heading">CSS Animations</h1>
-            <p class="main__description">
-                See
-                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank"
-                    >this MDN page</a
-                >
-                for an exaustive list of animatable CSS properties.
-            </p>
-            <h2 class="main__subheading">Transitions</h2>
-            <ul class="notes">
-                <li class="note">
-                    We use <strong>transitions</strong> to smoothly ease between two values when a property changes in
-                    CSS.
-                </li>
-                <li class="note">
-                    The simplest way is to just provide a duration value to the <code>transition</code> property, which
-                    causes any animatable property to transition when changing value.
-                </li>
-                <li class="note">
-                    The <code>transition</code> property also accepts specified properties, rather than the default
-                    <code>all</code>: for example, <code>transition: color 0.5s</code>. Other properties will still
-                    transition immediately.
-                </li>
-                <li class="note">
-                    When specifying duration, we can provide a second value representing a delay.
-                    <code>transition: color 0.5s 1s</code>. There are other accepted values in <code>transition</code>:
-                    see
-                    <a
-                        href="https://css-tricks.com/almanac/properties/t/transition/#:~:text=For%20the%20most%20part%2C%20the,be%20parsed%20as%20the%20delay."
-                        >here</a
-                    >
-                    for examples of some others.
-                </li>
-                <li class="note">
-                    <code>transition</code> is a shorthand for a few other properties we can also set separately:
-                </li>
-                <ul class="notes">
-                    <li class="note"><code>transition-duration</code></li>
-                    <li class="note"><code>transition-property</code></li>
-                    <li class="note"><code>transition-delay</code></li>
-                    <li class="note"><code>transition-timing-function</code></li>
-                </ul>
-                <li class="note">
-                    When transitioning using longhand syntax, it's important to order animated properties carefully!
-                </li>
-                <li class="note">
-                    In order to transition multiple properties, we can separate each property in the transition with a
-                    comma in between. <code>transition: color 0.1s 1s, background-color: 1s</code>
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>transitioning multiple properties</h3></figcaption>
-                        <div class="demo__container demo__container--block-container">
-                            <div class="demo__block demo__block--transition-multiple">
-                                transitioning color & background-color on hover - at different times!
-                            </div>
-                            <code class="demo__overlay hidden-mobile">
-                                transition: color 1s 1s, background-color 1s;
-                            </code>
-                        </div>
-                    </figure>
-                </li>
-            </ul>
-            <h2 class="main__subheading">Easing Functions</h2>
-            <ul class="notes">
-                <li class="note">
-                    In order to vary how fast we transition as the transition occurs, we can use
-                    <strong>easing functions</strong>.
-                </li>
-                <ul class="notes">
-                    <li class="note"><code>linear</code> easing is the default, and happens steadily</li>
-                    <li class="note"><code>ease-in</code> accelerates into the animation</li>
-                    <li class="note"><code>ease-in-out</code> accelerates, then decelerates</li>
-                    <li class="note"><code>ease-out</code> decelerates</li>
-                    <li class="note">
-                        <code>cubic-bezier(n,n,n,n)</code> allows you to define a custom easing bezier curve. See
-                        <a href="https://cubic-bezier.com/#.17,.67,.83,.67" target="_blank">cubic-bezier.com</a> to
-                        visualize and build a bezier curve!
-                    </li>
-                </ul>
-                <li class="note">
-                    To add an easing function to a transition, we set the
-                    <code>transition-timing-function</code> property.
-                </li>
-                <li class="demo">
-                    <figure class="demo__figure">
-                        <figcaption class="demo__caption"><h3>transitioning multiple properties</h3></figcaption>
-                        <div class="demo__container demo__container--block-container">
-                            <div class="demo__block demo__block--transition-multiple-ease">
-                                transitioning color & background-color on hover - at different times, and "with ease"!
-                            </div>
-                            <code class="demo__overlay hidden-mobile">
-                                transition: color 1s 1s ease-in, background-color 1s ease-out;
-                            </code>
-                        </div>
-                    </figure>
-                </li>
-            </ul>
-            <h2 class="main__subheading">Non-Animatable Properties</h2>
-            <ul class="notes">
-                <li class="note"><code>display</code></li>
-                <li class="note"><code>background-image</code></li>
-                <li class="note"><code>border-style</code></li>
-                <li class="note"><code>position</code></li>
-                <li class="note"><code>float</code></li>
-                <li class="note"><code>font-family</code></li>
-            </ul>
-            <h2 class="main__subheading">CSS Transforms</h2>
-            <ul class="notes">
-                <li class="note">
-                    <strong>CSS Transforms</strong> allow us to alter the visual position and size of an element.
-                </li>
-                <ul class="notes">
-                    <li class="note">
-                        <code>transform: translate() scale() rotate() skew()</code> - multiple transform functions can
-                        be provided with no separator.
-                    </li>
-                </ul>
-                <li class="note">
-                    <code>rotate()</code> rotates an element clockwise by a given number of degrees, # of turns, or
-                    radians (negative values can be used for counter-clockwise rotation).
-                </li>
-                <li class="note">
-                    <code>skew()</code> slants an element by a given number of degrees, # of turns, or radians.
-                </li>
-                <li class="note">
-                    <code>scale()</code> will increase or decrease the size of an element. It accepts either a single
-                    value, representing scaling on both axes, or two values, scaling x and y separately. It can be a
-                    number (multiplier) or a % value.
-                </li>
-                <li class="note">
-                    <code>translate()</code> will change an elements position. It accepts either a single value,
-                    translating on the x axis, or two values, translating on both axes.
-                </li>
-                <li class="note">
-                    Each of these has single-axis alternatives, like <code>translateX()</code> and
-                    <code>translateY()</code>.
-                </li>
-                <li class="note"><code>transform-origin</code> allows us to set a new origin for the element.</li>
-            </ul>
-            <h2 class="main__subheading">@Keyframes</h2>
-            <ul class="notes">
-                <li class="note">
-                    <strong>Keyframes</strong> can define more complex animations with precise control. For a detailed
-                    overview, see
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes" target="_blank"
-                        >the MDN page here</a
-                    >.
-                </li>
-                <li class="note">
-                    Can be applied to different element states, or page states like <code>page-load</code> (among
-                    others)
-                </li>
-                <li class="note">Keyframes can be looped and reversed</li>
-                <li class="note">
-                    Allows for pure-CSS implementations of things like <strong>sprite-sheet animation</strong> and
-                    <strong>svg animation</strong>.
-                </li>
-                <li class="note">
-                    A simple keyframe definition would use
-                    <code>@keyframe animation-name { from: { property: value; } to: { property: value; } }</code>
-                </li>
-                <li class="note">
-                    To apply a keyframe animation to an element, we set the <code>animation</code> property.
-                    <code>animation: animation-name</code>
-                </li>
-                <li class="note">
-                    In place of "from" and "to", we can create more granular transition states using percentage values
-                    between 0 and 100, and define properties and values within each state.
-                </li>
-                <li class="note">
-                    We can use the <code>animation-iteration-count</code> propery to define how many times an animation
-                    should play, or we can set it to <code>infinite</code>.
-                </li>
-                <li class="note">
-                    We can use the <code>animation-direction</code> process to define whether an animation should play
-                    forward or backward.
-                </li>
-                <li class="note">
-                    We can use the <code>animation-duration</code> property to define a duration for an animation, in
-                    seconds.
-                </li>
-                <li class="note">
-                    To apply easing, we set the <code>animation-timing-function</code> property. There are many other
-                    configurable properties, which you can reference
-                    <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations"
-                        target="_blank"
-                        >on MDN here</a
-                    >.
-                </li>
-            </ul>
-        </main>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Animations</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-scss.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+    <link href="../styles/animations.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">CSS Animations</h1>
+      <p class="main__description">
+        See
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank"
+          >this MDN page</a
+        >
+        for an exaustive list of animatable CSS properties.
+      </p>
+      <h2 class="main__subheading">Transitions</h2>
+      <ul class="notes">
+        <li class="note">
+          We use <strong>transitions</strong> to smoothly ease between two values when a property changes in CSS.
+        </li>
+        <li class="note">
+          The simplest way is to just provide a duration value to the <code>transition</code> property, which causes any
+          animatable property to transition when changing value.
+        </li>
+        <li class="note">
+          The <code>transition</code> property also accepts specified properties, rather than the default
+          <code>all</code>: for example, <code>transition: color 0.5s</code>. Other properties will still transition
+          immediately.
+        </li>
+        <li class="note">
+          When specifying duration, we can provide a second value representing a delay.
+          <code>transition: color 0.5s 1s</code>. There are other accepted values in <code>transition</code>: see
+          <a
+            href="https://css-tricks.com/almanac/properties/t/transition/#:~:text=For%20the%20most%20part%2C%20the,be%20parsed%20as%20the%20delay."
+            >here</a
+          >
+          for examples of some others.
+        </li>
+        <li class="note">
+          <code>transition</code> is a shorthand for a few other properties we can also set separately:
+        </li>
+        <ul class="notes">
+          <li class="note"><code>transition-duration</code></li>
+          <li class="note"><code>transition-property</code></li>
+          <li class="note"><code>transition-delay</code></li>
+          <li class="note"><code>transition-timing-function</code></li>
+        </ul>
+        <li class="note">
+          When transitioning using longhand syntax, it's important to order animated properties carefully!
+        </li>
+        <li class="note">
+          In order to transition multiple properties, we can separate each property in the transition with a comma in
+          between. <code>transition: color 0.1s 1s, background-color: 1s</code>
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>transitioning multiple properties</h3></figcaption>
+            <div class="demo__container demo__container--block-container">
+              <div class="demo__block demo__block--transition-multiple">
+                transitioning color & background-color on hover - at different times!
+              </div>
+              <code class="demo__overlay hidden-mobile"> transition: color 1s 1s, background-color 1s; </code>
+            </div>
+          </figure>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Easing Functions</h2>
+      <ul class="notes">
+        <li class="note">
+          In order to vary how fast we transition as the transition occurs, we can use
+          <strong>easing functions</strong>.
+        </li>
+        <ul class="notes">
+          <li class="note"><code>linear</code> easing is the default, and happens steadily</li>
+          <li class="note"><code>ease-in</code> accelerates into the animation</li>
+          <li class="note"><code>ease-in-out</code> accelerates, then decelerates</li>
+          <li class="note"><code>ease-out</code> decelerates</li>
+          <li class="note">
+            <code>cubic-bezier(n,n,n,n)</code> allows you to define a custom easing bezier curve. See
+            <a href="https://cubic-bezier.com/#.17,.67,.83,.67" target="_blank">cubic-bezier.com</a> to visualize and
+            build a bezier curve!
+          </li>
+        </ul>
+        <li class="note">
+          To add an easing function to a transition, we set the
+          <code>transition-timing-function</code> property.
+        </li>
+        <li class="demo">
+          <figure class="demo__figure">
+            <figcaption class="demo__caption"><h3>transitioning multiple properties</h3></figcaption>
+            <div class="demo__container demo__container--block-container">
+              <div class="demo__block demo__block--transition-multiple-ease">
+                transitioning color & background-color on hover - at different times, and "with ease"!
+              </div>
+              <code class="demo__overlay hidden-mobile">
+                transition: color 1s 1s ease-in, background-color 1s ease-out;
+              </code>
+            </div>
+          </figure>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Non-Animatable Properties</h2>
+      <ul class="notes">
+        <li class="note"><code>display</code></li>
+        <li class="note"><code>background-image</code></li>
+        <li class="note"><code>border-style</code></li>
+        <li class="note"><code>position</code></li>
+        <li class="note"><code>float</code></li>
+        <li class="note"><code>font-family</code></li>
+      </ul>
+      <h2 class="main__subheading">CSS Transforms</h2>
+      <ul class="notes">
+        <li class="note">
+          <strong>CSS Transforms</strong> allow us to alter the visual position and size of an element.
+        </li>
+        <ul class="notes">
+          <li class="note">
+            <code>transform: translate() scale() rotate() skew()</code> - multiple transform functions can be provided
+            with no separator.
+          </li>
+        </ul>
+        <li class="note">
+          <code>rotate()</code> rotates an element clockwise by a given number of degrees, # of turns, or radians
+          (negative values can be used for counter-clockwise rotation).
+        </li>
+        <li class="note">
+          <code>skew()</code> slants an element by a given number of degrees, # of turns, or radians.
+        </li>
+        <li class="note">
+          <code>scale()</code> will increase or decrease the size of an element. It accepts either a single value,
+          representing scaling on both axes, or two values, scaling x and y separately. It can be a number (multiplier)
+          or a % value.
+        </li>
+        <li class="note">
+          <code>translate()</code> will change an elements position. It accepts either a single value, translating on
+          the x axis, or two values, translating on both axes.
+        </li>
+        <li class="note">
+          Each of these has single-axis alternatives, like <code>translateX()</code> and <code>translateY()</code>.
+        </li>
+        <li class="note"><code>transform-origin</code> allows us to set a new origin for the element.</li>
+      </ul>
+      <h2 class="main__subheading">@Keyframes</h2>
+      <ul class="notes">
+        <li class="note">
+          <strong>Keyframes</strong> can define more complex animations with precise control. For a detailed overview,
+          see
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes" target="_blank">the MDN page here</a>.
+        </li>
+        <li class="note">
+          Can be applied to different element states, or page states like <code>page-load</code> (among others)
+        </li>
+        <li class="note">Keyframes can be looped and reversed</li>
+        <li class="note">
+          Allows for pure-CSS implementations of things like <strong>sprite-sheet animation</strong> and
+          <strong>svg animation</strong>.
+        </li>
+        <li class="note">
+          A simple keyframe definition would use
+          <code>@keyframe animation-name { from: { property: value; } to: { property: value; } }</code>
+        </li>
+        <li class="note">
+          To apply a keyframe animation to an element, we set the <code>animation</code> property.
+          <code>animation: animation-name</code>
+        </li>
+        <li class="note">
+          In place of "from" and "to", we can create more granular transition states using percentage values between 0
+          and 100, and define properties and values within each state.
+        </li>
+        <li class="note">
+          We can use the <code>animation-iteration-count</code> propery to define how many times an animation should
+          play, or we can set it to <code>infinite</code>.
+        </li>
+        <li class="note">
+          We can use the <code>animation-direction</code> process to define whether an animation should play forward or
+          backward.
+        </li>
+        <li class="note">
+          We can use the <code>animation-duration</code> property to define a duration for an animation, in seconds.
+        </li>
+        <li class="note">
+          To apply easing, we set the <code>animation-timing-function</code> property. There are many other configurable
+          properties, which you can reference
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animations/Using_CSS_animations" target="_blank"
+            >on MDN here</a
+          >.
+        </li>
+      </ul>
+    </main>
+  </body>
 </html>
