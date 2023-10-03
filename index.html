@@ -141,13 +141,11 @@
         You can also create a browser bookmark with the following code snippet as the "page" for a handy shortcut to MDN
         search.
       </p>
-      <p class="main__code-block">
-        <code
-          >javascript:(function()%7Blet searchQuery %3D prompt('Search for something related to HTML%2C CSS%2C or
-          JavaScript'%2C 'center a div')%3B%0Aif (searchQuery)
-          %7B%0A%09window.open(%60https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fsearch%3Fq%3D%24%7BencodeURIComponent(searchQuery)%7D%60)%3B%0A%7D%7D)()%3B</code
-        >
-      </p>
+      <code class="note"
+        >javascript:(function()%7Blet searchQuery %3D prompt('Search for something related to HTML%2C CSS%2C or
+        JavaScript'%2C 'center a div')%3B%0Aif (searchQuery)
+        %7B%0A%09window.open(%60https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fsearch%3Fq%3D%24%7BencodeURIComponent(searchQuery)%7D%60)%3B%0A%7D%7D)()%3B</code
+      >
     </main>
     <script>
       const searchMDN = () => {
