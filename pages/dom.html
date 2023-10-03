@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Document Object Model</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-js.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Document Object Model</h1>
+      <p class="main__description">
+        The Document Object Model, or DOM, is JavaScript's way of understanding and working with HTML in real time.
+        Manipulating the DOM via its API allows us to create webpages that change and update in real-time. For more
+        information about anything and everything DOM, you can investigate
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank">on MDN here</a
+        >.
+      </p>
+      <ul class="notes">
+        <li class="note">
+          The DOM gives us an <strong>Application Programming Interface</strong>, or an <strong>API</strong>, to
+          manipulate HTML elements on our webpage.
+        </li>
+        <li class="note">We can reach the entire page in JS using the built-in object called <code>document</code>.</li>
+        <li class="note">
+          The document object contains many built-in properties and methods that contain or change information about the
+          page.
+        </li>
+        <li class="note">
+          The DOM contains a list of elements on the page inside what's known as <strong>nodes</strong>.
+        </li>
+        <li class="note">
+          We can adjust the HTML that structures the webpage in real time - one example given was directly modifying
+          <code>document.body.innerHTML</code>, albeit that's a pretty unlikely use case.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Accessing the DOM</h2>
+      <ul class="notes">
+        <li class="note">
+          The reason why it's common to see a script tag at the bottom of the document is because a script can't
+          manipulate the DOM before the DOM exists. We can also use the defer or async properties on a script tag.
+        </li>
+        <li class="note">
+          It's unusual to use innerHTML for a number of reasons, including security, and we instead typically want to
+          target things by element.
+        </li>
+        <li class="note">
+          A couple of ways to access an element include <code>document.getElementById('id');</code>
+          <code>document.querySelector('#id')</code> or <code>document.querySelectorAll('.class')</code>
+        </li>
+        <li class="note">
+          <code>getElementById</code> can target individual, unique elements via their assigned ID property.
+        </li>
+        <li class="note">
+          <code>querySelector('.css-selector')</code> returns the first element on the page that matches the provided
+          querySelector.
+        </li>
+        <li class="note">
+          <code>querySelectorAll('.css-selector')</code> returns all of the elements on the page that match the provided
+          querySelector as a <code>NodeList</code> (which is very similar to an Array).
+        </li>
+        <li class="note">
+          It's worth noting that the return from both querySelector methods will always be empty if a pseudo-element is
+          included.
+        </li>
+        <li class="note">
+          It's also worth noting that all of the above methods of seleceting document objects also work when called from
+          an element, as opposed to from <code>document</code>. When called from an element, they will only be able to
+          select descendant elements.
+        </li>
+        <li class="note">
+          Once we have an element, we can access many of its properties via its built-in methods and JS properties. For
+          example, we can adjust in-line styles using <code>element.style</code> and the properties inside it.
+        </li>
+        <li class="note">
+          To adjust an element's styles in real time, another (arguably better) option is to add or remove modifying
+          classes to an element's <code>element.classList</code>.
+        </li>
+        <li class="note">
+          To adjust an element's display text, we can work safely with an element's
+          <code>elem.innerText</code> property in most cases. We can also append text to an element using
+          <code>element.append('text')</code> (this <em>does not</em> work with <code>appendChild()</code>)
+        </li>
+      </ul>
+      <h2 class="main__subheading">Working with Classes</h2>
+      <ul class="notes">
+        <li class="note">
+          We can access and manipulate an elements classes with its <code>classList</code>, which contains a few safe
+          and straightforward methods that allow adjusting things on the fly.
+        </li>
+        <li class="note"><code>elem.classList.add('added-class')</code> adds a class to the list of classes.</li>
+        <li class="note">
+          <code>elem.classList.remove('removed-class')</code> removes a class from the list of classes, if present.
+        </li>
+        <li class="note">
+          <code>elem.classList.contains('class')</code> will tell us whether a given class is in the list.
+        </li>
+        <li class="note">
+          <code>elem.classList.toggle('class--modifier')</code> is a convenient and quick way to toggle a class onto and
+          back off of an element.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Creating Elements</h2>
+      <ul class="notes">
+        <li class="note">
+          We can create a new element from scratch using <code>document.createElement('elem-type')</code>.
+        </li>
+        <li class="note">
+          An element that is created this way doesn't get put on the page, but it does exist in memory. We can modify
+          its properties as much as we want, even before it actually gets added to the document body.
+        </li>
+        <li class="note">
+          We can set an element's <strong>HTML Attributes</strong> using
+          <code>elem.setAttribute('attr', 'value')</code>. We can get an attribute's value using
+          <code>elem.getAttribute('attr')</code>.
+        </li>
+        <li class="note">
+          We can add an element to the actual document by appending it to another element as a child. We do this like
+          this: <code>elem.appendChild(newElem);</code>
+        </li>
+        <li class="note">
+          There is also <code>element.append(newElem)</code> - these are super similar, and I'd go to MDN to find out
+          more, cuz that site will explain it better than this one could.
+        </li>
+        <li class="note">
+          <code>element.insertBefore(elementInserting, childAfter)</code> can be used to target a specific location
+          amongst siblings, and is a helpful alternative to <code>elem.append()</code>
+        </li>
+        <li class="note">
+          We can also work with nodeLists using several helpful methods, including
+          <code>elem.nodeList.forEach(callback)</code>.
+        </li>
+        <li class="note">
+          We can remove an element from its parent using <code>elem.parentNode.removeChild(elem);</code>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>

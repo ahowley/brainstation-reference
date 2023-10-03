@@ -13,6 +13,9 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-js.js" async></script>
     <link href="../styles/global.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
@@ -68,9 +71,7 @@
           provide a <code>default</code> code block to execute if none of the conditions are met.
         </li>
         <div class="main__code-block">
-          <code>
-            <pre>
-function getReward(tier) {
+          <pre><code>function getReward(tier) {
   let reward = [];
   switch (tier) {
     case "gold":
@@ -87,9 +88,8 @@ function getReward(tier) {
 }
 getReward("gold"); // ["a gold medal", "a high five", "$100"];
 getReward("bronze"); // ["$100"];
-getReward("cerulean"); // ["a slap on the wrist"];</pre
-            >
-          </code>
+getReward("cerulean"); // ["a slap on the wrist"];
+          </code></pre>
         </div>
       </ul>
       <h2 class="main__subheading">Loops</h2>
@@ -116,9 +116,7 @@ getReward("cerulean"); // ["a slap on the wrist"];</pre
           following do the same thing in different ways:
         </li>
         <div class="main__code-block">
-          <code>
-            <pre>
-for (let i=0; i&#60;array.length; i++) {
+          <pre><code>for (let i=0; i&#60;array.length; i++) {
   console.log(array[i]);
 }
 
@@ -132,10 +130,7 @@ for (let i in array) {
 
 for (let element of array) {
   console.log(element);
-}
-</pre
-            >
-          </code>
+}</code></pre>
         </div>
         <li class="note">
           In addition to for loops, we also can use <strong>while loops</strong>. These execute code an unlimited number

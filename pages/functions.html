@@ -13,6 +13,9 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-js.js" async></script>
     <link href="../styles/global.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
@@ -49,14 +52,11 @@
         <li class="note">When a function belongs to a class, it's known as a <strong>method</strong>.</li>
         <li class="note">To create a function, we can use the keyword <strong>function</strong> as follows:</li>
         <div class="main__code-block">
-          <code>
-            <pre>
-function myFunction(parameter) {
+          <pre><code>function myFunction(parameter) {
   /* Do stuff */
   return stuffDone;
-}</pre
-            >
-          </code>
+}
+          </code></pre>
         </div>
         <li class="note">
           A named variable that is a part of a function's definition is called a <strong>parameter</strong>.
@@ -107,13 +107,10 @@ function myFunction(parameter) {
           used as well.
         </li>
         <div class="main__code-block">
-          <code>
-            <pre>
-setTimeout(function() {
+          <pre><code>setTimeout(function() {
   console.log('Logged after 3000 ms');
-}, 3000);</pre
-            >
-          </code>
+}, 3000);
+          </code></pre>
         </div>
       </ul>
       <h2 class="main__subheading">Anonymous Functions</h2>
@@ -123,22 +120,14 @@ setTimeout(function() {
           named function that adds two numbers, and the second is the same thing, but an anonymous version.
         </li>
         <div class="main__code-block">
-          <code>
-            <pre>
-function add(num1, num2) {
+          <pre><code>function add(num1, num2) {
   return num1 + num2;
-}</pre
-            >
-          </code>
+}</code></pre>
         </div>
         <div class="main__code-block">
-          <code>
-            <pre>
-function (num1, num2) {
+          <pre><code>function (num1, num2) {
   return num1 + num2;
-}</pre
-            >
-          </code>
+}</code></pre>
         </div>
         <li class="note">
           Note that we can't actually use our second example here, because we have no way to reference it. But there are
@@ -195,9 +184,7 @@ function (num1, num2) {
       <h2 class="main__subheading" id="examples">All of the following examples do the same thing:</h2>
       <h3 class="main__section-heading">Named Functions Using "function name() {}"</h3>
       <div class="main__code-block">
-        <code>
-          <pre>
-function add(num1, num2) {
+        <pre><code>function add(num1, num2) {
   return num1 + num2;
 }
 
@@ -205,15 +192,11 @@ function callOnePlusOne() {
   return add(1, 1);
 }
 
-setTimeout(callOnePlusOne, 3000);</pre
-          >
-        </code>
+setTimeout(callOnePlusOne, 3000);</code></pre>
       </div>
       <h3 class="main__section-heading">Same As Above, Leveraging "Hoisting"</h3>
       <div class="main__code-block">
-        <code>
-          <pre>
-setTimeout(callOnePlusOne, 3000);
+        <pre><code>setTimeout(callOnePlusOne, 3000);
 
 function add(num1, num2) {
   return num1 + num2;
@@ -221,29 +204,21 @@ function add(num1, num2) {
 
 function callOnePlusOne() {
   return add(1, 1);
-}</pre
-          >
-        </code>
+}</code></pre>
       </div>
       <h3 class="main__section-heading">Anonymous Function to Call Named Function With Arguments</h3>
       <div class="main__code-block">
-        <code>
-          <pre>
-function add(num1, num2) {
+        <pre><code>function add(num1, num2) {
   return num1 + num2;
 }
 
 setTimeout(function() {
   return add(1, 1);
-}, 3000);</pre
-          >
-        </code>
+}, 3000);</code></pre>
       </div>
       <h3 class="main__section-heading">"Named" Arrow Functions</h3>
       <div class="main__code-block">
-        <code>
-          <pre>
-const add = (num1, num2) => {
+        <pre><code>const add = (num1, num2) => {
   return num1 + num2;
 }
 
@@ -251,45 +226,32 @@ const callOnePlusOne = () => {
   return add(1, 1);
 }
 
-setTimeout(callOnePlusOne, 3000);</pre
-          >
-        </code>
+setTimeout(callOnePlusOne, 3000);</code></pre>
       </div>
       <h3 class="main__section-heading">Arrow Function to Call Named Function With Arguments</h3>
       <div class="main__code-block">
-        <code>
-          <pre>
-const add = (num1, num2) => {
+        <pre><code>const add = (num1, num2) => {
   return num1 + num2;
 }
 
 setTimeout(() => {
   return add(1, 1);
-}, 3000);</pre
-          >
-        </code>
+}, 3000);</code></pre>
       </div>
       <h3 class="main__section-heading">Same As Above, Implicit Return</h3>
       <div class="main__code-block">
-        <code>
-          <pre>
-const add = (num1, num2) => num1 + num2;
+        <pre><code>const add = (num1, num2) => num1 + num2;
 
-setTimeout(() => add(1, 1), 3000);</pre
-          >
-        </code>
+setTimeout(() => add(1, 1), 3000);
+        </code></pre>
       </div>
       <h3 class="main__section-heading">A Single Anonymous Function</h3>
       <div class="main__code-block">
-        <code>
-          <pre>setTimeout(function() { return 1 + 1; }, 3000);</pre>
-        </code>
+        <pre><code>setTimeout(function() { return 1 + 1; }, 3000);</code></pre>
       </div>
       <h3 class="main__section-heading">A Single Arrow Function With Implicit Return</h3>
       <div class="main__code-block">
-        <code>
-          <pre>setTimeout(() => 1 + 1, 3000);</pre>
-        </code>
+        <pre><code>setTimeout(() => 1 + 1, 3000);</code></pre>
       </div>
     </main>
   </body>
