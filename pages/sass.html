@@ -134,10 +134,19 @@
         </li>
         <li class="note">
           We can use <code>@content</code> to define a wrapper mixin, allowing us to use a mixin as a wrapper. For
-          example, <code>@mixin tablet { @media (min-width: 426px) and (max-width: 767px) { @content } }</code> could be
-          used to create a media query surrounding a css block like this:
-          <code>@include tablet { .hidden-tablet { display: none;} }</code>
+          example, the following mixins could be used to create a media query surrounding a css block:
         </li>
+        <pre><code>@mixin tablet {
+  @media (min-width: 426px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@include tablet {
+  .hidden-tablet {
+    display: none;
+  }
+}</code></pre>
       </ul>
       <h2 class="main__subheading">Nesting</h2>
       <ul class="notes">
