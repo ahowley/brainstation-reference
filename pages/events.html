@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Events</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-js.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">JavaScript Events</h1>
+      <p class="main__description">
+        Events are the backbone of dynamic front-end programming - we can respond to user actions, inputs, and more by
+        <strong>listening</strong> for events.
+        <strong
+          >Inspect this page to see an example <code>mousemove</code> event that's making the ball follow your
+          mouse!</strong
+        >
+      </p>
+      <ul class="notes">
+        <li class="note">
+          An example of events in action would be your average software's GUI. A GUI constantly listens for events the
+          user can trigger, like clicking, keyboard buttons, and more.
+        </li>
+        <li class="note">
+          Browser events can be <strong>handled</strong> by using one of three methods (using click as an example): we
+          can use the <code>onclick</code> html parameter to assign a listener, set the
+          <code>elem.onclick</code> parameter to assign a listener, or use an element's built-in
+          <code>addEventListener</code> method to assign a handler.
+        </li>
+        <li class="note">
+          When we assign an event handler inline, we can write plain JavaScript, but in general, and for both other
+          methods, we need to write a <strong>callback function</strong>.
+        </li>
+        <li class="note">
+          Event handler callback functions should always accept a parameter to accept the
+          <strong>event object</strong> as an argument.
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event" target="_blank">event</a> object contains a
+          lot of useful information to help us respond properly to the event that triggered its creation.
+        </li>
+        <li class="note">
+          If we want to handle events globally (for example tracking mouse position on <code>mousemove</code>), we can
+          attach handlers directly to <code>window</code>:
+          <code>window.addEventListener('mousemove', (event) => console.log(event))</code>
+        </li>
+        <li class="note">
+          Events propograte upward from their target. This is known as <strong>bubbling</strong>, and can be prevented
+          with <code>const handler = (event) => event.stopPropagation()</code>
+        </li>
+        <li class="note">
+          Forms have a <code>submit</code> event that, by default, will submit the form data via the request type set on
+          the form and reload the page. In order to prevent this, we can use <code>submitEvent.preventDefault();</code>
+        </li>
+      </ul>
+    </main>
+    <div
+      id="mouseball"
+      style="
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: fixed;
+        background: var(--yellow);
+        z-index: -1;
+        top: 0;
+        left: 0;
+      "></div>
+  </body>
+  <script>
+    window.addEventListener("mousemove", (event) => {
+      const mouseBall = document.querySelector("#mouseball");
+      const mouseX = event.clientX - 25;
+      const mouseY = event.clientY - 25;
+      mouseBall.style.left = mouseX + "px";
+      mouseBall.style.top = mouseY + "px";
+    });
+  </script>
+</html>
