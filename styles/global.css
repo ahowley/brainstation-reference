@@ -75,6 +75,9 @@ h6 {
 
 code {
   padding: 0.1rem 0.5rem;
+}
+
+code:not(.hljs) {
   font-family: "Roboto Mono", Courier, monospace;
   background: black;
   color: white;

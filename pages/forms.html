@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Forms</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">HTML Forms</h1>
+      <p class="main__description">
+        HTML Forms allow us to collect input from a user an pass that input to be processed, on either the frontend or
+        the backend (or both). See
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form" target="_blank">the MDN page</a> for
+        more details!
+      </p>
+      <ul class="notes">
+        <li class="note">
+          We can create a <code class="html">&#60;form></code> element with multiple
+          <code class="html">&#60;input></code> elements, which can have a variety of <code class="html">type</code>s.
+        </li>
+        <li class="note">
+          Form elements accept an <code class="html">action</code> and a <code class="html">method</code>. The method is
+          an http method, like GET, POST, etc. The <strong class="html">action</strong> tells the form what URL should
+          be used to process the form. When <strong class="html">method="dialog"</strong> is set, the action is ignored.
+        </li>
+        <li class="note">
+          <code class="html">&#60;input></code> elements can have a <code class="html">type</code>, which allow us to
+          dictate how a form should validate that field. For example, <code class="html">type="email"</code> ensures the
+          value submitted from that field is a valid email-like string (by default).
+        </li>
+        <li class="note">
+          <code class="html">&#60;input></code> fields also require a <code class="html">name</code> attribute, which is
+          the "key" part of that fields "key-value pair" when it is passed to JavaScript. This is especially useful when
+          making use of the <code>FormData()</code> constructor or the <code>'formdata'</code> event (<a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/FormData"
+            target="_blank"
+            >see here for more</a
+          >).
+        </li>
+        <li class="note">
+          Along with input elements, there are various other input-like fields made for use with forms, including (but
+          not limited to) <code class="html">&#60;select></code> and <code class="html">&#60;option></code>s,
+          <code class="html">&#60;textarea></code>, and <code class="html">&#60;button></code>
+        </li>
+        <li class="note">
+          If we give a form input-like field an <code class="html">id</code>, we can also give it an associated
+          <code class="html">&#60;label></code> element anywhere else in our html (usually right before or right after,
+          as a sibling). We can then give the label an attribute that specifies the element ID that the label is for,
+          allowing events on the label like users clicking on it to select the form field. For example:
+          <pre><code class="html">&#60;label for="email">Enter your email&#60;/label>
+&#60;input type="email" name="email" id="email"></code></pre>
+        </li>
+        <li class="note">
+          Forms have a few special events associated with them: probably the most important is <code>'submit'</code>. We
+          could add an event listener that runs on form submit like so:
+          <code>document.getElementById("form").addEventListener('submit', callback);</code>
+        </li>
+        <li class="note">
+          Forms also trigger a <code>'formdata'</code> event whenever a FormData object is made out of them. MDN
+          mentions that this happens on submit as well (by default), but we can trigger this event manually like so:
+          <pre><code>new FormData(document.getElementById("form"));</code></pre>
+        </li>
+        <li class="note">
+          To set or get the value of an input field, we can use the <code>.value</code> property of that element.
+          <pre><code>document.querySelector('input').value = 'new value';</code></pre>
+          We can also set the value in HTML:
+          <pre><code class="html">&#60;input name="key" value="value"></code></pre>
+        </li>
+        <li class="note">
+          We can specify that a field is required using the <code class="html">required</code> attribute in the field's
+          html tag. Note that we don't set this attribute to any value - simply including it labels the field as
+          required.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
