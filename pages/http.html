@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - HTTP</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-js.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">HTTP</h1>
+      <p class="main__description">
+        <strong>HTTP (Hypertext Transfer Protocol)</strong> is the foundation of the internet. This protocol is the way
+        that data is exchanged between locations on the web.
+      </p>
+      <h2 class="main__subheading">The Basics</h2>
+      <ul class="notes">
+        <li class="note">
+          The Internet is, literally, an <strong>interconnected network</strong> built on <strong>packets</strong> of
+          data that get passed along literal cables that carry electricity.
+        </li>
+        <li class="note">
+          <strong>TCP</strong> stands for Transmission Control Protocol, and <strong>IP</strong> stands for Internet
+          Protocol.
+        </li>
+        <li class="note">
+          HTTP is the protocol that <strong>servers</strong> (or computers that hold and <strong>serve</strong> data)
+          use to <strong>request</strong> data and <strong>respond</strong> to requests.
+        </li>
+        <li class="note">
+          Other important protocols include <strong>SMTP/POP</strong>, which regulates how emails are sent and received,
+          and <strong>FTP</strong>, which regulates file sharing.
+        </li>
+      </ul>
+      <h2 class="main__subheading">HTTP Methods</h2>
+      <ul class="notes">
+        <li class="note">
+          HTTP requests include a <strong>method</strong> when they're sent. This represents the types of possible
+          actions that can be performed on a server or data on a server.
+        </li>
+        <li class="note">
+          <strong>GET</strong> and <strong>POST</strong> are the two most common ways we send messages to a server - GET
+          is just like typing in a URL in a browser, and requests data. POST asks the server to save or change its data
+          somehow.
+        </li>
+      </ul>
+      <h2 class="main__subheading">HTTP Responses</h2>
+      <ul class="notes">
+        <li class="note">When we make an HTTP request, the server will respond with a <strong>response</strong>.</li>
+        <li class="note">
+          There are many codes -
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status" target="_blank"
+            >you can see them on MDN here</a
+          >
+          - but there are a few reliable categories.
+        </li>
+        <li class="note"><strong>2xx</strong> response codes generally represent a <strong>success</strong>.</li>
+        <li class="note"><strong>3xx</strong> response codes represent a <strong>redirection</strong>.</li>
+        <li class="note">
+          <strong>4xx</strong> response codes represent a <strong>client error</strong>, or the fact that the
+          <strong>requester (client)</strong> did something wrong.
+        </li>
+        <li class="note">
+          <strong>5xx</strong> response codes represent a <strong>server error</strong>, or the fact that the
+          <strong>server</strong> had something go wrong.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Web Addressses</h2>
+      <li class="note">
+        A <strong>URL (Uniform Resource Locator)</strong> is structured as follows:
+        <code>[protocol][subdomain][domain][port][path][parameters][fragment]</code>.
+      </li>
+      <li class="note">
+        The <strong>parameters</strong> of a URL are included with a get request, and allow data to be passed to a
+        website so the website can respond in different ways to different requests.
+      </li>
+      <li class="note">
+        Parameters are structured in <strong>key-value pairs</strong>:
+        <code>[url]?key=value&key2=value2&key3=value3</code>
+      </li>
+    </main>
+  </body>
+</html>
