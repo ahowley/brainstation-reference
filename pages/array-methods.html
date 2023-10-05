@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Array Methods</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-js.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Array Methods</h1>
+      <p class="main__description">
+        Arrays in JavaScript have several very useful built-in functions we can leverage to manipulate them in more
+        efficient ways than just using a traditional for loop each time to accomplish our goal. Many of them are
+        <strong>higher order functions</strong>, which means they often accept a function as an argument, which will run
+        once per item in the array.
+      </p>
+      <h2 class="main__subheading">.forEach() and .map()</h2>
+      <ul class="notes">
+        <li class="note">
+          Arrays' built-in <code>[].forEach(elem => { //do stuff with each elem })</code> method provides an easy way to
+          apply a function to each element of an array.
+        </li>
+        <li class="note">
+          To use this function, the function we provide as an argument to <code>.forEach()</code>
+          <strong>needs a parameter</strong> that can accept each item in the array one at a time.
+        </li>
+        <li class="note">
+          Below is an example that uses forEach to add up all the numbers in an array and logs the result.
+          <pre><code>// create a variable equal to an array of numbers
+const arrayOfNumbers = [2, 3, 3, 2]; // The sum of 2 + 3 + 3 + 2 is 10
+
+// Create a variable to store our sum in
+let sumOfNumbers = 0;
+
+// Pass each number in arrayOfNumbers to a function as an argument, one at a time
+arrayOfNumbers.forEach((number) => {
+  // Add the current number to the total sumOfNumbers
+  sumOfNumbers += number;
+});
+
+// Print the result to the console
+console.log(sumOfNumbers);</code></pre>
+        </li>
+        <li class="note">
+          Arrays' built-in <code>[].map(elem => { //do stuff with each elem }</code> is
+          <strong>exactly like forEach</strong>, except it will also
+          <strong>save the result of each iteration of the function inside a new array</strong>.
+        </li>
+        <li class="note">
+          <code>.forEach()</code> does not return anything, while <code>.map()</code> returns a new array. Otherwise,
+          these are largely the same, in that they invoke a function for each element in the array.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Other Array Methods</h2>
+      <ul class="notes">
+        <li class="note">
+          <code>[].find((elem) => {})</code> will find and return the first <code>elem</code> that causes the function
+          provided to return <code>true</code>.
+        </li>
+        <li class="note">
+          <code>[].filter((elem) => {})</code> works just like <code>.find()</code>, except it returns an array, so it
+          can return multiple matches. This is like the difference between <code>.querySelector()</code> vs.
+          <code>.querySelectorAll()</code>.
+        </li>
+        <li class="note">
+          <code>[].reduce((current, accumulator) => {}, startValue)</code> will reduce an array down to just one value.
+          This one's tough to wrap your head around if it's new to you, but to help, here's the same example we used for
+          <code>.forEach()</code>, but using <code>.reduce()</code> instead:
+          <pre><code>// create a variable equal to an array of numbers
+const arrayOfNumbers = [2, 3, 3, 2];
+
+// Pass each number in arrayOfNumbers to a function as an argument, one at a time
+arrayOfNumbers.reduce((sumOfNumbers, number) => {
+  // Add current number to the total sumOfNumbers
+  sumOfNumbers += number;
+  
+  // Return the current sumOfNumbers each time the function runs so it adds up across iterations
+  return sumOfNumbers;
+}, 0 // set sumOfNumbers's starting value - equivalent to "const sumOfNumbers = 0;" from .forEach() example
+);</code></pre>
+        </li>
+        <li class="note">
+          There are lots of other handy methods - check out
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+            target="_blank"
+            >MDN page on the Array object</a
+          >
+          to see all of them!
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
