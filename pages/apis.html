@@ -15,7 +15,7 @@
       rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <script src="../scripts/format-js.js" async></script>
+    <script src="../scripts/format-html.js" async></script>
     <link href="../styles/global.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
@@ -89,6 +89,12 @@
             >promise-based HTTP Client for node.js and browsers</a
           >
           that allows a similar interface for making HTTP requests on both the client- and server-side.
+        </li>
+        <li class="note">
+          We can import Axios to our front-end page either in the HTML:
+          <pre><code class="html">&#60;script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></code></pre>
+          Or in a script:
+          <pre><code>const axios = require('axios/dist/browser/axios.cjs');</code></pre>
         </li>
         <li class="note">Axios supports JavaScript's <code>Promise</code> API.</li>
         <li class="note">
