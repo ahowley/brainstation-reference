@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - HTTP</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-js.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">APIs</h1>
+      <p class="main__description">
+        A web API (Application Programming Interface) allows us to use HTTP requests (like GET, PUT, POST, or DELETE) to
+        interact with data somewhere else on the web. This is the way we can expose an application to the rest of the
+        web, or request data from another server to show and update dynamically based on user actions.
+      </p>
+      <h2 class="main__subheading">Overview</h2>
+      <ul class="notes">
+        <li class="note">
+          APIs provide a <strong>set of methods</strong> to define how we can interact with another piece of software.
+        </li>
+        <li class="note">The DOM is an example of an API.</li>
+        <li class="note">
+          An API might be protected using an API key. You can often get these by creating a developer account, then will
+          usually pass your API key via the URL or body of your request. This will look something like:
+          <pre><code>"https://api.example.com/endpoint?key=CrAzYaPiKeYtExTgOeShErE"</code></pre>
+        </li>
+        <li class="note">
+          Major sites often have APIs available to developers outside their company to access data from their apps.
+        </li>
+        <li class="note">
+          A POST request sends data to another program, usually asking it to save or display the data somehow.
+        </li>
+        <li class="note">A PUT request typically would be used to update an object that already exists.</li>
+        <li class="note">
+          A DELETE request is the most self-explanatory: it requests an object or piece of data be deleted.
+        </li>
+        <li class="note">
+          An <strong>endpoint</strong> is the URL or location you need to send an API request/"call".
+        </li>
+      </ul>
+      <h2 class="main__subheading">JSON</h2>
+      <ul class="notes">
+        <li class="note">
+          JSON (JavaScript Object Notation) is a standardized way of passing data around the web. It was created with
+          reference to JavaScript syntax, but isn't identical.
+        </li>
+        <li class="note">
+          A JSON key has to be in double quotes, unlike JavaScript, and we can only include certain data types as
+          values.
+        </li>
+        <li class="note">
+          JavaScript has a built-in global object, <code>JSON</code>. This includes several helpful methods for
+          interacting with JSON.
+        </li>
+        <li class="note">
+          <code>JSON.stringify(obj)</code> will turn <code>obj</code> into a JSON string representation of the objects
+          keys and values.
+        </li>
+        <li class="note">
+          <code>JSON.parse(jsonString)</code> will turn a valid JSON string back into a JavaScript object that can be
+          immediately used.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Axios</h2>
+      <ul class="notes">
+        <li class="note">
+          <strong>Axios</strong> is a
+          <a href="https://axios-http.com/docs/intro" target="_blank"
+            >promise-based HTTP Client for node.js and browsers</a
+          >
+          that allows a similar interface for making HTTP requests on both the client- and server-side.
+        </li>
+        <li class="note">Axios supports JavaScript's <code>Promise</code> API.</li>
+        <li class="note">
+          There are standard methods for each request type, like <code>axios.get()</code>, <code>axios.put()</code>,
+          <code>axios.put()</code>, and <code>axios.delete()</code>.
+        </li>
+        <li class="note">When making an Axios request, there're a few things to remember:</li>
+        <ul class="notes">
+          <li class="note">
+            All requests should start with the <code>await</code> keyword, because they are
+            <strong>asyncronous</strong> calls. This will <strong>pause execution until the call is complete</strong>.
+          </li>
+          <li class="note">
+            If you create a function that has the <code>await</code> keyword somewhere inside of it, you need to define
+            that function asynchronously as well using the <code>async</code> keyword.
+          </li>
+          <li class="note">
+            Best practice is to always wrap any Axios HTTP request in a <code>try {} catch (e) {} </code> block. This
+            would look something like this:
+            <pre><code>try{
+  const response = await axios.get('url');
+} catch (error) {
+  console.log(error);
+}</code></pre>
+          </li>
+        </ul>
+      </ul>
+    </main>
+  </body>
+</html>
