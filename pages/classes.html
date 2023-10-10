@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - HTTP</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Classes & Object Oriented Programming</h1>
+      <p class="main__description">
+        Classes give us a way to define a new "template" of sorts for objects.
+        <strong>Almost everything in JavaScript is an object</strong>, and almost all of those things are
+        <strong>instances of built-in classes</strong>.
+      </p>
+      <h2 class="main__subheading">Classes & Objects</h2>
+      <ul class="notes">
+        <li class="note">
+          Objects are just things that have properties that can be accessed. This means that Arrays are also objects,
+          for example.
+        </li>
+        <li class="note">
+          Understanding that an object can contain just about any other data type, including functions, is very
+          important - when an object or class has a property that is also a function, it is also known as a
+          <strong>method</strong>.
+        </li>
+        <li class="note">
+          To define a new <code>class</code>, with starting parameters, we use the following syntax. The
+          <code>constructor</code> method <strong>has to be named constructor</strong>, and nothing else - it's how we
+          tell the code what to run when we <strong>instantiate</strong> a new object.
+          <pre><code>class MyClass {
+  constructor(param1, param2) {
+    this.prop1 = param1;
+    this.prop2 = param2;
+  }
+
+  addPropertyExampleMethod(paramKey, paramValue) {
+    this.paramKey = paramValue;
+  }
+}</code></pre>
+        </li>
+        <li class="note">
+          The <code>this</code> keyword will return the object at the root of the current scope. For classes, it allows
+          us to represent an object that is instantiated based on the class we're creating.
+        </li>
+        <li class="note">
+          The simplest example of this is in the constructor above - we use <code>this.prop1 = param1</code> to say
+          "hey, whenever an object is made with this class, give it a property/key called <code>prop1</code> with the
+          value that's in <code>param1</code>".
+        </li>
+        <li class="note">
+          To instantiate (create) a new object using a class as a template, we call its <code>constructor</code> method.
+          To do this, we use the <code>new</code> keyword.
+          <pre><code>const myObject = new MyClass("prop1 value", "prop2 value");
+myObject.addPropertyExampleMethod("prop3", "prop3 value");</code></pre>
+        </li>
+        <li class="note">
+          The above example will create a new object with three properties - prop1, prop2, and prop3 - with values
+          "prop1 value", "prop2 value", and "prop3 value".
+        </li>
+        <li class="note">
+          Specifically, creating a class creates a new <strong>prototype</strong> for instantiated objects to reference.
+          So if an object property doesn't exist, but does exist on its class/prototype, then when we try to access the
+          property from the object, JS goes and finds the property on the parent, instead.
+        </li>
+        <li class="note">
+          Classes can also contain data and properties that <strong>are not set when an object is instantiated</strong>,
+          but instead, it exists in a constant state "publicly". An example of this would be the <code>Math</code> class
+          - we don't need to create a new Math object to access its methods, like <code>Math.random()</code> or
+          <code>Math.max()</code>.
+        </li>
+        <li class="note">
+          We use the <code>static</code> keyword in front of a method or property to define a new static
+          method/property.
+        </li>
+        <li class="note">
+          We can add new properties and methods to a prototype from anywhere using any object's <code>prototype</code>.
+          Doing this to built-ins is generally not good practice, but knowing it's possible can help understand how
+          prototypes work.
+        </li>
+        <li class="note">
+          For example, the following example would add a "sum" method to all arrays that returns the sum of all values
+          in the array.
+          <pre><code>Array.prototype.sum = function sum() {
+  return this.reduce((acc, current) => acc + current, 0);
+}
+[1, 1].sum(); // 2</code></pre>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Object-Oriented Programming</h2>
+      <ul class="notes">
+        <li class="note">
+          Object-Oriented Programming is a way to capture similarities between different objects and give them a
+          structure to draw from using <strong>Classes</strong> and <strong>Inheritance</strong>.
+        </li>
+        <li class="note">
+          This allows us to structure code in a way that is easy to understand for humans, built on familiar concepts.
+        </li>
+        <li class="note">
+          <strong>Inheritance</strong> provides us a way to create classes based on other classes. For example, we could
+          have a parent <code>class Person {}</code>, then two different children classes:
+          <code>class Student extends Person {}</code> and <code>class Teacher extends Person {}</code>.
+        </li>
+        <li class="note">
+          The <code>extends</code> keyword is how we create a new class that <strong>inherits</strong> all the
+          properties and methods from a parent class. This encourages reusing common code for similar classes by giving
+          each of them a common prototype to extend.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
