@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - HTTP</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Promises</h1>
+      <p class="main__description">
+        A <code>Promise</code> in Javascript is an object that represents the outcome of some asynchronous operation. It
+        provides a simple way to create asynchronous operations that can be called from within otherwise synchronous
+        code. Check out
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+          target="_blank"
+          >the MDN page</a
+        >
+        for more info.
+      </p>
+      <h2 class="main__subheading">Intro to Asynchronous Execution</h2>
+      <ul class="notes">
+        <li class="note">
+          Asynchronous execution is the name for code that can run "in the background" while the rest of your program
+          continues running. This is also known as <strong>non-blocking</strong> code.
+        </li>
+        <li class="note">
+          This is in contrast to synchronous execution, which is usually <strong>blocking</strong> - meaning that
+          whatever runs will prevent the stuff after it from running until it's done.
+        </li>
+        <li class="note">
+          Most JS is <strong>synchronous</strong> by default - Promises provide us a way to turn slow operations, like
+          getting data from elsewhere on the web, into non-blocking, <strong>asynchronous</strong> execution.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Promise Overview</h2>
+      <ul class="notes">
+        <li class="note">
+          A <strong>Promise</strong> is an "agreement" to do something in the future, and holds information about what
+          it "promises" to do.
+        </li>
+        <li class="note">
+          The Promise object will contain information about what we requested it to do - was it successful? Was it
+          rejected? Etc.
+        </li>
+        <li class="note">
+          <code>async</code> and <code>await</code> are "syntactical sugar" that makes promises read a little nicer in
+          code, but under the hood they just create and respond to promises.
+        </li>
+        <li class="note">
+          Promises have 3 states - <strong>pending</strong>, <strong>fulfilled</strong>, and <strong>rejected</strong>.
+        </li>
+        <li class="note">
+          When creating a custom Promise, we will have two states to define - a <code>resolve</code> and
+          <code>reject</code> parameter. We don't need this when we use <code>async/await</code>, because we use
+          standard <code>try {} catch {}</code> blocks instead.
+        </li>
+        <li class="note">
+          When performing an asynchronous operation with <code>async/await</code>, we typically wrap our operation in a
+          <code>try/catch</code> block so we can handle any errors that may happen. If we're only doing one thing
+          asynchronously, it's not strictly necessary, but it still rarely hurts to include.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Creating a New Promise</h2>
+      <ul class="notes">
+        <li class="note">
+          We can create a new Promise using the built-in Promise object with the <code>new</code> keyword. A promise
+          takes one parameter - a callback function - and that function parameter should itself accept two arguments -
+          <code>resolve</code> and <code>reject</code>.
+        </li>
+        <li class="note">
+          In our callback, we tell the promise what Asynchronous operation to perform, then can choose to either
+          <code>resolve()</code> or <code>reject()</code> that operation. In these function calls, we are providing
+          arguments for <code>.then()</code> and <code>.catch()</code>.
+        </li>
+        <li class="note">
+          For example, if our callback gets the text content of an article, we could call
+          <code>resolve(articleText);</code> when we successfully get the article text, and
+          <code>reject(error)</code> if we fail to receive the article text.
+        </li>
+        <li class="note">
+          From our promise, we can then use <code>.then(onFulfillment, onRejection)</code> with onFulfillment
+          representing a function containing what to do if the operation succeeds, and onRejection representing a
+          function containing what to do if it fails.
+        </li>
+        <li class="note">
+          We can also, after the .then(), use <code>.catch(onRejection)</code> to handle any errors from the rejected
+          state in another onRejection function.
+        </li>
+        <li class="note">
+          When used with await, a promise will "return" whatever we pass to <code>resolve()</code>, and will pass
+          anything we give to <code>reject()</code> to a catch block's parameter.
+        </li>
+        <li class="note">
+          An async function will automatically mimic a function that returns a promise without requiring explicit
+          callback chaining. So an async function will automatically reject if there is an uncaught exception in the
+          function body, passing that exception to a catch block where it's resolved, and its return value is similar to
+          what is normally passed inside of <code>resolve()</code>.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Promise Chaining</h2>
+      <ul class="notes">
+        <li class="note">
+          To get the results of multiple promises without using <code>await</code> or <code>.then()</code>, we can use
+          one of several built-in <code>Promise</code> methods that "collect" the results of these promises.
+        </li>
+        <li class="note">
+          <code>Promise.all(promisesIterable)</code> returns a single promise, and will resolve when all the promises
+          passed as arguments succeed, or reject when any of the promises contained inside reject. It resolves with an
+          array of resulting objects from each Promise, and rejects with the first reason for a rejection.
+        </li>
+        <li class="note">
+          <code>Promise.allSettled(promisesIterable)</code> is the same as Promise.all, but resolves when all promises
+          in the iterable <strong>settle</strong>.
+        </li>
+        <li class="note">
+          <code>Promise.any(promisesIterable)</code> is like Promise.all, but resolves when <strong>any</strong> of the
+          promises in the iterable resolve, and rejects when <strong>all</strong> of the promises in the iterable fail.
+        </li>
+        <li class="note">
+          <code>Promise.race(promisesIterable)</code> settles with the eventual state off the first Promise that
+          settles.
+        </li>
+        <li class="note">A promise is settled when it resolves or rejects, regardless of success.</li>
+      </ul>
+    </main>
+  </body>
+</html>
