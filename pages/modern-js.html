@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Modules & Modern JS Features</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Modern JS Features & Modules</h1>
+      <p class="main__description">
+        In the late 2010s and throughout the 2020s, JavaScript has received many helpful additions to allow for more
+        convenient ways to accomplish certain common operations. We've already looked at some of these, like
+        <code>let</code> and <code>const</code>, which have largely become "best practice". This page includes some
+        others, including <strong>ES6 Modules</strong>, that will be useful going forward for writing readable code and
+        maintaining separation of concerns.
+      </p>
+      <h2 class="main__subheading">Destructuring</h2>
+      <ul class="notes">
+        <li class="note">
+          <strong
+            ><a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"
+              target="_blank"
+              >Destructuring assignment</a
+            ></strong
+          >
+          is the process of assigning the properties of objects or the values of arrays to individual variables in a
+          one-line shorthand.
+        </li>
+        <li class="note">
+          To destructure, we include the variable declaration syntax (<code>const</code> or <code>let</code>) followed
+          by either square brackets or curly braces (for arrays or objects, respectively) and then the arbitrary
+          variable names (for arrays) or properties (for objects) we want to destructure.
+        </li>
+        <li class="note">Array example:</li>
+        <pre><code>const [value1, value2] = ["fizz", "bang"];
+console.log(value1); // fizz
+console.log(value2); // bang</code></pre>
+        <li class="note">Object example:</li>
+        <pre><code>const { name, age } = { name: "fizz", age: 27 };
+console.log(name); // fizz
+console.log(age); // 27</code></pre>
+        <li class="note">
+          When we destructure object properties, unlike array values, we normally have to match the exact name of the
+          property. If we want to name the variable the value is assigned to something else, we can include an optional
+          variable name after any/each property separated by a colon, as in the example below.
+        </li>
+        <pre><code>conse { name: nameVariable, age } = { name: "fizz", age: 27 };
+console.log(name); // undefined
+console.log(nameVariable); // fizz
+console.log(age); // 27</code></pre>
+      </ul>
+      <h2 class="main__subheading">Rest and Spread...</h2>
+      <ul class="notes">
+        <li class="note">
+          <strong
+            ><a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters"
+              target="_blank"
+              >Rest parameters</a
+            ></strong
+          >
+          use a special syntax <code>...</code>, and allow us to accept multiple comma-separated parameters and store
+          their values inside of an array.
+        </li>
+        <pre><code>const restArguments = (...args) => console.log(args);
+restArguments(1, 2, 3, 4, 5); // [1, 2, 3, 4, 5]</code></pre>
+        <li class="note">
+          The
+          <strong
+            ><a
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax"
+              target="_blank"
+              >spread syntax</a
+            ></strong
+          >
+          works similarly to how rest parameters work, with a similar <code>...</code> syntax, but inside of expressions
+          involving iterables. This will "flatten" an iterable into its component values, which has a number of useful
+          applications.
+        </li>
+        <pre><code>const combinedArray = [...[1, 2, 3], ...[4, 5]];
+console.log(combinedArray); // [1, 2, 3, 4, 5]
+// Note that combinedArray isn't array with two arrays inside, but an array containing all the values of the two
+// "spread" arrays in a single new array, in order.</code></pre>
+        <li class="note">
+          Rest parameters work with destructuring - we can selectively destructure some array values, and assign the
+          rest to a variable (with any name, "rest" here is just an example):
+        </li>
+        <pre><code>const [val1, val2, ...rest] = [1, 2, 3, 4, 5];
+console.log(val1); // 1
+console.log(val2); // 2
+console.log(rest); // [3, 4, 5]</code></pre>
+      </ul>
+      <h2 class="main__subheading">Modules</h2>
+      <ul class="notes">
+        <li class="note">
+          <strong
+            ><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" target="_blank"
+              >Modules</a
+            ></strong
+          >
+          are one of the more recent features of JavaScript to see official and consistent support across browsers.
+          Modules allow for improved <strong>separations of concerns</strong> and allow for
+          <strong>protected namespaces</strong> per script file.
+        </li>
+        <li class="note">
+          We create a module by using <code>import</code> and <code>export</code> statements, and by including the
+          <code class="html">type="module"</code> attribute inside an html <code class="html">&#60;script></code> tag.
+        </li>
+        <pre><code class="html">&#60;script src="./module.mjs" type="module">&#60;/script></code></pre>
+        <li class="note">
+          To export a value from anywhere in the root-level scope of a JavaScript module, we use
+          <code>export value</code>. "value" in this example can be almost anything - a function, a class, or a variable
+          works fine.
+        </li>
+        <pre><code>const onlyAvailableInModule = "I live inside this module.";
+export const exportedValue = 42;
+export const exportedFunction = () => console.log("Hello, World!");</code></pre>
+        <li class="note">
+          To import what another module exported, we can use <code>import</code> inside another JavaScript module. We
+          can use destructuring to explicitly choose what is imported, or we can just import the destination, which will
+          make all exports available inside of an object called <code>myModuleName</code> (or whatever the name of the
+          imported module file was, without the extension).
+        </li>
+        <pre><code>import "./myModuleName.js";
+console.log(myModuleName.exportedValue); // 42
+console.log(myModuleName.exportedFunction()); // Hello, World!</code></pre>
+        <li class="note">Destructured example:</li>
+        <pre><code>import const { exportedValue, exportedFunction as myFunction} from "./myModuleName.js";
+console.log(exportedValue); // 42
+console.log(myFunction()); // Hello, World!</code></pre>
+        <li class="note">
+          Note that <code>import</code> statements <strong>must be at the top of a module</strong>. To dynamically and
+          asynchronously load a module anywhere in a file,
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import" target="_blank"
+            >use the <code>import()</code> function/syntax</a
+          >
+          instead (which returns a Promise object that resolves with the imported module).
+        </li>
+        <li class="note">
+          We can include a single default export using <code>export default "expression";</code>
+          <code>export { "valueHere" as default };</code>.
+        </li>
+        <li class="note">
+          To import a default value, we can either name a variable outside of the destructuring syntax, or we can
+          explicitly import <code>{ default as variableName }</code>.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
