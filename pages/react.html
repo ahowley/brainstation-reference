@@ -101,13 +101,20 @@
           let us access class-like state inside functional components. Since functional syntax allows us to write less
           code to accomplish the same task, this is generally the preferred method.
         </li>
+        <li class="note">
+          A React component must return only one parent element or wrapper. This can be a <code>div</code>, a
+          <code>ul</code>, or any other html element, or it can be an empty wrapper called a
+          <a href="https://react.dev/reference/react/Fragment" target="_blank">Fragment</a>. Elements in a fragment will
+          behave as if they have no parent when added to the DOM.
+        </li>
       </ul>
       <h2 class="main__subheading">JSX</h2>
       <ul class="notes">
         <li class="note">
           <a href="https://react.dev/learn/writing-markup-with-jsx" target="_blank">JSX</a> is a
           <strong>JavaScript Syntax Extension</strong> that allows us to write code in a way we wouldn't be allowed to
-          with vanilla JavaScript.
+          with vanilla JavaScript. It looks like a templating language but has the full power of JavaScript available
+          directly in the .js file.
         </li>
         <li class="note">
           We use JSX to write html-like syntax directly inside our JavaScript, which is then rendered/compiled as
@@ -125,11 +132,17 @@
 }</code></pre>
         </li>
         <li class="note">
-          We can mimic HTML attributes as function arguments by including the argument in our component inside curly
-          braces. For example:
-          <pre><code>function MyComponent({ myArgument }) {
+          We can add HTML attributes directly to elements in JSX, but we have to adjust any that conflict with reserved
+          JavaScript keyworrds. For example, <code>for</code> becomes <code>htmlFor</code>, and
+          <code>class</code> becomes <code>className</code>.
+        </li>
+        <li class="note">
+          We can mimic HTML attributes as
+          <a href="https://react.dev/learn/passing-props-to-a-component" target="_blank"><strong>props</strong></a> by
+          including the argument in our component inside curly braces (destructured). For example:
+          <pre><code>function MyComponent({ myProp }) {
     &#60;div className="my-class">
-      &#60;h1>{ myArgument }&#60;/h1>
+      &#60;h1>{ myProp }&#60;/h1>
     &#60;/div>
 }</code></pre>
         </li>
@@ -140,12 +153,30 @@
   
 function MyOtherComponent() {
   return &#60;div class="my-other-class">
-    &#60;MyComponent myArgument="Hello, World!" />
+    &#60;MyComponent myProp="Hello, World!" />
   &#60;/div>
 }
 </code></pre>
         </li>
       </ul>
+      <h2 class="main__subheading">Virtual DOM</h2>
+      <ul class="notes">
+        <li class="note">
+          React's <strong>Virtual DOM</strong> holds a representation of the DOM in memory at all times for us to
+          modify, which allows us to only update the actual DOM once per modification.
+        </li>
+        <li class="note">
+          The Virtual DOM is a tree of <code>ReactElement</code>s that hold the state of the DOM and allow for many
+          changes to be made quickly without needing to modify the DOM each time a change is made.
+        </li>
+        <li class="note">
+          The real DOM on the front-end of our app isn't updated except by <code>root.render()</code> in index.js.
+        </li>
+      </ul>
+      <!-- <h2 class="main__subheading">Functional State</h2>
+      <ul class="notes">
+        <li class="note">To create a new "stateful" value attached to a functional component, we use React's</li>
+      </ul> -->
     </main>
   </body>
 </html>
