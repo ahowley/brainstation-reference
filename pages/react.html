@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - React</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">React</h1>
+      <p class="main__description">
+        React is a framework developed by Meta that's designed around creating complex web applications with highly
+        dynamic content built around reusable UI components. See more on
+        <a href="https://react.dev/" target="_blank">React's website here</a>.
+      </p>
+      <h2 class="main__subheading">Overview</h2>
+      <ul class="notes">
+        <li class="note">
+          React is designed around components, which can be reused throughout a web application. At the time of writing,
+          it's arguably the most popular front-end application on the web.
+        </li>
+        <li class="note">
+          Next.js was built on React, and is a newer framework that takes React's features to the next level.
+        </li>
+        <li class="note">React is modular, and provides ways to unit test our UI more easily.</li>
+        <li class="note">
+          It's also flexible and fast, and conveniently, React can render on the server-side as well as the client-side.
+        </li>
+        <li class="note">
+          Good tooling is available - like the <code>create-react-app</code> scaffolding, the React devtools chrome
+          extension, and detailed error messages when something goes wrong.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Creating and Running a React App</h2>
+      <ul class="notes">
+        <li class="note">
+          <a href="https://create-react-app.dev/" target="_blank">create-react-app</a> is a scaffolding tool available
+          via npm to make setting up new React projects quickly and easily.
+        </li>
+        <li class="note">
+          <a href="https://vitejs.dev/" target="_blank">Vite</a> is another way to create an environment, allowing for
+          quick-start servers, live module replacement, and has gained popularity in recent years. This is an
+          alternative to <code>create-react-app</code>.
+        </li>
+        <li class="note">
+          Our React project will include a few folders and files essentially always: one is
+          <strong>node_modules</strong>, one is <strong>public</strong> (which contains public front-end assets like a
+          favicon), and one is <strong>src</strong>, which contains our front-end files.
+        </li>
+        <li class="note">
+          Other files include <strong>package.json</strong>, which defines which packages are necessary for your app to
+          run, <strong>package-lock.json</strong>, which works with package.json to ensure all developers working on the
+          app are using the same versions of packages, and a readme.
+        </li>
+        <li class="note">To run an npm app, we can run <code>npm start</code> in the console.</li>
+        <li class="note">
+          App.js is a component that represents what we want to go into our React root. That root is defined inside
+          index.js (by default according to create-react-app).
+        </li>
+      </ul>
+      <h2 class="main__subheading">Components</h2>
+      <ul class="notes">
+        <li class="note">
+          Components are the building blocks of any page in React - the first step of building a React application is
+          chunking out bigger components into their smaller portions.
+        </li>
+        <li class="note">
+          Component definitions are created in classes or functions, and have a capitalized first letter.
+        </li>
+        <li class="note">
+          We instantiate a React "root" by defining where the application should reference and insert itself:
+          <pre><code>const root = ReactDOM.createRoot(document.getElementById("root"));</code></pre>
+        </li>
+        <li class="note">
+          Our components will often live in their own module, which will also have a capitalized file name. This will be
+          the default export of the app.
+        </li>
+        <li class="note">
+          Traditionally, React components used to only be allowed to store state when using class-based components. More
+          recently, in 2019, a more functional approach has been supported by way of <strong>React Hooks</strong>, which
+          let us access class-like state inside functional components. Since functional syntax allows us to write less
+          code to accomplish the same task, this is generally the preferred method.
+        </li>
+      </ul>
+      <h2 class="main__subheading">JSX</h2>
+      <ul class="notes">
+        <li class="note">
+          <a href="https://react.dev/learn/writing-markup-with-jsx" target="_blank">JSX</a> is a
+          <strong>JavaScript Syntax Extension</strong> that allows us to write code in a way we wouldn't be allowed to
+          with vanilla JavaScript.
+        </li>
+        <li class="note">
+          We use JSX to write html-like syntax directly inside our JavaScript, which is then rendered/compiled as
+          JavaScript by React and node.
+        </li>
+        <li class="note">
+          To create a very simple component, our code inside a file like "MyComponent.js" might look something like
+          this:
+          <pre><code>function MyComponent() {
+  return {
+    &#60;div className="my-class">
+      &#60;h1>Hello, World!&#60;/h1>
+    &#60;/div>
+  }
+}</code></pre>
+        </li>
+        <li class="note">
+          We can mimic HTML attributes as function arguments by including the argument in our component inside curly
+          braces. For example:
+          <pre><code>function MyComponent({ myArgument }) {
+    &#60;div className="my-class">
+      &#60;h1>{ myArgument }&#60;/h1>
+    &#60;/div>
+}</code></pre>
+        </li>
+        <li class="note">
+          To subsequently render a component inside another component, we can first import the component we need, then
+          use a self-closing html-like syntax to render an instance of that component.
+          <pre><code>import MyComponent from "./MyComponent";
+  
+function MyOtherComponent() {
+  return &#60;div class="my-other-class">
+    &#60;MyComponent myArgument="Hello, World!" />
+  &#60;/div>
+}
+</code></pre>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
