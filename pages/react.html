@@ -173,10 +173,34 @@ function MyOtherComponent() {
           The real DOM on the front-end of our app isn't updated except by <code>root.render()</code> in index.js.
         </li>
       </ul>
-      <!-- <h2 class="main__subheading">Functional State</h2>
+      <h2 class="main__subheading">Working With State</h2>
       <ul class="notes">
-        <li class="note">To create a new "stateful" value attached to a functional component, we use React's</li>
-      </ul> -->
+        <li class="note">
+          We can pass data down to subcomponents using props, but we can't/shouldn't pass data up from a "child"
+          component to its parent. Components should be passed down.
+        </li>
+        <li class="note">
+          Props are always passed inside a single object, which is why we "destructure" them as they enter our
+          components.
+        </li>
+        <li class="note">
+          This is helpful - it means that we can use objects to add attributes to HTML elements, and it means we can add
+          any type of data we want to an html-like syntax in our components.
+        </li>
+        <li class="note">Best practice is typically to use camelCase for our prop names.</li>
+        <li class="note">
+          In general, data and state information should flow downward, and not the other way around. But there are times
+          where we also want to ensure the logic associated with grabbing data is "encapsulated" within a subcomponent,
+          in which case we can use React's built-in state management to send new data to the state of our software.
+        </li>
+        <li class="note">
+          Any time we generate a series of items from an array of data, we should give each dynamically generated
+          element a unique <code>key</code>. Usually, this will come from a server or from the object supplying the
+          data. This allows us to dynamically keep track of that component as our app is running and switch things
+          around without struggling to keep things in the right order. This is one of the simplest ways to handle state
+          within our app as it relates to dynamic data.
+        </li>
+      </ul>
     </main>
   </body>
 </html>
