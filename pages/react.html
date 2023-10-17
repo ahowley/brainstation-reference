@@ -140,7 +140,7 @@
           We can mimic HTML attributes as
           <a href="https://react.dev/learn/passing-props-to-a-component" target="_blank"><strong>props</strong></a> by
           including the argument in our component inside curly braces (destructured). For example:
-          <pre><code>export default function MyComponent({ myProp }) {
+          <pre><code>export function MyComponent({ myProp }) {
     &#60;div className="my-class">
       &#60;h1>{ myProp }&#60;/h1>
     &#60;/div>
@@ -149,7 +149,7 @@
         <li class="note">
           To subsequently render a component inside another component, we can first import the component we need, then
           use a self-closing html-like syntax to render an instance of that component.
-          <pre><code>import MyComponent from "./MyComponent";
+          <pre><code>import { MyComponent } from "./MyComponent";
   
 function MyOtherComponent() {
   return &#60;div class="my-other-class">
@@ -199,6 +199,30 @@ function MyOtherComponent() {
           data. This allows us to dynamically keep track of that component as our app is running and switch things
           around without struggling to keep things in the right order. This is one of the simplest ways to handle state
           within our app as it relates to dynamic data.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Event Handlers</h2>
+      <ul class="notes">
+        <li class="note">
+          Unlike in Vanilla JavaScript, we don't interact with the DOM directly. We let React handle the DOM for us, so
+          event listeners have to be approached in a different way.
+        </li>
+        <li class="note">
+          To register an event listener in JSX, we use the same events as in vanilla JavaScript, but they are camelCase
+          and prefaced with <code>on</code>. For example:
+          <pre><code>export const HiButton = () => {
+  return (
+    &#60;button onClick={(event => console.log(event.target))}>Hi!&#60;/button>
+  );
+}</code></pre>
+        </li>
+        <li class="note">
+          To define this onClick property based on a behavior we pass from the parent, we can pass a function as a prop,
+          just like we can with regular function parameters and event handlers. This lets us define one event handler to
+          multiple different components, but allow those components do different things.
+        </li>
+        <li class="note">
+          We can do this with any function to allow a child's behavior to change based on its parent.
         </li>
       </ul>
     </main>
