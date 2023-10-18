@@ -158,6 +158,10 @@ function MyOtherComponent() {
 }
 </code></pre>
         </li>
+        <li class="note">
+          When we "escape" into JavaScript, whatever's inside the escaped braces will only render if it reduces to
+          either JSX or a string.
+        </li>
       </ul>
       <h2 class="main__subheading">Virtual DOM</h2>
       <ul class="notes">
@@ -173,8 +177,40 @@ function MyOtherComponent() {
           The real DOM on the front-end of our app isn't updated except by <code>root.render()</code> in index.js.
         </li>
       </ul>
+      <h2 class="main__subheading">Event Handlers</h2>
+      <ul class="notes">
+        <li class="note">
+          Unlike in Vanilla JavaScript, we don't interact with the DOM directly. We let React handle the DOM for us, so
+          event listeners have to be approached in a different way.
+        </li>
+        <li class="note">
+          To register an event listener in JSX, we use the same events as in vanilla JavaScript, but they are camelCase
+          and prefaced with <code>on</code>. For example:
+          <pre><code>export const HiButton = () => {
+  return (
+    &#60;button onClick={(event => console.log(event.target))}>Hi!&#60;/button>
+  );
+}</code></pre>
+        </li>
+        <li class="note">
+          To define this onClick property based on a behavior we pass from the parent, we can pass a function as a prop,
+          just like we can with regular function parameters and event handlers. This lets us define one event handler to
+          multiple different components, but allow those components do different things.
+        </li>
+        <li class="note">
+          We can do this with any function to allow a child's behavior to change based on its parent.
+        </li>
+      </ul>
       <h2 class="main__subheading">Working With State</h2>
       <ul class="notes">
+        <li class="note">
+          <strong>State</strong> is the term we use in software engineering to refer to, literally, the current
+          <strong>state</strong> of a program.
+        </li>
+        <li class="note">
+          In React, data is managed and passed as capital-S
+          <a href="https://react.dev/reference/react/useState" target="_blank"><strong>State</strong></a> and Props.
+        </li>
         <li class="note">
           We can pass data down to subcomponents using props, but we can't/shouldn't pass data up from a "child"
           component to its parent. Components should be passed down.
@@ -200,29 +236,47 @@ function MyOtherComponent() {
           around without struggling to keep things in the right order. This is one of the simplest ways to handle state
           within our app as it relates to dynamic data.
         </li>
-      </ul>
-      <h2 class="main__subheading">Event Handlers</h2>
-      <ul class="notes">
         <li class="note">
-          Unlike in Vanilla JavaScript, we don't interact with the DOM directly. We let React handle the DOM for us, so
-          event listeners have to be approached in a different way.
+          In React, any time the state of our site changes, it will automatically handle triggering DOM updates. This is
+          the foundation React is built on, and what allows us to literally "react" to our stream of data.
         </li>
         <li class="note">
-          To register an event listener in JSX, we use the same events as in vanilla JavaScript, but they are camelCase
-          and prefaced with <code>on</code>. For example:
-          <pre><code>export const HiButton = () => {
-  return (
-    &#60;button onClick={(event => console.log(event.target))}>Hi!&#60;/button>
-  );
-}</code></pre>
+          To leverate this behavior, we can create special <strong>State variables</strong> - these will react in real
+          time, and any prop that contains a state variable as a value somewhere will respond automatically any time
+          that state variable changes.
         </li>
         <li class="note">
-          To define this onClick property based on a behavior we pass from the parent, we can pass a function as a prop,
-          just like we can with regular function parameters and event handlers. This lets us define one event handler to
-          multiple different components, but allow those components do different things.
+          Because modifying state is a side-effect, we need to explicitly import React's state management features
+          through the use of <a href="https://react.dev/reference/react" target="_blank">hooks</a>. Probably the most
+          common form of state management is done via the <code>useState()</code> react hook. To import the useState
+          hook:
+          <pre><code>import { useState } from "react";</code></pre>
         </li>
         <li class="note">
-          We can do this with any function to allow a child's behavior to change based on its parent.
+          To create a state variable, we use a destructuring syntax with useState, and pass the initial state value
+          inside the method call. For example:
+          <pre><code>const [value, setValue] = useState(0);</code>.</pre>
+        </li>
+        <li class="note">
+          When we create a state variable, we are creating two things: the first is a variable (with any name) that can
+          contain the state value, and the second is a "setter" that allows us to change the value of that state
+          variable. We have to put useState (or any other state hook) inside of our Component function. Notice that
+          setting the <code>value</code> we made above doesn't involve an <code>=</code>:
+          <pre><code>setValue(value + 5);</code></pre>
+        </li>
+        <li class="note">
+          We can also call setState with a callback function:
+          <pre><code>setValue(currentValue => currentValue + 5);</code></pre>
+        </li>
+        <li class="note">
+          When we want shared state to be modified by multiple components, we should move the state up to the nearest
+          shared parent and pass down the value and/or a callback function the child component can call to set the
+          value.
+        </li>
+        <li class="note">
+          We should keep state as nested as possible, because only the components that use the state will rerender when
+          it is updated. This can also help give a queue as to when something should be refactored into its own
+          component (although this is not a rule, and components do not need to use state).
         </li>
       </ul>
     </main>
