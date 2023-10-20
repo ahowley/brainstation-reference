@@ -147,7 +147,7 @@ export const exportedFunction = () => console.log("Hello, World!");</code></pre>
 console.log(myModuleName.exportedValue); // 42
 console.log(myModuleName.exportedFunction()); // Hello, World!</code></pre>
         <li class="note">Destructured example:</li>
-        <pre><code>import const { exportedValue, exportedFunction as myFunction} from "./myModuleName.js";
+        <pre><code>import { exportedValue, exportedFunction as myFunction} from "./myModuleName.js";
 console.log(exportedValue); // 42
 console.log(myFunction()); // Hello, World!</code></pre>
         <li class="note">
