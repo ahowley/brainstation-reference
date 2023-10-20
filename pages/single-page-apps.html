@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Single-Page Apps</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Single-Page Applications & React</h1>
+      <p class="main__description">
+        Many modern web apps have been moving to a single-page architecture, which is in contrast to having multiple
+        static pages like a traditional website. This brings with it a number of new challenges, but the main benefits
+        have to do with how similar these apps are to other modern apps, like mobile apps, and how nuanced we can get
+        with user feedback and user interaction details.
+      </p>
+      <h2 class="main__subheading">Client-Side Routers</h2>
+      <ul class="notes">
+        <li class="note">
+          In general, a <strong>router</strong> is the program or logic in charge of determining how to control the
+          display of a certain web domain.
+        </li>
+        <li class="note">
+          There are many client-side routers available for use to create single-page applications, but even without one,
+          it's possible to create a single-page, single-url application. In React, this would look like using State to
+          control with main element to display at any given time.
+        </li>
+        <li class="note">
+          For example, we could create a <code>route</code> state variable and store the current selected page, then use
+          it to determine which page to display based on the value of that state variable.
+        </li>
+        <li class="note">
+          <strong>Deep Linking</strong> is allowed by routers that look at the url, respond to changes to the endpoint,
+          and change the state of the program accordingly. In a traditional app, this will just take you to a new page -
+          in a single-page app, we need to use some kind of custom routing behavior to mimic forward and backward
+          movement, and to detect which current page to display in general.
+        </li>
+        <li class="note">
+          Both front-end and back-end software can use routers - a backend will determine which data to return to the
+          client, while a front-end app will control state to alter the page that's displaying.
+        </li>
+        <li class="note">
+          In vanilla JavaScript, there is a
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API" target="_blank">History API</a> that
+          lets us control how our app reports browser history, as well as allow us to interact with this history.
+        </li>
+        <li class="note">
+          There's nothing preventing us from interacting with this routing manually in React, or vanilla JavaScript, to
+          manually create single-page behavior - but something like React Router will bundle this behavior "under the
+          hood" and handle the side-effects smoothly for us.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
