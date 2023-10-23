@@ -70,6 +70,76 @@
           hood" and handle the side-effects smoothly for us.
         </li>
       </ul>
+      <h2 class="main__subheading">React Router</h2>
+      <ul class="notes">
+        <li class="note">
+          <a href="https://reactrouter.com/en/main" target="_blank">React Router</a> is a third-party package for
+          mimicking client-side routing behavior. They use components to handle routing for us, rather than having to
+          manually manage routing via state.
+        </li>
+        <li class="note">A "route" is a URL path that takes us to a specific resource/"page".</li>
+        <li class="note">To install React Router, we can install it with <code>npm install react-router-dom</code>.</li>
+        <li class="note">
+          React Router has a few included components to help us handle routing. The top-level component is called
+          <code>BrowserRouter</code>.
+        </li>
+        <li class="note">
+          To make a new route, we put our routes inside of a <code>Route</code> component inside a
+          <code>Routes</code> component inside a <code>BrowserRouter</code> component. Each route should have at least
+          two props: a <code>path=</code> and an <code>element=</code>.
+          <pre><code>return (
+  &#60;BrowserRouter>
+    &#60;Routes>
+      &#60;Route path="/" element={&#60;Home />} />
+      &#60;Route path="/about" element={&#60;About />} />
+    &#60;/Routes>
+  &#60;/BrowserRouter>
+)</code></pre>
+        </li>
+        <li class="note">
+          When using routing in a single-page app in React, it'd be common to have a "Pages" folder in addition to our
+          usual "Components" folder.
+        </li>
+        <li class="note">
+          The <code>&#60;Link></code> component allows us to mimic the behavior of an anchor tag while staying on our
+          own site.
+          <pre><code>&#60;Link to="/">Home&#60;/Link></code></pre>
+        </li>
+        <li class="note">
+          We can create a 404 page by using <code>&#60;Route path="*" element={&#60;NotFound />} /></code>
+        </li>
+        <li class="note">
+          The <code>&#60;Navigate></code> component is similar to the Link component, but it allows us to redirect a
+          user to a different route. There is also a hook for this called <code>useNavigate</code>.
+        </li>
+        <li class="note">
+          We can set up relative paths using a colon in front of the name of the path that we want. State can help us
+          here as well.
+        </li>
+        <li class="note">
+          To set up a relative path route:
+          <pre><code>&#60;Route path="/path/:dynamic" element={&#60;Component />} /></code></pre>
+        </li>
+        <li class="note">
+          To
+          <a href="https://reactrouter.com/en/main/hooks/use-params" target="_blank">actually handle a dynamic path</a>
+          like the above, we'll need the <code>useParams</code> hook. This lets us grab whatever the optional path was
+          sent in the URL and store.
+          <pre><code>let params = useParams();</code></pre>
+        </li>
+        <li class="note">
+          Don't forget to <code>import { useParams } from "react-router-dom";</code> before trying to actually use
+          params!
+        </li>
+        <li class="note">
+          When defining the custom path, the colon <code>:</code> starts our parameter name. So we can access just one
+          URL parameter from the object returned by <code>useParams()</code> in the normal JavaScript way:
+          <pre><code>&#60;Route path="/path/:myDynamicString" element={&#60;MyComponent />} />
+... // below would be inside MyComponent
+const params = useParams();
+console.log(params.myDynamicString);</code></pre>
+        </li>
+      </ul>
     </main>
   </body>
 </html>
