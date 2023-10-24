@@ -282,6 +282,136 @@ function MyOtherComponent() {
           (although this is not a rule, and components do not need to use state).
         </li>
       </ul>
+      <h2 class="main__subheading">Effects, Async/Await, and Promises in React</h2>
+      <ul class="notes">
+        <li class="note">
+          When working with external systems of any kind, React can start to get a little finicky. React handles a lot
+          under the hood for us, but sometimes we want to - or have to - "escape" from the React world into vanilla
+          JavaScript for one reason or another.
+        </li>
+        <li class="note">
+          In React, we can't use <code>async/await</code> straight in our components like we normally would. This means
+          that when we're fetching data that we need for rendering asynchronously, there will be some amount of time
+          where that data won't be available yet.
+        </li>
+        <li class="note">
+          Because of this, we need to <code>useState</code> to contain the result of our promises, and set that state to
+          the result of our promise after its been awaited in an independent async function (which we
+          <em>can</em> define inside our component). Our first idea might look something like this:
+          <pre><code>import { useState } from "react";
+import axios from "axios";
+
+export function MyComponent() {
+  const [data, setData] = useState(null);
+
+  const getFromApi = async () => {
+    const response = await axios.get("www.example-api.com/endpoint");
+    setData(response.data);
+  }
+
+  getFromApi();
+
+  return (
+    &#60;>{data ? &#60;p>data.property&#60;/p> : &#60;p>Loading...&#60;/p>}&#60;/>
+  );
+}</code></pre>
+        </li>
+        <li class="note">
+          The above example will kind of work, but there's a problem: this function is going to run on every re-render.
+          This means that we're going to request our data hundreds of times, when really, we only need to make the
+          request once.
+        </li>
+        <li class="note">
+          To fix this, we need to
+          <strong>explicitly tell React that this is a side effect, and let it know when it is allowed to run</strong>.
+          <a href="https://react.dev/reference/react/useEffect" target="_blank">To do this</a>, we can use the
+          <code>useEffect</code> hook.
+        </li>
+        <li class="note">
+          <code>useEffect</code> is a <strong>React hook</strong> that takes a <strong>callback function</strong> as its
+          first argument, and an array full of <strong>"dependencies"</strong> as its second argument.
+        </li>
+        <li class="note">
+          The callback function will be called whenever anything in the dependency array changes between renders. For
+          example, if the dependency array is an empty array, <code>useEffect</code> will only run its callback function
+          once, when the component is first mounted.
+          <pre><code>useEffect(() => console.log("I will only show up once!"), []);</code></pre>
+        </li>
+        <li class="note">
+          This makes <code>useEffect</code> the <strong>go-to way to "escape" from the React paradigm</strong> - for
+          example, to interact with vanilla JS APIs (including the DOM!), data fetched from an external API, or vanilla
+          JS libraries and scripts.
+        </li>
+        <li class="note">
+          If we don't give <code>useEffect</code> any dependencies, it will run any time state changes, which pretty
+          much removes the utility of using effects in the first place - for this reason,
+          <strong>we should pretty much always provide dependencies</strong>.
+        </li>
+        <li class="note">
+          Putting all of this together, we can fix our earlier example using axios:
+          <pre><code>import { useState, useEffect } from "react";
+import axios from "axios";
+
+export function MyComponent() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const getFromApi = async () => {
+      const response = await axios.get("www.example-api.com/endpoint");
+      setData(response.data);
+    }
+    getFromApi()
+  }, []);
+
+  return (
+    &#60;>{data ? &#60;p>data.property&#60;/p> : &#60;p>Loading...&#60;/p>}&#60;/>
+  );
+}</code></pre>
+        </li>
+        <li class="note">
+          Now, thanks to only fetching our data inside of <code>useEffect</code>, we will only ever fetch our data once
+          - because our dependency array is empty, so there will never be anything to trigger an update again.
+        </li>
+        <li class="note">
+          It's worth mentioning that there's no limits on how many dependencies we can add to a dependency array, which
+          is the whole reason it's an array!
+        </li>
+        <li class="note">
+          Something else to know about <code>useEffect</code> is that we can <code>return</code> a callback function
+          that will run <strong>when the component is unmounted</strong>. This can be useful for cleaning up
+          side-effects after you switch pages.
+          <pre><code>import { useEffect } from "react";
+
+export function WindowClickListener() {
+
+  useEffect(() => {
+    console.log("I'm an event listener that's needed when this component is on the page!");
+    const sideEffectEventListener = () => console.log("I clicked something!");
+    window.addEventListener("click", sideEffectEventListener);
+
+    return () => {
+      window.removeEventListener("click", sideEffectEventListener);
+      console.log("I'm no longer needed, bye-bye!");
+    }
+  }, []);
+
+  return (
+    &#60;>Example of an effect with a window event listener&#60;/>
+  );
+}</code></pre>
+        </li>
+        <li class="note">
+          The above example needs an event listener attached to the entire window whenever the component is mounted, but
+          we shouldn't have that event listener if the component isn't present. For this reason, we return a callback
+          that removes the event listener whenever the component is unmounted. This kind of effect is useful, because we
+          don't just have a <code>Window</code> component somewhere where we can slap an <code>onClick</code> on it.
+        </li>
+        <li class="note">
+          With async and await/promise functions, it's worth mentioning as well that React doesn't allow an effect do be
+          defined with <code>async</code> the way normal event listeners might allow you to. For this reason, you
+          usually have to create another async function inside the useEffect callback and then immediately call it.
+        </li>
+      </ul>
     </main>
   </body>
 </html>
