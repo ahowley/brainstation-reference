@@ -412,6 +412,25 @@ export function WindowClickListener() {
           usually have to create another async function inside the useEffect callback and then immediately call it.
         </li>
       </ul>
+      <h2 class="main__subheading">useRef and Uncontrolled Components</h2>
+      <ul class="notes">
+        <li class="note">
+          The <code>useRef</code> hook provides a way for us to access something outside the React paradigm, sort of
+          like an effect, but instead of telling React what to do, we're just telling it where our side effects are
+          coming from.
+        </li>
+        <li class="note">
+          Interactions with the DOM, like using event.target, or giving an element in your JSX a
+          <code>ref={refName}</code> prop, are typically examples of <strong>Uncontrolled Components</strong>. These are
+          components that behave outside the declarative paradigm in some way.
+        </li>
+        <li class="note">
+          There are times when refs are necessary, and they are still better than direct DOM manipulation when possible
+          (since refs know about the shadow DOM), but in general, if a ref can be avoided, it should be. If they can't
+          be avoided, it can also be a good idea to make a custom hook to abstract the imperative behavior out of your
+          components.
+        </li>
+      </ul>
     </main>
   </body>
 </html>
