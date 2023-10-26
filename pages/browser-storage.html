@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Web Storage</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Storing Data Locally in the Browser</h1>
+      <p class="main__description">
+        There are several different ways to save data in a client's browser - localStorage, caching, cookies, etc. The
+        Web Storage API is one of the simplest available APIs for persisting data, or keeping data that stays between
+        sessions, and the sessionStorage API is for handling data that persists throughout one particular session. There
+        are a few other available methods for storing data client-side - other things to look into include the
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank">IndexedDB API</a>, the
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#see_also"
+          target="_blank"
+          >Structured Clone Algorithm</a
+        >, the
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API" target="_blank"
+          >Service Worker API</a
+        >, and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Cache" target="_blank">Cache Interface</a>.
+      </p>
+      <h2 class="main__subheading">The Web Storage API</h2>
+      <ul class="notes">
+        <li class="note">
+          Local storage in browsers allow us to "remember" something about a user's behavior between sessions, even if
+          they aren't logged in. Using the
+          <strong
+            ><a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API"
+              target="_blank"
+              >Web Storage API</a
+            >
+            and the
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank"
+              >localStorage</a
+            >
+            property</strong
+          >
+          is a great way to do this, because we don't have to actually store any of the user's data on the server to
+          allow that data to persist.
+        </li>
+        <li class="note">
+          Just like regular JavaScript objects, localStorage stores data in key-value pairs - specifically, key-value
+          pairs that <strong>have to be strings</strong>.
+        </li>
+        <li class="note">
+          To facilitate storing data in a string format, we can use <code>JSON.stringify()</code> to convert all our
+          keys and values into a string. Another word for this is <strong>serializing</strong> our data.
+        </li>
+        <li class="note">
+          Some good examples of uses for localStorage would include a dark mode/dark theme, language settings, or a
+          shopping cart.
+        </li>
+        <li class="note">
+          Anyone with physical access to the computer where data is saved can see localStorage - which means sensitive
+          data should never be stored in localStorage.
+        </li>
+        <li class="note">
+          Each domain has separate localStorage, which is not shared between domains at all. This means a website can
+          only read or write data associated with their paraticular domain.
+        </li>
+        <li class="note">
+          In order to store something to localStorage, we can simply use the
+          <code>localStorage.setItem(stringKey, JSON.stringify(someObject));</code> method.
+        </li>
+        <li class="note">
+          We can then get that item back using <code>localStorage.getItem(JSON.parse(stringKey));</code>.
+        </li>
+        <li class="note">
+          To remove something from localStorage, we can use <code>localStorage.removeItem(stringKey);</code>, and to
+          clear everything, we can use <code>localStorage.clear()</code>.
+        </li>
+        <li class="note">
+          To view localStorage, sessionStorage, IndexedDB, and cookies, as well as shared and cached storage, we can
+          look at the Application tab in our browser's dev tools. We can also alter or clear localStorage from here for
+          testing.
+        </li>
+        <li class="note">
+          In React, we can think of fetching data from localStorage similarly to how we fetch data using axios - meaning
+          we will often need to use the <code>useEffect</code> hook to access localStorage whenever the page loads.
+        </li>
+        <li class="note">
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage" target="_blank"
+            ><strong>sessionStorage</strong></a
+          >
+          is very similar to localStorage, but it will only persist data until a session is ended. Each individual new
+          browser tab that goes to a domain gets its own sessionStorage property, and sessionStorage is cleared whenever
+          a browser tab or window is closed. This makes it similar to memory, with the advantage that memory isn't
+          needed. This storage is scoped to individual tabs, but will be duplicated if a tab is duplicated.
+        </li>
+        <li class="note">
+          sessionStorage is helpful for when users are working on an in-progress document or form that we want to ensure
+          won't get cleared on a refresh of some kind. We also shouldn't store anything sensitive, though. This is also
+          another perk of ensuring your components are controlled - behavior like this can all be managed with state in
+          React or reactive applications.
+        </li>
+        <li class="note">
+          Note that while sessionStorage is "scoped" to individual tabs, localStorage is "scoped" to the entire domain
+          globally.
+        </li>
+        <li class="note">
+          It's also worth mentioning that clearing browser data will clear out localStorage, so it shouldn't be used for
+          anything that's critical to the functionality of your website.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Cookies</h2>
+      <ul class="notes">
+        <li class="note">
+          A cookie is a type of data sent on an HTTP request of some kind, and is stored both locally and on the server.
+        </li>
+        <li class="note">
+          Similar to localStorage, a cookie stores data in a key-value pair, but they can also be given an expiry date
+          to make them automatically clear themselves after a given amount of time.
+        </li>
+        <li class="note">
+          Cookies are also "scoped" to a specific domain, thanks to the
+          <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy" target="_blank"
+            >Same Origin Policy</a
+          >.
+        </li>
+        <li class="note">
+          A cookie can be locked down to be disallowed from scripted modification, and all cookies can
+          <strong>only be altered by requests made over HTTPS</strong>.
+        </li>
+        <li class="note">
+          <a href="https://github.com/js-cookie/js-cookie" target="_blank">js-cookie</a> is an easy-to-use, lightweight
+          API for interfacing with browser cookies.
+        </li>
+        <li class="note">
+          To set a cookie with js-cookie, we can use a similar-looking interface to localStorage:
+          <code>Cookies.set(stringKey, stringValue, {expiry: 1});</code>. To retrieve:
+          <code>Cookies.get("stringKey");</code>. The expiry in this example is set in number of days.
+        </li>
+        <li class="note">
+          Cookies are typically used for keeping track of user activity and analytics, or for keeping track of user
+          authentication/identification.
+        </li>
+        <li class="note">
+          Cookies can be manipulated by third-party scripts, while localStorage and sessionStorage are generally more
+          secure, but all of them should be used with caution.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
