@@ -65,7 +65,7 @@
         </li>
         <li class="note">
           To create an app, we can simply install then <code>require("express")</code>, then call
-          <code>const appName = express();</code>
+          <code>const app = express();</code>
         </li>
         <li class="note">
           To configure a route, we can use <code>app.httpmethodhere()</code>, which takes a path and a callback to
@@ -73,12 +73,39 @@
           <pre><code>app.get("/", (req, res) => res.send("Hello, World!"));</code></pre>
         </li>
         <li class="note">
+          The response object used in these route methods contains some useful helpers, like
+          <code>res.json(["I'm in an array"]);</code>, which will stringify whatever is returned automatically.
+        </li>
+        <li class="note">
           A single path can accept multiple routes that are different based on the HTTP verb used to define the route.
+        </li>
+        <li class="note">
+          To simplify routes with multiple methods, we can use <code>app.route()</code>. For example:
+          <pre><code>app.route("/")
+  .get((req, res) => res.send("got"));
+  .post((req, res) => res.send("posted"));
+  .put((req, res) => res.send("put"));</code></pre>
+        </li>
+        <li class="note">
+          To accept a dynamic parameter in a get path, we can define it in our path with a colon prefix
+          (<code>"/:record"</code>) and then read that parameter from the request object:
+          <code>req.params.record</code>.
         </li>
         <li class="note">
           To tell our app to <strong>listen</strong> on a certain local port, we can use <code>app.listen()</code>,
           which takes a port number and a callback function. For example:
           <pre><code>app.listen(3000, () => console.log("Listening on port 3000"));</code></pre>
+        </li>
+        <li class="note">
+          We are responsible for delivering proper error responses when a request from a client fails for some reason.
+          We configure these like so:
+          <pre><code>res.status(404).send("Resource not found");</code></pre>
+        </li>
+        <li class="note">
+          If we need to generate a unique ID, it can be a good idea to use the
+          <a href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID" target="_blank">randomUUID</a>
+          method of the Web Crypto API or the <a href="https://www.npmjs.com/package/uuid" target="_blank">uuid</a> npm
+          package.
         </li>
       </ul>
     </main>
