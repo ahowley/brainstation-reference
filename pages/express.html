@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Express</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Backend Development with Express</h1>
+      <p class="main__description">
+        <strong><a href="https://expressjs.com/" target="_blank">Express</a></strong> is a backend JavaScript framework
+        that allows us to build our own web server APIs for supplying and handling content for the client of our web
+        apps.
+      </p>
+      <h2 class="main__subheading">Web Servers</h2>
+      <ul class="notes">
+        <li class="note">
+          A web server is a computer somewhere connected to the web that communicates over HTTP to supply and receive
+          data.
+        </li>
+        <li class="note">HTTP data can be JSON, binary data for non-text information, or some other stuff.</li>
+        <li class="note">
+          The "network stack" starts with HTTP, with a server API in the middle, and a database to store data on the
+          bottom.
+        </li>
+        <li class="note">
+          HTTPS requests are built on HTTP, but they require requests and responses to be encrypted, making them only
+          readable by the intended recipient.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Express</h2>
+      <ul class="notes">
+        <li class="note">
+          Express is a minimalist, unopinionated framework for Node.js that makes the process of building a web server
+          simpler.
+        </li>
+        <li class="note">
+          Express lets us serve data files to our applications, or handle HTTP requests and respond with certain types
+          of data.
+        </li>
+        <li class="note">
+          When working with a reactive framework (like React), we can handle backend routing to direct users to specific
+          "pages" or components, and ensure our SPA structure works properly.
+        </li>
+        <li class="note">
+          To create an app, we can simply install then <code>require("express")</code>, then call
+          <code>const appName = express();</code>
+        </li>
+        <li class="note">
+          To configure a route, we can use <code>app.httpmethodhere()</code>, which takes a path and a callback to
+          handle the request and response. For example:
+          <pre><code>app.get("/", (req, res) => res.send("Hello, World!"));</code></pre>
+        </li>
+        <li class="note">
+          A single path can accept multiple routes that are different based on the HTTP verb used to define the route.
+        </li>
+        <li class="note">
+          To tell our app to <strong>listen</strong> on a certain local port, we can use <code>app.listen()</code>,
+          which takes a port number and a callback function. For example:
+          <pre><code>app.listen(3000, () => console.log("Listening on port 3000"));</code></pre>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
