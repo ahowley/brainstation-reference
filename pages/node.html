@@ -36,6 +36,44 @@
       <h2 class="main__subheading">Overview</h2>
       <ul class="notes">
         <li class="note">
+          Node is a <strong>runtime environment for JavaScript</strong> that exists outside of the browser. It allows us
+          to build software locally, which enables backend development using JavaScript.
+        </li>
+        <li class="note">
+          Modern Node is built on Google's open-source
+          <a href="https://v8.dev/" target="_blank">V8 JavaScript engine</a>, which is a JIT-compiled interpreter built
+          in C++.
+        </li>
+        <li class="note">
+          To ease developing backend software using Node, there are many, many backend development frameworks available.
+          The most popular at the time of writing is
+          <strong
+            ><a href="https://expressjs.com/" target="_blank">Express</a>, which is a lightweight backend library for
+            fast-paced development.</strong
+          >
+        </li>
+        <li class="note">
+          Like many other interpreted languages, Node provides a REPL (Read-Eval-Print-Loop) for JavaScript. To run this
+          in our terminal with node installed, we can simply type <code>node</code>.
+        </li>
+        <li class="note">
+          We can also code scripts and command line tools using Node JS that do helpful things to make our lives easier
+          or automate repetitive tasks.
+        </li>
+        <li class="note">
+          To allow a script to accept a command line argument, we can use the
+          <a href="https://nodejs.org/api/process.html#processargv" target="_blank">process</a> module - specifically,
+          <code>process.argv()</code> - and get an array with any provided arguments from the command line.
+        </li>
+        <li class="note">
+          To learn all that we can do using Node, and learn what browser functionality is and isn't available and vice
+          versa, investigate more in the
+          <a href="https://nodejs.org/api/synopsis.html" target="_blank">Node.js documentation</a>.
+        </li>
+      </ul>
+      <h2 class="main__subheading">npm</h2>
+      <ul class="notes">
+        <li class="note">
           Node is built on a package system that uses two commands: <code>npm</code> and <code>npx</code>.
         </li>
         <li class="note">
@@ -51,8 +89,31 @@
           To install what's in package.json, we can run <code>npm install</code> or <code>npm i</code>.
         </li>
         <li class="note">
-          Like many other interpreted languages, Node provides a REPL (Read-Eval-Print-Loop) for JavaScript. To run this
-          in our terminal with node installed, we can simply type <code>node</code>.
+          To initialize a new Node application or project using npm packages, we can run <code>npm init</code>, or
+          <code>npm init -y</code> to skip the prompts and accept all the defaults.
+        </li>
+        <li class="note">
+          Node uses what's known as the
+          <strong
+            ><a href="https://nodejs.org/docs/latest/api/modules.html#modules-commonjs-modules" target="_blank"
+              >CommonJS</a
+            ></strong
+          >
+          format for JavaScript modules - you can use the <code>require("module")</code> command to import a file, and
+          can save the result inside of a variable to reference and use that package. For example:
+          <pre><code>const fs = require("fs");</code></pre>
+        </li>
+      </ul>
+      <h2 class="main__subheading">FS</h2>
+      <ul class="notes">
+        <li class="note">
+          The built-in method for working with the filesystem is bundled under a node package called
+          <strong>fs</strong>.
+        </li>
+        <li class="note">
+          fs has <a href="https://nodejs.org/api/fs.html" target="_blank">many, many methods</a> that allow you to
+          interact with the filesystem in a way that's reminiscent of a cli. Things like
+          <code>fs.writeFileSync()</code> will write data to a file synchronously.
         </li>
       </ul>
     </main>
