@@ -108,6 +108,71 @@
           package.
         </li>
       </ul>
+      <h2 class="main__subheading">Routing in Express</h2>
+      <ul class="notes">
+        <li class="note">
+          We can create multiple routes that point to multiple files with express using <code>express.Router</code>.
+        </li>
+        <li class="note">
+          To create a new route, it would look something like this:
+          <pre><code>const router = express.Router();
+router.get("/", (req, res) => res.send("got all records"));
+
+module.exports = router;</code></pre>
+        </li>
+        <li class="note">
+          Then, to import this router and make use of it, we can set up our high-level routes easily in our main file:
+          <pre><code>const recordRoute = require("./records");
+
+app.use("/records", recordRoutes);</code></pre>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Middleware</h2>
+      <ul class="notes">
+        <li class="note">
+          We can create custom middleware to interact with requests and responses before they are sent. To do this, we
+          "use" the middleware:
+          <pre><code>app.use((req, res, next) => {
+  console.log("Request Type: ", req.method);
+  next(); // proceeds with the request
+});</code></pre>
+        </li>
+        <li class="note">
+          This is exactly how using Router works - and just like with Router, we can move our middleware to a module,
+          export the functions we want as middleware, import them in our main app, then use those functions from our
+          main app. This also makes using third-party middleware simple.
+        </li>
+        <li class="note">
+          To work with JSON, we can add:
+          <pre><code>app.use(express.json());</code></pre>
+        </li>
+        <li class="note">
+          To allow for static content hosted inside a specific directory:
+          <pre><code>app.use(express.static("./public"));</code></pre>
+        </li>
+        <li class="note">
+          To learn more about middleware in Express, see
+          <a href="https://expressjs.com/en/guide/using-middleware.html" target="_blank"
+            >their documentation on middleware here</a
+          >.
+        </li>
+      </ul>
+      <h2 class="main__subheading">CORS</h2>
+      <ul class="notes">
+        <li class="note">
+          CORS - or <strong>Cross-Origin Resource Sharing</strong> - prevents JavaScript from interacting with resources
+          from a domain that differs from the originating domain.
+        </li>
+        <li class="note">
+          In order to allow cross-origin resource sharing, it's required to configure request headers that can allow for
+          this behavior.
+        </li>
+        <li class="note">
+          To configure this, we can use the
+          <a href="https://www.npmjs.com/package/cors" target="_blank">cors</a> package:
+          <pre><code>app.use(cors({ origin: "localhost:3000" }));</code></pre>
+        </li>
+      </ul>
     </main>
   </body>
 </html>
