@@ -173,6 +173,34 @@ app.use("/records", recordRoutes);</code></pre>
           <pre><code>app.use(cors({ origin: "localhost:3000" }));</code></pre>
         </li>
       </ul>
+      <h2 class="main__subheading">Environment Variables</h2>
+      <ul class="notes">
+        <li class="note">
+          Environment variables allow us to expose values needed for a program to function based on the environment in
+          which it's running. This is useful for a number of reasons, but probably the most important is keeping
+          sensitive data safe and unexposed to the web.
+        </li>
+        <li class="note">
+          In order to work with environment variables in a simple and reliable way, we can use the
+          <a href="https://www.npmjs.com/package/dotenv" target="_blank">dotend</a> package to create and add to
+          environment variables at runtime.
+        </li>
+        <li class="note">To import and configure dotenv, we can use <code>require("dotenv").config();</code>.</li>
+        <li class="note">
+          After importing, the variables defined in our .env file (which should look something like
+          <code>VARIABLE_NAME=value-goes-here</code>) be available inside of process.env.
+        </li>
+        <li class="note">
+          Conveniently, we can also use dotenv on the front end in React. Inconveniently, to make an environment
+          variable make sense in create-react-app, we must start each environment variable with REACT_APP_. For example:
+          <code>REACT_APP_BACKEND_URL=myurl.com</code>. Then just like in the backend, we can access these with
+          process.env.REACT_APP_VARIABLE.
+          <strong
+            >Crucially, anything included in the front-end environment will necessarily be compiled to JS as usual,
+            which means it should not contain anything sensitive</strong
+          >.
+        </li>
+      </ul>
     </main>
   </body>
 </html>
