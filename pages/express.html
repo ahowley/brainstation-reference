@@ -200,6 +200,10 @@ app.use("/records", recordRoutes);</code></pre>
             which means it should not contain anything sensitive</strong
           >.
         </li>
+        <li class="note">
+          To use dotenv in React with Vite, instead of using <code>process.env</code>, we use
+          <code>import.meta.env</code>. And instead of the REACT_APP_ prefix, we use VITE_.
+        </li>
       </ul>
     </main>
   </body>
