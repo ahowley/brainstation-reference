@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Databases</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Databases</h1>
+      <p class="main__description">
+        Databases provide programs and computers a method of storing data at large scales, and reading or writing that
+        data at high speeds in a modular, efficient way.
+      </p>
+      <ul class="notes">
+        <li class="note">
+          Data is stored as 1s and 0s, and the way we're used to interfacing with data is through files. Files are
+          largely designed to be interactable and readable by humans, but databases are really only concerned with
+          storing data in a machine-readable way.
+        </li>
+        <li class="note">
+          The most popular databases are either relational or non-relational, with MySQL being the most popular
+          relational database, and MongoDB being the most popular non-relational database.
+        </li>
+        <li class="note">
+          Databases are very "close to the metal," meaning they aren't spreadsheets or files in any traditional sense.
+          Instead, data is often stored in "tables," which are collections of items and attributes that have some
+          relationship.
+        </li>
+        <li class="note">
+          Each table has rows and columns, with each row often representing a <strong>record</strong>. Columns would
+          represent individual pieces of data about those records, and are often called <strong>fields</strong>.
+        </li>
+        <li class="note">
+          A database can have multiple tables, with multiple types or categories of record. These can then be associated
+          with one another in a variety of ways, which is where databases begin to really show their power.
+        </li>
+        <li class="note">In a database, everything has to have a unique ID. This is called a <strong>key</strong>.</li>
+        <li class="note">
+          Each table needs a field that holds a <strong>primary key</strong> - the unique identifier for that record. A
+          <strong>foreign key</strong> would point to a relational record in a different database.
+        </li>
+        <li class="note">
+          There are a few types of <strong>relationships</strong> in a relational database:
+          <strong>one-to-one (1:1)</strong> and <strong>one-to-many (1:N)</strong> are two of the most common.
+          One-to-one would mean that each record relates to exactly one foreign record, while one-to-many would
+          represent a single record that has a relationship with many of a different type of record.
+        </li>
+        <li class="note">
+          A <strong>many-to-many (M:N)</strong> relationship is also possible, where in both directions, records can
+          have a relationship with many other records. Typically, when there is a many-to-many relationship, there is
+          often a third table involved - sometimes called a "join" table - which will have an entry for each joined bit
+          of data.
+        </li>
+        <li class="note">
+          <strong>SQL</strong> stands for <strong>Structured Query Language</strong> - it is a language that allows for
+          <strong>queries</strong>, which pull data out of our tables quickly and efficiently.
+        </li>
+        <li class="note">
+          A <strong>Database Management System (DBMS)</strong> provides a method for manipulating and logging and
+          interacting with data, like MySQL. A <strong>database (DB)</strong> isn't the thing we would normally work
+          with - instead, we would work with a DBMS to handle database interactions.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
