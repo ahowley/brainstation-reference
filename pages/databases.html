@@ -82,6 +82,77 @@
           with - instead, we would work with a DBMS to handle database interactions.
         </li>
       </ul>
+      <h2 class="main__subheading">MySQL in the Command Line</h2>
+      <ul class="notes">
+        <li class="note">
+          See
+          <a href="https://www.mysqltutorial.org/mysql-cheat-sheet.aspx" target="_blank" target="_blank"
+            >this website</a
+          >
+          for a useful cheat sheet for MySQL basics.
+        </li>
+        <li class="note">
+          <code>mysql</code> is a command line tool that lets us interact with MySQL databases from the command line.
+        </li>
+        <li class="note">To create a new database, we can use <code>CREATE DATABASE new_database_name;</code>.</li>
+        <li class="note">To show the existing databases, we can use <code>SHOW DATABASES;</code>.</li>
+        <li class="note">To pick a database to use, we can use <code>USE new_database_name;</code>.</li>
+        <li class="note">
+          Once we're in our database, we can interact with it in a number of ways. For example, to create a new table,
+          we could write something like this:
+          <pre><code>CREATE TABLE `tablename` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);</code></pre>
+        </li>
+        <li class="note">To view our existing tables, we can use <code>SHOW TABLES;</code>.</li>
+        <li class="note">
+          To alter an existing table, we use <code>ALTER TABLE tablename</code> followed by the alteration we want.
+        </li>
+        <li class="note">
+          To add a new column, for example, we would use
+          <pre><code>ALTER TABLE tablename
+  ADD COLUMN last_updated timestamp NULL DEFAULT CURRENT_TIMESTAMP;</code></pre>
+        </li>
+        <li class="note">
+          To add a record to a table, we can use INSERT like so:
+          <code>INSERT INTO tablename(name) VALUES('Record Number 1');</code>
+        </li>
+        <li class="note">
+          To access, or "select" a file, from a table, we can use SELECT-FROM-WHERE. For example:
+          <pre><code>SELECT name, last_updated FROM tablename WHERE id = 1;</code></pre>
+        </li>
+        <li class="note">
+          To update a record, we can use UPDATE-SET-WHERE. For example:
+          <pre><code>UPDATE tablename SET name = "Awesome Record 1" WHERE id = "1";</code></pre>
+        </li>
+        <li class="note">To delete data, we can use DELETE-FROM-WHERE in the same format as SELECT-FROM-WHERE.</li>
+        <li class="note">See the cheat sheet above foro many more useful CLI commands and MySQL query examples.</li>
+      </ul>
+      <h2 class="main__subheading">Joins</h2>
+      <ul class="notes">
+        <li class="note">
+          If we want to get information from two different records, we can use <strong>joins</strong>. For example, if
+          we had another table called users with a FOREIGN_KEY referencing "tablename", we could get both "tablename"
+          names and "user" names like so:
+          <pre><code>SELECT tablename.name, user.name 
+  FROM tablename
+  INNER JOIN users
+  ON tablename.id = users.table_id;</code></pre>
+        </li>
+      </ul>
+      <h2 class="main__subheading">MySQL Workbench</h2>
+      <ul class="notes">
+        <li class="note">
+          See
+          <a href="https://dev.mysql.com/doc/workbench/en/wb-eer-diagrams-section.html" target="_blank"
+            >this page on MySQL's website</a
+          >
+          to learn more about <strong>EER (Enhanced Entity-Relationship) Diagrams</strong> and how to view/create them
+          in MySQL Workbench.
+        </li>
+      </ul>
     </main>
   </body>
 </html>
