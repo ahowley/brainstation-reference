@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -82,7 +82,7 @@
           with - instead, we would work with a DBMS to handle database interactions.
         </li>
       </ul>
-      <h2 class="main__subheading">MySQL in the Command Line</h2>
+      <h2 class="main__subheading">MySQL</h2>
       <ul class="notes">
         <li class="note">
           See
@@ -90,6 +90,10 @@
             >this website</a
           >
           for a useful cheat sheet for MySQL basics.
+        </li>
+        <li class="note">
+          The MySQL node package that allows usu to interact with MySQL using Node is called
+          <a href="https://www.npmjs.com/package/mysql2" target="_blank">mysql2</a>.
         </li>
         <li class="note">
           <code>mysql</code> is a command line tool that lets us interact with MySQL databases from the command line.
@@ -152,6 +156,77 @@
           to learn more about <strong>EER (Enhanced Entity-Relationship) Diagrams</strong> and how to view/create them
           in MySQL Workbench.
         </li>
+      </ul>
+      <h2 class="main__subheading">Knex.js</h2>
+      <ul class="notes">
+        <li class="note">
+          Knex.js is an SQL schema & query builder that supports asynchronous querying of a database in Node.
+        </li>
+        <li class="note">
+          It supports both JS-only syntax for writing queries and raw SQL if necessary, and works with basically any SQL
+          database, like MySQL, SQLite, etc.
+        </li>
+        <li class="note">
+          To install <a href="https://knexjs.org/" target="_blank">the knex.js</a> package, we can run
+          <code>npm i knex</code>. To create a "knexfile", which is a configuration file for knex, we can run
+          <code>npx knex init</code>.
+        </li>
+        <li class="note">
+          We can configure our knexfile to initialize a database connection.
+          <a href="https://knexjs.org/guide/#configuration-options" target="_blank">Check here for config options</a>.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Migrations in Knex</h2>
+      <ul class="notes">
+        <li class="note">
+          To interact with databases in a non-destructive way that won't hurt the production database.
+          <strong>Migrations</strong> facilitate this.
+        </li>
+        <li class="note">
+          We can create a migrations folder with <code>npx knex migrate:make migration_file_name</code>. This allows us
+          to create "up" and "down" functions to define how to create and drop tables in real time when our server is
+          run, allowing for testing.
+        </li>
+        <li class="note">
+          When a new migration file is automatically created, it will have placeholders for our up and down functions.
+          This is where we can define what changes will be made when we run the migration.
+        </li>
+        <li class="note">
+          <code>npx knex migrate:latest</code> to apply any not-yet-executed migrations. To undo the latest migration(s)
+          applied, use <code>npx knex migrate:latest</code>.
+        </li>
+        <li class="note">
+          <code>npx knex migrate:up</code> will run all migrations, up to the latest version.
+          <code>npx knex migrate:down</code> will rollback all migrations back to the starting point.
+        </li>
+        <li class="note">
+          <code>npx knex migrate:status</code> will display the current status of all migrations, including which are
+          pending and which have been applied.
+        </li>
+        <li class="note">
+          Inside our migration file, we can use commands like <code>knex.schema.createTable()</code> to define a new
+          table to "mount"/create in our database. See all available schema commands
+          <a href="https://knexjs.org/guide/schema-builder.html#essentials" target="_blank">here</a>, or all chainable
+          schema building methods
+          <a href="https://knexjs.org/guide/schema-builder.html#chainable-methods" target="_blank">here</a>.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Seeding data in Knex</h2>
+      <ul class="notes">
+        <li class="note">
+          To populate a table with data, we need to <strong>seed</strong> our data. In order to create a new seed file,
+          we can run <code>npx knex seed:make populate_table_name</code>. This will create a "seeds" folder that allows
+          us to define a new seed to run when a table is created/made live.
+        </li>
+        <li class="note">
+          Often, in a seed function, the first thing we'll do is clear all entries out of a table. For example:
+          <code>await knex('table_name').del()</code>. Then, we would typically populate what we want with something
+          like:
+          <pre><code>await knex('table_name').insert([
+  { name: "New Entry in Table" },
+]);</code></pre>
+        </li>
+        <li class="note">To run our seeds, we can use <code>knex seed:run</code>.</li>
       </ul>
     </main>
   </body>
