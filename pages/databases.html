@@ -226,7 +226,30 @@
   { name: "New Entry in Table" },
 ]);</code></pre>
         </li>
-        <li class="note">To run our seeds, we can use <code>knex seed:run</code>.</li>
+        <li class="note">
+          To run our seeds, we can use <code>npx knex seed:run</code>. To see more about seed files, check the
+          <a href="https://knexjs.org/guide/migrations.html#seed-files" target="_blank">Knex.js documentation here</a>.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Queries in Knex</h2>
+      <ul class="notes">
+        <li class="note">
+          Knex returns promises for all query requests. For a very simple <code>SELECT * FROM table_name</code> type
+          command, we would write something like:
+          <pre><code>await knex('table_name');</code></pre>
+          This would be, essentially, a shorthard for:
+          <pre><code>await knex.select("*").from("table_name");</code></pre>
+        </li>
+        <li class="note">
+          Some other essential methods from Knex.js include <code>.where()</code>, <code>.update()</code>,
+          <code>.insert()</code>, and <code>.del()</code>, which allow us to manipulate our database and perform basic
+          CRUD behaviors.
+        </li>
+        <li class="note">
+          Rather than try to cover them here, the best way to reference all the bindings for various SQL commands in
+          through the
+          <a href="https://knexjs.org/guide/query-builder.html" target="_blank">Query Builder documentation</a>.
+        </li>
       </ul>
     </main>
   </body>
