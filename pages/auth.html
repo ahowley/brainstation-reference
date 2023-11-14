@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Authentication</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">Authentication & Authorization</h1>
+      <p class="main__description">
+        User authentication and authorization allow us to control access to personal or private information and "scope"
+        that information and data to individual visitors to our product or web app.
+      </p>
+      <h2 class="main__subheading">Overview</h2>
+      <ul class="notes">
+        <li class="note">
+          <strong>Authentication</strong> is what allows a user to prove they are who they say they are.
+        </li>
+        <li class="note">
+          <strong>Authorization</strong> determines what an individual user is allowed to access on our site.
+        </li>
+        <li class="note">
+          There's single-factor, two-factor, or multi-factor authentication, each of which get progressively more
+          secure.
+        </li>
+        <li class="note">
+          Some types of security vulnerabilities we have to be aware of include
+          <strong>man-in-the-middle</strong> attacks, which intercept sensitive data in transit,
+          <strong>phishing</strong>, or fake pages that are meant to steal user credentials, and brute force or server
+          attacks which directly target the security walls and try to get around them.
+        </li>
+      </ul>
+      <h2 class="main__subheading">JSON Web Token (JWT)</h2>
+      <ul class="notes">
+        <li class="note">
+          A JWT (pronounced "jot") is a digitally signed and encoded bit of data that can be sent over http.
+        </li>
+        <li class="note">
+          A JWT consists of three parts: a <strong>header</strong>, a <strong>payload</strong>, and a
+          <strong>signature</strong>.
+        </li>
+        <li class="note">
+          The header will include the type of token and the signing algorithm, the payload contains "claims" about a
+          user's identification, and the signature contains a hash of the header and payload with a secret key used to
+          verify the token.
+        </li>
+        <li class="note">Each part of the token is separated by a period: "xxxxxx.yyyyyy.zzzzzz".</li>
+        <li class="note">
+          The header has two parts: <code>"alg"</code>, which is the signing algorithm, and <code>"typ"</code>, which is
+          the type of token.
+        </li>
+        <li class="note">
+          The payload has <code>"iss"</code>, the "issue" of the token, <code>"exp"</code>, which is the expiry,
+          <code>"sub"</code>, which is the subject of the JWT, and custom data about the session or request as desired.
+        </li>
+        <li class="note">The payload is custom, but may (or may not) generally follow a common standard.</li>
+        <li class="note">
+          We can store a JWT in sessionStorage or localStorage to allow a user to stay logged in and authenticated
+          without needing continual authentication with every request a user makes.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
