@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -70,15 +70,39 @@
           The header has two parts: <code>"alg"</code>, which is the signing algorithm, and <code>"typ"</code>, which is
           the type of token.
         </li>
+        <li class="note">The payload is custom, but may (or may not) generally follow a common standard.</li>
         <li class="note">
           The payload has <code>"iss"</code>, the "issue" of the token, <code>"exp"</code>, which is the expiry,
           <code>"sub"</code>, which is the subject of the JWT, and custom data about the session or request as desired.
         </li>
-        <li class="note">The payload is custom, but may (or may not) generally follow a common standard.</li>
         <li class="note">
           We can store a JWT in sessionStorage or localStorage to allow a user to stay logged in and authenticated
           without needing continual authentication with every request a user makes.
         </li>
+        <li class="note">
+          JWT tokens are used for "conversation" between client and server, but tokens shouldn't contain anything in
+          them that could be changed (for example, some sort of identifier indicating level of privileges).
+        </li>
+        <li class="note">
+          The standard for using the Authorization header to sign our requests looks something like:
+          <pre><code>{
+  "headers": {
+    "Authorization": "Bearer JWT_TOKEN_HERE"
+  }
+}</code></pre>
+        </li>
+      </ul>
+      <h2 class="main__subheading">Client-Side Auth</h2>
+      <ul class="notes">
+        <li class="note">
+          Servers will often provide a token to the client that the client can store to stay logged in. This will
+          typically happen in the login request.
+        </li>
+        <li class="note">
+          The client-side will be responsible for persisting the authorization JWT token, and the server is responsible
+          for generating and sending the token when a user logs in.
+        </li>
+        <li class="note">To log out, all we would need to do is delete a token on the client-side.</li>
       </ul>
     </main>
   </body>
