@@ -91,6 +91,15 @@
   }
 }</code></pre>
         </li>
+        <li class="note">
+          The order of events, broadly speaking, is 1) a token is created after the user is authenticated, 2) the token
+          is sent to the browser, and 3) the browser sends this token back to the server along with all requests to
+          prove the user's identity.
+        </li>
+        <li class="note">
+          It's important to note that JWTs are public, so sensitive data shouldn't be included. These are designed for
+          authorization, not for sending sensitive data.
+        </li>
       </ul>
       <h2 class="main__subheading">Client-Side Auth</h2>
       <ul class="notes">
@@ -103,6 +112,83 @@
           for generating and sending the token when a user logs in.
         </li>
         <li class="note">To log out, all we would need to do is delete a token on the client-side.</li>
+      </ul>
+      <h2 class="main__subheading">Server-Side Auth</h2>
+      <ul class="notes">
+        <li class="note">
+          HTTP requests are stateless - each request is fully independent, so we need a way to remember who a user is
+          across requests.
+        </li>
+        <li class="note">
+          A <strong>session</strong> is a series of continuous actions on an application, and we can store temporary
+          data about a given session to keep track of data related to that session without re-authenticating each time a
+          user makes some request.
+        </li>
+        <li class="note">Session data is stored temporarily in memory, on the client and sometimes the server.</li>
+        <li class="note">
+          A shared cache allows multiple users to access frequently requested resources, and a connection pool allows
+          their requests to be treated in a shared pool.
+        </li>
+        <li class="note">
+          Server-side sessions are handled by handing a user a key in the form of a cookie. Data is stored on the server
+          directly.
+        </li>
+        <li class="note">
+          Multiple servers can create complexity when using cookies, and these won't work on devices that don't support
+          cookies.
+        </li>
+        <li class="note">
+          Client-side sessions are handled by receiving encoded data from the server as well, but the client sends
+          tokens to the server to let it know we're still logged in.
+        </li>
+        <li class="note">
+          To handle JWT tokens for client-side sessions on the server, we can use the
+          <a href="https://www.npmjs.com/package/jsonwebtoken" target="_blank">jsonwebtoken</a> library.
+        </li>
+        <li class="note">
+          We can generate a JWT with:
+          <pre><code>jwt.sign({ payloadKey: payloadValue }, SECRET_KEY, { expiresIn: "24h" });</code></pre>
+        </li>
+        <li class="note">
+          The third argument in the above example is the "options" parameter, which accepts many adjustable options. You
+          can find what's available in options
+          <a href="https://github.com/auth0/node-jsonwebtoken" target="_blank">on the jsonwebtoken github</a>.
+        </li>
+        <li class="note">
+          We can send these tokens to the client side, where the token can be stored and the user can continue to stay
+          logged in.
+        </li>
+        <li class="note">
+          If a request requires a token, but a valid token wasn't provided, we can send back
+          <code>401 Unauthorized</code>.
+        </li>
+        <li class="note">
+          To validate a JWT hash on the server, we can use:
+          <pre><code>jwt.verify(token, SECRET_KEY, (err, payload) => {});</code></pre>
+        </li>
+        <li class="note">
+          We can also make custom middleware in express to verify a token that can be reused across multiple requests,
+          that will either interept the request and send a rejection or continue onward and pass the payload as part of
+          the request object.
+        </li>
+      </ul>
+      <h2 class="main__subheading">Security Concerns</h2>
+      <ul class="notes">
+        <li class="note">
+          It is a good idea to encrypt passwords before storing them on the backend - one popular and easy-to-use
+          library/hashing function for this is
+          <a href="https://www.npmjs.com/package/bcrypt" target="_blank">bcrypt</a>.
+        </li>
+        <li class="note">
+          It's also a good idea to ensure that tokens expire regularly, and that when using token-based authentication,
+          any sensitive actions in an account still continue to require re-authentication.
+        </li>
+        <li class="note">
+          There is a concept known as
+          <strong>"<a href="https://en.wikipedia.org/wiki/Salt_(cryptography)" target="_blank">salting</a>"</strong> a
+          password, which is the process of adding random data fed as additional input to a one-way hashing function
+          that encrypts the password.
+        </li>
       </ul>
     </main>
   </body>
