@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSRef - Authentication</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,700;1,200;1,300;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../scripts/format-html.js" async></script>
+    <link href="../styles/global.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="../" class="nav__button anchor--nostyle">
+          <h2 class="nav__heading">BSRef</h2>
+        </a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__heading">DNS</h1>
+      <p class="main__description">
+        DNS (the Domain Name System) allows us to host a website at a specific domain name, instead of needing to use an
+        IP address directly. It lets us link together an arbitrary domain, with a registered top-level domain, to the IP
+        address of our website.
+      </p>
+      <ul class="notes">
+        <li class="note">
+          Top-level domains include the classics like ".com", ".net", and ".org", and they are registerable by anyone
+          (technically).
+        </li>
+        <li class="note">
+          From there, the chain of "responsibility" flows first by any "dots" that are chained together, then to the
+          app's routing itself. For example - "example.project.com/test" would first find ".com", which would point to
+          "project", which would point to "example", which would point to "test".
+        </li>
+        <li class="note">
+          DNS servers, or computers somewhere out there on the web that control DNS routing and registration,
+          <strong>cache</strong> lookup values to accelerate response times.
+        </li>
+        <li class="note">We can set a <strong>TTL, or Time-to-Live,</strong>, to extend our DNS cache time.</li>
+        <li class="note">
+          DNS is regulated by a non-profit organization called
+          <strong>ICANN (Internet Corporation for Assigned Names and Numbers)</strong>, and the
+          <strong>IANA</strong> oversees IP allocation.
+        </li>
+        <li class="note">
+          You can buy (or, more aptly, lease) a domain name from a registrar like NameSilo, namecheap, AWS Route 53,
+          etc.
+        </li>
+        <li class="note">
+          Once you have a domain, you can use a DNS record to point that domain to the IP address of the server hosting
+          your website.
+        </li>
+        <li class="note">
+          Once you have a dedicated location hosting your site, the hosting service will typically show you what to
+          enter to configure your DNS record.
+        </li>
+        <li class="note">
+          For debugging a DNS record, <a href="https://www.whatsmydns.net/">whatsmydns.com</a>, or the domain
+          propagation tool, is useful for confirming info about your domain.
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
